@@ -8,7 +8,7 @@
 **LocationDetailContainer**
  - Categories Index (bubble chart)
 
-**CategoryDetailContainer**
+**:CategoryDetailContainer**
  - Crime
  - Restaurant
  - Transit
