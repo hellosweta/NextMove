@@ -1,6 +1,6 @@
 # NextMove
 
-[Live Version](www.github.com)
+[Live Version](https://swetagsanghavi.github.io/NextMove/)
 
 ### Background
 
