@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "start": "webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "spotcrime": "^1.0.1",
-    "webpack": "^2.3.3"
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^1.16.2"
   }
 }
