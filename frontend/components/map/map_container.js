@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Map from './home';
-import { fetchAllCrime } from '../../actions/listing_actions';
+import Home from './home';
+import { fetchAllCrimes } from '../../actions/listing_actions';
 
 const mapStateToProps = ({ session, listings }, ownProps) => ({
   currentUser: session.currentUser,
