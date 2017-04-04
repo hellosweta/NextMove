@@ -1,4 +1,4 @@
-[
+const bartStops = [
   {
     "stop_id": "12TH",
     "stop_name": "12th St. Oakland City Center",

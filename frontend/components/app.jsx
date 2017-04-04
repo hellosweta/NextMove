@@ -1,10 +1,13 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import Map from './map/map';
 
-const App = ({children}) =>{
+const App = ({children}) => {
   return(
     <div className='app'>
-      I am is app.
+      debugger;
+      <Map/>
+      {children}
     </div>
   );
 };
