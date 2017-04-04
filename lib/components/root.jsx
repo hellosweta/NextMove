@@ -14,12 +14,12 @@ const Root = ({ store }) =>{
     <Provider store= { store }>
       <Router history= { hashHistory }>
         <Route path='/' component={ App }>
-          <Route path='/search' component={ LocationDetailContainer }>
-            <Route path='/search/crime'
+          <Route path='search' component={ LocationDetailContainer }>
+            <Route path='search/crime'
               component={ CrimeDetailContainer } />
-            <Route path='/search/transit'
+            <Route path='search/transit'
                component={ TransitDetailContainer } />
-            <Route path='/search/restaurant'
+            <Route path='search/restaurant'
               component={ RestaurantDetailContainer } />
           </Route>
         </Route>
