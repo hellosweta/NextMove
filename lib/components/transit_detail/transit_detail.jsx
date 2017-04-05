@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from "d3";
-import Chart from '../../../assets/vendors/d3act/chart';
+import Chart from '../../../assets/vendors/d3act/Chart';
 
 
 
@@ -22,7 +22,7 @@ class TransitDetail extends React.Component{
               { xValue: 'Bart', yValue: 5 },
               { xValue: "Muni", yValue: 5 },
             ]
-          })
+          });
       }, 3000);
   }
 

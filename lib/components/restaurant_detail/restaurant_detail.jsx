@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from "d3";
-import Chart from '../../../assets/vendors/d3act/chart';
+import Chart from '../../../assets/vendors/d3act/Chart';
 
 class RestaurantDetail extends React.Component{
   constructor(props) {
@@ -26,7 +26,7 @@ class RestaurantDetail extends React.Component{
               { xValue: "Mexican", yValue: 25 },
               { xValue: "FastFood", yValue: 2 },
             ]
-          })
+          });
       }, 3000);
   }
 
