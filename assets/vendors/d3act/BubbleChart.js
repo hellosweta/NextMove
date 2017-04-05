@@ -76,7 +76,7 @@ export default class BubbleChart extends BaseChart {
         nodeEnter
             .append("circle")
             .attr("r", d => { return d.r; })
-            .style("fill", (d, i) => { return this.color(i); })
+            .style("fill", (d, i) => { return this.color(this.props.data.length)(i); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this));
@@ -91,7 +91,7 @@ export default class BubbleChart extends BaseChart {
                 return d.r;
             })
             .style("fill", (d, i) => {
-                return this.color(i);
+                return this.color(this.props.data.length)(i);
             });
 
         this.node.transition().attr("class", "node")
