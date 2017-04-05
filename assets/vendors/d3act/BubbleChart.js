@@ -47,7 +47,7 @@ export default class BubbleChart extends BaseChart {
 
         this.node.append("circle")
             .attr("r", node => { return node.r; })
-            .style("fill", node => { return this.color(node.data.name); })
+            .style("fill", (d, i) => { return this.color(this.props.data.length)(i); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this))
@@ -63,6 +63,7 @@ export default class BubbleChart extends BaseChart {
     }
 
     update(data) {
+        this.root = d3.hierarchy(data).sum(nodeData => nodeData.value);
         const formattedData = this.bubble(this.root).children;
 
         this.node = this.svg.selectAll(".node")
