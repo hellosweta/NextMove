@@ -18,7 +18,6 @@ class CrimeDetail extends React.Component{
 
 
   componentWillReceiveProps(newProps){
-    debugger;
   }
 
 
