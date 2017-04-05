@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+// import HeatmapLayer from '../../../assets/vendors/HeatmapLayer';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { bartStops } from '../../../assets/data/bart_stops';
 
@@ -17,7 +18,6 @@ class LeafletMap extends React.Component {
   render() {
     const position = [this.state.lat, this.state.lng];
     const data = bartStops.map(el => ([el.stop_lat, el.stop_lon, 60]));
-    debugger;
     return (
       <div>
         <Map style={{height: "100vh"}} center={position} zoom={this.state.zoom}>
@@ -25,7 +25,6 @@ class LeafletMap extends React.Component {
             fitBoundsOnLoad
             fitBoundsOnUpdate
             points={data}
-            createLeafletElement={m => m}
             longitudeExtractor={m =>
               m[1]}
             latitudeExtractor={m => m[0]}

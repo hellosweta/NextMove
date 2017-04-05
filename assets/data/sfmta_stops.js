@@ -1,4 +1,4 @@
-[
+const sfmta_stops = [
   {
     "stop_id": 98,
     "stop_code": 198,
