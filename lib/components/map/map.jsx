@@ -17,6 +17,7 @@ class LeafletMap extends React.Component {
   }
   componentDidMount(){
     this.props.requestAllRestaurants();
+    this.props.requestAllCrimes();
   }
 
   render() {
@@ -28,6 +29,11 @@ class LeafletMap extends React.Component {
       const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, 10]))
       data = data.concat(restaurants)
     }
+
+    if (this.props.allCrimes.length > 0) {
+     const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, 10]))
+     data = data.concat(crimes)
+   }
     const southWest = L.latLng(37.74187, -122.47791),
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
