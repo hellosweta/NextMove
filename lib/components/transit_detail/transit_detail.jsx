@@ -28,7 +28,7 @@ class TransitDetail extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className='BarChart'>
           <h2>Transit Chart</h2>
           <Chart
               type={"bar"}

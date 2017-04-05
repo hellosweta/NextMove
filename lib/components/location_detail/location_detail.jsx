@@ -16,7 +16,7 @@ class LocationDetail extends React.Component{
               ]
           }
         };
-    this.goToCategroy = this.goToCategroy.bind(this);
+    this.goToCategory = this.goToCategory.bind(this);
   }
 
   componentDidMount(){
@@ -45,7 +45,7 @@ class LocationDetail extends React.Component{
 
   }
 
-  goToCategroy(){
+  goToCategory(){
     let that = this;
     return (category) =>{
       if (that.props.location.pathname !== `/search/${category}`)
@@ -58,7 +58,7 @@ class LocationDetail extends React.Component{
             <div>
                 <h2>Current Chart</h2>
                 <Chart
-                    goToCategroy = {this.goToCategroy()}
+                    goToCategory = {this.goToCategory()}
                     type={"bubble"}
                     diameter={500}
                     showTooltips={true}
