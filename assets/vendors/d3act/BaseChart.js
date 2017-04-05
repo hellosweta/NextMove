@@ -11,7 +11,7 @@ export default class BaseChart {
     constructor(el, props) {
         this.el = el;
         this.props = props;
-        this.color = this.getColor();
+        this.color = this.getColor;
 
         Object.keys(chartConfig).forEach(configKey => {
             // If a prop is defined, let's just use it, otherwise
@@ -25,8 +25,9 @@ export default class BaseChart {
     }
 
     // Overwrite this function to apply your own color scheme
-    getColor() {
-        return d3.scaleOrdinal(d3.schemeCategory20c);
+    getColor(range = 10) {
+        return d3.scaleSequential(d3.interpolateRainbow).domain([0,range]);
+        // return d3.scaleOrdinal(d3.schemeCategory20c);
     }
 
     // We don't show tooltips by default

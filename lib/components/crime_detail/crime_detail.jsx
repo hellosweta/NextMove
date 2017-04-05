@@ -16,19 +16,12 @@ class CrimeDetail extends React.Component{
       };
   }
 
-  componentDidMount() {
-      setTimeout(() => {
-          this.setState({
-            data: [
-                { xValue: "Assult", yValue: 220 },
-                { xValue: "Robbery", yValue: 100 },
-                { xValue: "talking", yValue: 10},
-                { xValue: "sleep", yValue: 11 },
-                { xValue: "love", yValue: 20 },
-            ]
-          })
-      }, 3000);
+
+  componentWillReceiveProps(newProps){
+    debugger;
   }
+
+
 
   render(){
     return (

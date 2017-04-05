@@ -72,7 +72,8 @@ export default class BarChart extends BaseChart {
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this))
-            .style("fill", "steelblue");
+            .style("fill", (d, i) => { return this.color(this.props.data.length)(i); })
+
 
         this.svg.selectAll("path")
             .style("fill", "none")
