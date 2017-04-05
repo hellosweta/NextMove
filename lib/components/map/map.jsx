@@ -3,8 +3,7 @@ import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 // import HeatmapLayer from '../../../assets/vendors/HeatmapLayer';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
-import { bartStops } from '../../../assets/data/bart_stops';
-import { sfmtaStops } from '../../../assets/data/sfmta_stops';
+// import SideBarContainer from '../sidebar/sidebar_container';
 
 class LeafletMap extends React.Component {
   constructor() {
@@ -12,14 +11,18 @@ class LeafletMap extends React.Component {
     this.state = {
       lat: 37.7749,
       lng: -122.47791,
-      zoom: 13,
+      zoom: 13
     };
   }
+
   componentDidMount(){
     this.props.requestAllRestaurants();
     this.props.requestAllCrimes();
   }
 
+  intensity(){
+
+  }
   render() {
     const position = [this.state.lat, this.state.lng];
   //   const bart = bartStops.map(el => ([el.stop_lat, el.stop_lon, 60]))
@@ -58,30 +61,25 @@ class LeafletMap extends React.Component {
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array)) {
       return(<div></div>)
     } else {
-      const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, 60]))
-      const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, 10]))
-      let positive_factors = restaurants
-      let negative_factors = crimes
+      // const transit = this.props.allTransit.map(el => ([el.lat, el.lon, transitIntensity]))
+      // const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, restaurantIntensity]))
+      // const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, crimeIntensity]))
+      // let positive_factors = restaurants
+      // let negative_factors = crimes
+      const data = [[37.803664, -122.271604, 4], [37.80787, -122.269029, 3]];
       return (
         <div>
           <Map style={{height: "100vh"}} center={position} zoom={this.state.zoom} bounds={bounds}>
+
             <HeatmapLayer
-              points={positive_factors}
+              points={data}
               radius={20}
               gradient={inverse_gradient}
               longitudeExtractor={m => m[1]}
               latitudeExtractor={m => m[0]}
               intensityExtractor={m => parseFloat(m[2])}
               blur={30} />
-            <HeatmapLayer
-              points={negative_factors}
-              radius={20}
-              gradient={gradient}
-              longitudeExtractor={m =>
-                m[1]}
-                latitudeExtractor={m => m[0]}
-                intensityExtractor={m => parseFloat(m[2])}
-                blur={30} />
+
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
