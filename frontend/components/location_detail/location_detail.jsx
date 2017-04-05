@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from "d3";
-import Chart from '../../../assets/vendors/d3act/chart';
+import Chart from '../../../assets/vendors/d3act/Chart';
 import { hashHistory } from 'react-router';
 
 class LocationDetail extends React.Component{

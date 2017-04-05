@@ -2,9 +2,9 @@ var path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./lib/next_move.jsx",
+  entry: "./frontend/next_move.jsx",
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
   resolve: {
