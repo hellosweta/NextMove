@@ -34,6 +34,9 @@ class LeafletMap extends React.Component {
      const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, 10]))
      data = data.concat(crimes)
    }
+
+  //  const norwest = "37.807155, -122.521630";
+  //  const soueast = "37.723597, -122.351775";
     const southWest = L.latLng(37.74187, -122.47791),
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
