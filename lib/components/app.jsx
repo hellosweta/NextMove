@@ -6,6 +6,7 @@ const App = ({children}) =>{
   return(
     <div className='app'>
       <LeafletMap/>
+      { children }
     </div>
   );
 };
