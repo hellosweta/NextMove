@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from "d3";
-import Chart from '../../../assets/vendors/d3act/chart';
+import Chart from '../../../assets/vendors/d3act/Chart';
 
 class CrimeDetail extends React.Component{
   constructor(props) {
@@ -26,7 +26,7 @@ class CrimeDetail extends React.Component{
                 { xValue: "sleep", yValue: 11 },
                 { xValue: "love", yValue: 20 },
             ]
-          })
+          });
       }, 3000);
   }
 
