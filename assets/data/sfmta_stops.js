@@ -1,4 +1,4 @@
-[
+export const sfmtaStops = [
   {
     "stop_id": 98,
     "stop_code": 198,

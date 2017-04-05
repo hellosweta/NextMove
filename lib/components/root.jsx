@@ -3,10 +3,14 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
-// import LocationDetailContainer from './location_detail';
-// import TransitDetailContainer from './transit_detail';
-// import CrimeDetailContainer from './crime_detail';
-// import RestaurantDetailContainer from './restaurant_detail';
+import LocationDetailContainer from
+                      './location_detail/location_detail_container';
+import TransitDetailContainer from
+                      './transit_detail/transit_detail_container';
+import CrimeDetailContainer from
+                      './crime_detail/crime_detail_container';
+import RestaurantDetailContainer from
+                      './restaurant_detail/restaurant_detail_container';
 
 const Root = ({ store }) =>{
 
@@ -14,6 +18,14 @@ const Root = ({ store }) =>{
     <Provider store= { store }>
       <Router history= { hashHistory }>
         <Route path='/' component={ App }>
+          <Route path='/search' component={ LocationDetailContainer }>
+            <Route path='/search/crime'
+              component={ CrimeDetailContainer } />
+            <Route path='/search/transit'
+               component={ TransitDetailContainer } />
+             <Route path='/search/restaurant'
+              component={ RestaurantDetailContainer } />
+          </Route>
         </Route>
       </Router>
     </Provider>
@@ -21,19 +33,3 @@ const Root = ({ store }) =>{
 };
 
 export default Root;
-// return (
-//   <Provider store= { store }>
-//     <Router history= { hashHistory }>
-//       <Route path='/' component={ App }>
-//         <Route path='search' component={ LocationDetailContainer }>
-//           <Route path='search/crime'
-//             component={ CrimeDetailContainer } />
-//           <Route path='search/transit'
-//              component={ TransitDetailContainer } />
-//           <Route path='search/restaurant'
-//             component={ RestaurantDetailContainer } />
-//         </Route>
-//       </Route>
-//     </Router>
-//   </Provider>
-// );
