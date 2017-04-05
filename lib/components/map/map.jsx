@@ -15,12 +15,19 @@ class LeafletMap extends React.Component {
       zoom: 13,
     };
   }
+  componentDidMount(){
+    this.props.requestAllRestaurants();
+  }
 
   render() {
     const position = [this.state.lat, this.state.lng];
     const bart = bartStops.map(el => ([el.stop_lat, el.stop_lon, 60]))
     const sfmta = sfmtaStops.map(el => ([el.stop_lat, el.stop_lon, 10]))
-    const data = bart.concat(sfmta)
+    let data = bart.concat(sfmta);
+    if (this.props.allRestaurants.length > 0) {
+      const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, 10]))
+      data = data.concat(restaurants)
+    }
     const southWest = L.latLng(37.74187, -122.47791),
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
@@ -36,7 +43,7 @@ class LeafletMap extends React.Component {
           <HeatmapLayer
             points={data}
             max={3}
-            radius={10}
+            radius={5}
             gradient={gradient}
             longitudeExtractor={m =>
               m[1]}
