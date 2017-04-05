@@ -22,5 +22,11 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-maps'
+  devtool: 'source-maps',
+  externals: {
+       fs: '{}',
+       tls: '{}',
+       net: '{}',
+       console: '{}'
+     }
 };
