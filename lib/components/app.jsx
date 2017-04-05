@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
-import LeafletMap from './map/map';
+import LeafletMap from './map/map_container';
 
 const App = ({children}) =>{
   return(

@@ -4,6 +4,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 // import HeatmapLayer from '../../../assets/vendors/HeatmapLayer';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { bartStops } from '../../../assets/data/bart_stops';
+import { sfmtaStops } from '../../../assets/data/sfmta_stops';
 
 class LeafletMap extends React.Component {
   constructor() {
@@ -14,17 +15,42 @@ class LeafletMap extends React.Component {
       zoom: 13,
     };
   }
+  componentDidMount(){
+    this.props.requestAllRestaurants();
+    this.props.requestAllCrimes();
+  }
 
   render() {
     const position = [this.state.lat, this.state.lng];
-    const data = bartStops.map(el => ([el.stop_lat, el.stop_lon, 60]));
+    const bart = bartStops.map(el => ([el.stop_lat, el.stop_lon, 60]))
+    const sfmta = sfmtaStops.map(el => ([el.stop_lat, el.stop_lon, 10]))
+    let data = bart.concat(sfmta);
+    if (this.props.allRestaurants.length > 0) {
+      const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, 10]))
+      data = data.concat(restaurants)
+    }
+
+    if (this.props.allCrimes.length > 0) {
+     const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, 10]))
+     data = data.concat(crimes)
+   }
+    const southWest = L.latLng(37.74187, -122.47791),
+    northEast = L.latLng(37.80971, -122.39208),
+    bounds = L.latLngBounds(southWest, northEast);
+    const gradient = {
+      0.4: '#471967', 0.65: '#258E8C', 1: '#E2E32D'
+    };
+    // Removed the below as props into HeatmapLayer
+    // fitBoundsOnLoad
+    // fitBoundsOnUpdate
     return (
       <div>
-        <Map style={{height: "100vh"}} center={position} zoom={this.state.zoom}>
+        <Map style={{height: "100vh"}} center={position} zoom={this.state.zoom} bounds={bounds}>
           <HeatmapLayer
-            fitBoundsOnLoad
-            fitBoundsOnUpdate
             points={data}
+            max={3}
+            radius={5}
+            gradient={gradient}
             longitudeExtractor={m =>
               m[1]}
             latitudeExtractor={m => m[0]}
