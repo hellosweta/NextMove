@@ -1,4 +1,4 @@
-[
+export const bartStops = [
   {
     "stop_id": "12TH",
     "stop_name": "12th St. Oakland City Center",
@@ -623,4 +623,4 @@
     "stop_timezone": "",
     "wheelchair_boarding": 1
   }
-]
+];
