@@ -33,7 +33,7 @@ class RestaurantDetail extends React.Component{
   render(){
     return (
     <div>
-      <div>
+      <div className='BarChart'>
           <h2>Restaurant Chart</h2>
           <Chart
               type={"bar"}
