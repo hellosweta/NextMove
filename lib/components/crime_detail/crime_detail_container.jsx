@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import CrimeDetail from './crime_detail';
 
 const mapStateToProps = state =>({
-
+  filteredCrimes: state.filteredCrimes
 });
 
-const mapDispatchToProps = dispatch =>({
-
-});
 
 export default connect(
-  null,
+  mapStateToProps,
   null
 )(CrimeDetail);

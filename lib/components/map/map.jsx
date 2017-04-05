@@ -34,12 +34,19 @@ class LeafletMap extends React.Component {
      const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, 10]))
      data = data.concat(crimes)
    }
+
+  //  const norwest = "37.807155, -122.521630";
+  //  const soueast = "37.723597, -122.351775";
     const southWest = L.latLng(37.74187, -122.47791),
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
+    // const gradient = {
+    //   0.4: '#471967', 0.8: '#258E8C', 1: '#E2E32D'
+    // };
     const gradient = {
-      0.4: '#471967', 0.65: '#258E8C', 1: '#E2E32D'
-    };
+     0.1: '#89BDE0', 0.2: '#96E3E6', 0.4: '#82CEB6',
+     0.6: '#FAF3A5', 0.8: '#F5D98B', 1.0: '#DE9A96'
+   };
     // Removed the below as props into HeatmapLayer
     // fitBoundsOnLoad
     // fitBoundsOnUpdate
@@ -48,7 +55,6 @@ class LeafletMap extends React.Component {
         <Map style={{height: "100vh"}} center={position} zoom={this.state.zoom} bounds={bounds}>
           <HeatmapLayer
             points={data}
-            max={3}
             radius={5}
             gradient={gradient}
             longitudeExtractor={m =>
