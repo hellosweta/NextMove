@@ -1,7 +1,9 @@
 import { bartStops } from '../../assets/data/bart_stops';
 import { sfmtaStops } from '../../assets/data/sfmta_stops';
+import * as PlacesAPIUtil from '../util/places_api_util';
 
 export const RECEIVE_TRANSIT_DATA = "RECEIVE_TRANSIT_DATA";
+export const RECEIVE_FILTERED_TRANSIT_DATA = "RECEIVE_FILTERED_TRANSIT_DATA";
 
 export const receiveBartData = (stops) => ({
   type: RECEIVE_TRANSIT_DATA,
@@ -21,6 +23,11 @@ export const receiveAllTransitData = (bart, sfmta) => ({
   sfmtaStops: sfmta
 });
 
+export const receiveFilteredTransitData = stops => ({
+  type: RECEIVE_FILTERED_TRANSIT_DATA,
+  stops
+});
+
 export const requestBartData = () => dispatch => (
   dispatch(receiveBartData(bartStops))
 );
@@ -31,4 +38,9 @@ export const requestSfmtaData = () => dispatch => (
 
 export const requestAllTransitData = () => dispatch => (
   dispatch(receiveAllTransitData(bartStops, sfmtaStops))
+);
+
+export const requestFilteredTransitData = (radiusInMiles, lat, lon) => dispatch => (
+  PlacesAPIUtil.fetchFilteredTransit(radiusInMiles, lat, lon)
+    .then(stops => dispatch(receiveFilteredTransitData(stops)))
 );

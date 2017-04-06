@@ -4,7 +4,8 @@ import AllRestaurantsReducer from './all_restaurants_reducer';
 import FilteredRestaurantsReducer from './filtered_restaurants_reducer';
 import AllCrimesReducer from './all_crimes_reducer';
 import FilteredCrimesReducer from './filtered_crimes_reducer';
-import TransitReducer from './transit_reducer';
+import AllTransitReducer from './all_transit_reducer';
+import FilteredTransitReducer from './filtered_transit_reducer';
 import RankReducer from './rank_reducer';
 
 const RootReducer = combineReducers({
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
   filteredRestaurants: FilteredRestaurantsReducer,
   allCrimes: AllCrimesReducer,
   filteredCrimes: FilteredCrimesReducer,
-  allTransit: TransitReducer,
+  allTransit: AllTransitReducer,
+  filteredTransit: FilteredTransitReducer,
   rank: RankReducer
 });
 
