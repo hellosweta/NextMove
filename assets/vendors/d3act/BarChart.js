@@ -29,8 +29,6 @@ export default class BarChart extends BaseChart {
     }
 
     create(data) {
-
-        // this.color = d3.schemeCategory20c;
         this.x = this.getScaleX();
         this.y = this.getScaleY();
 
@@ -68,13 +66,13 @@ export default class BarChart extends BaseChart {
         .enter().append("rect")
             .attr("class", "bar")
             .attr("x", d => { return this.x(d.xValue); })
-            .attr("width", this.x.bandwidth() - 10)
+            .attr("width", this.x.bandwidth())
             .attr("y", d => { return this.y(d.yValue); })
             .attr("height", d => { return this.props.height - this.y(d.yValue); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this))
-            .style("fill", 'steelblue')
+            .style("fill", (d, i) => { return this.color(this.props.data.length)(i); })
 
 
         this.svg.selectAll("path")
@@ -106,7 +104,7 @@ export default class BarChart extends BaseChart {
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this))
-            .style("fill", 'steelblue')
+            .style("fill", "steelblue");
 
         this.svg.selectAll("rect")
             .data(data)
@@ -115,6 +113,6 @@ export default class BarChart extends BaseChart {
                 .attr("y", d => { return this.y(d.yValue); })
                 .attr("height", d => { return this.props.height - this.y(d.yValue); })
                 .attr("x", d => { return this.x(d.xValue); })
-                .attr("width", this.x.bandwidth() - 20);
+                .attr("width", this.x.bandwidth());
     }
 }
