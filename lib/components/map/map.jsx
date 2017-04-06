@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
+import { hashHistory } from 'react-router';
 // import SideBarContainer from '../sidebar/sidebar_container';
 
 class LeafletMap extends React.Component {
@@ -15,10 +16,15 @@ class LeafletMap extends React.Component {
       crimeFavorabilityScore: 0,
       transitFavorabilityScore: 0,
       restaurantFavorabilityScore: 0,
-
+      clicked: false,
+      clickLatLng: {
+        lat: 51,
+        lng: -0.09,
+      },
     };
     this.getIntensity = this.getIntensity.bind(this);
     this.getWeights = this.getWeights.bind(this);
+    this.handleMapClick = this.handleMapClick.bind(this);
   }
 
   componentDidMount(){
@@ -42,6 +48,17 @@ class LeafletMap extends React.Component {
     });
     this.getIntensity(intensitycrimes, intensitytransit, intensityrestaurants)
   }
+
+  handleMapClick(e){
+    this.setState({
+      clickLatLng: e.latlng,
+      clicked: true,
+    })
+  }
+  handleMarkerClick(e){
+    hashHistory.push('search')
+  }
+
   getIntensity(crimeIntensity, transitIntensity, restaurantIntensity){
     let factor = 1.5;
     let minimum = Math.min(this.props.allRestaurants.length, this.props.allCrimes.length, this.props.allTransit.length)
@@ -52,19 +69,6 @@ class LeafletMap extends React.Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
-  //   const bart = bartStops.map(el => ([el.stop_lat, el.stop_lon, 60]))
-  //   const sfmta = sfmtaStops.map(el => ([el.stop_lat, el.stop_lon, 60]))
-  //   let positive_factors = bart.concat(sfmta);
-  //   let negative_factors;
-  //   if (this.props.allRestaurants.length > 0) {
-  //     const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, 60]))
-  //     positive_factors = positive_factors.concat(restaurants)
-  //   }
-   //
-  //   if (this.props.allCrimes.length > 0) {
-  //    const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, 10]))
-  //    negative_factors = (crimes)
-  //  }
 
   //  const norwest = "37.807155, -122.521630";
   //  const soueast = "37.723597, -122.351775";
@@ -93,6 +97,20 @@ class LeafletMap extends React.Component {
     // Removed the below as props into HeatmapLayer
     // fitBoundsOnLoad
     // fitBoundsOnUpdate
+    const icon = L.icon({
+       className: 'my-div-icon',
+       iconSize: [30, 60],
+       iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
+       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
+    });
+    const marker = this.state.clicked ? (
+     <Marker position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
+       <Popup>
+         <span>You are here</span>
+       </Popup>
+     </Marker>
+   ) : null
+
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array)) {
       return(<div></div>)
     } else {
@@ -104,7 +122,12 @@ class LeafletMap extends React.Component {
       let negative_factors = crimes
       return (
         <div>
-          <Map style={{height: "100vh"}} center={position} zoom={3} bounds={bounds}>
+          <Map
+            style={{height: "100vh"}}
+            center={position}
+            zoom={3}
+            bounds={bounds}
+            onClick={this.handleMapClick}>
             <HeatmapLayer
               points={positive_factors}
               radius={20}
@@ -126,7 +149,8 @@ class LeafletMap extends React.Component {
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
-          </Map>
+            {marker}
+        </Map>
         </div>
       );
     }
