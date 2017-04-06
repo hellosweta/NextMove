@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "static_pages#root"
 
   namespace :api, defaults: { format: :json } do
-    match 'places' => 'places#all', via: :get
-    match 'places' => 'places#some', via: :get
+    resources :places, only: [:index]
   end
 end

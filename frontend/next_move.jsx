@@ -6,8 +6,10 @@ import {
   requestBartData, requestSfmtaData, requestAllTransitData
 } from './actions/transit_actions';
 import { requestAllCrimes } from './actions/crimes_actions';
+import { fetchPlaces } from './util/places_api_util';
 
 window.requestAllCrimes = requestAllCrimes;
+window.fetchPlaces = fetchPlaces;
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
