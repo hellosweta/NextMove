@@ -9,7 +9,7 @@ const FilteredTransitReducer = (state = [], action) => {
         let type;
         if (stop.types.includes("light_rail_station")) { type = "Muni"; }
         else if (stop.types.includes("subway_station")) { type = "BART"; }
-        else if (stop.types.includes("train_station")) { type = "Train Station"; }
+        else if (stop.types.includes("train_station")) { type = "Caltrain Station"; }
         else { type = "Bus Stop"; }
         return { type, name: stop.name };
       });
