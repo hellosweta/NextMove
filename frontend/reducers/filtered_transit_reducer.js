@@ -8,9 +8,9 @@ const FilteredTransitReducer = (state = [], action) => {
       const stops = action.stops.map(stop => {
         let type;
         if (stop.types.includes("light_rail_station")) { type = "Muni"; }
-        else if (stop.types.includes("bus_station")) { type = "Bus Stop"; }
         else if (stop.types.includes("subway_station")) { type = "BART"; }
         else if (stop.types.includes("train_station")) { type = "Train Station"; }
+        else { type = "Bus Stop"; }
         return { type, name: stop.name };
       });
       return stops;
