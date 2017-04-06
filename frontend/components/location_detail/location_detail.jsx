@@ -19,19 +19,11 @@ class LocationDetail extends React.Component{
     this.goToCategory = this.goToCategory.bind(this);
   }
 
-  componentDidMount(){
-    let lat = this.props.lat;
-    let long = this.props.long;
-    let radius = this.props.radius;
-    this.props.requestFilteredCrimes(lat,long,radius);
-  }
-
   componentWillReceiveProps(newProps){
     let crime = this.state.data.children[0].value
     let transit = this.state.data.children[1].value
     let restaurant = this.state.data.children[2].value
-
-    if(newProps.filteredCrimes){
+    if(newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
     }
     this.setState( {data: {
@@ -42,7 +34,6 @@ class LocationDetail extends React.Component{
           ]
         }
       });
-
   }
 
   goToCategory(){
@@ -55,7 +46,7 @@ class LocationDetail extends React.Component{
 
   render(){
     return (
-            <div>
+            <div className="bubble-chart">
                 <h2>Current Chart</h2>
                 <Chart
                     goToCategory = {this.goToCategory()}
