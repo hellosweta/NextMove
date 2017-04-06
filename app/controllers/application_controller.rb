@@ -3,18 +3,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :search
 
-  # def search(lat, lon, request_options)
-  #   @client ||= GooglePlaces::Client.new('AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E')
-  #   @client.spots(lat, lon, request_options)
-  # end
-
   def search(search_params)
     search_params['key'] = 'AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E'
 
     results = []
     response = GooglePlaces::Request.spots(search_params)
     results += parse_response(response)
-    # debugger
+
     2.times do
       if response["next_page_token"]
         sleep(2)
@@ -37,7 +32,7 @@ class ApplicationController < ActionController::Base
       pagetoken: next_page_token,
       key: 'AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E'
     }
-    # debugger
+
     GooglePlaces::Request.spots(search_params)
   end
 
