@@ -5,6 +5,7 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { bartStops } from '../../../assets/data/bart_stops';
 import { sfmtaStops } from '../../../assets/data/sfmta_stops';
+import Sidebar from '../sidebar/sidebar_container';
 
 class LeafletMap extends React.Component {
   constructor() {
@@ -86,6 +87,8 @@ class LeafletMap extends React.Component {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
           </Map>
+
+          <Sidebar />
         </div>
       );
     }
