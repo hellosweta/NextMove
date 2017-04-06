@@ -22,13 +22,13 @@ class TransitDetail extends React.Component{
               { xValue: 'Bart', yValue: 5 },
               { xValue: "Muni", yValue: 5 },
             ]
-          })
+          });
       }, 3000);
   }
 
   render(){
     return (
-      <div>
+      <div className='BarChart'>
           <h2>Transit Chart</h2>
           <Chart
               type={"bar"}

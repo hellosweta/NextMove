@@ -22,9 +22,11 @@ export default class BubbleChart extends BaseChart {
             .text(`${node.data.name} (${node.data.value})`);
     }
     onClick(node){
-      this.props.goToCategroy(node.data.name);
-      $("html, body").animate({ scrollTop: "500px" });
-
+      this.props.goToCategory(node.data.name);
+       var target =  $('.BarChart');
+      $('html, body').animate({
+            scrollTop: target.offset().top
+        }, 500);
     }
 
     create(data) {
@@ -47,7 +49,7 @@ export default class BubbleChart extends BaseChart {
 
         this.node.append("circle")
             .attr("r", node => { return node.r; })
-            .style("fill", node => { return this.color(node.data.name); })
+            .style("fill", (d, i) => { return this.color(this.props.data.length)(i); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this))
@@ -63,6 +65,8 @@ export default class BubbleChart extends BaseChart {
     }
 
     update(data) {
+
+        this.root = d3.hierarchy(data).sum(nodeData => nodeData.value);
         const formattedData = this.bubble(this.root).children;
 
         this.node = this.svg.selectAll(".node")
@@ -76,7 +80,7 @@ export default class BubbleChart extends BaseChart {
         nodeEnter
             .append("circle")
             .attr("r", d => { return d.r; })
-            .style("fill", (d, i) => { return this.color(i); })
+            .style("fill", (d, i) => { return this.color(this.props.data.length)(i); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
             .on("mouseout", this.onMouseOut.bind(this));
@@ -91,7 +95,7 @@ export default class BubbleChart extends BaseChart {
                 return d.r;
             })
             .style("fill", (d, i) => {
-                return this.color(i);
+                return this.color(this.props.data.length)(i);
             });
 
         this.node.transition().attr("class", "node")

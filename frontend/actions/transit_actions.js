@@ -9,7 +9,7 @@ export const receiveBartData = (stops) => ({
   sfmtaStops: []
 });
 
-export const receiveSfmtaData = (stops) => ({A
+export const receiveSfmtaData = (stops) => ({
   type: RECEIVE_TRANSIT_DATA,
   sfmtaStops: stops,
   bartStops: []

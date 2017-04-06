@@ -26,14 +26,14 @@ class RestaurantDetail extends React.Component{
               { xValue: "Mexican", yValue: 25 },
               { xValue: "FastFood", yValue: 2 },
             ]
-          })
+          });
       }, 3000);
   }
 
   render(){
     return (
     <div>
-      <div>
+      <div className='BarChart'>
           <h2>Restaurant Chart</h2>
           <Chart
               type={"bar"}
