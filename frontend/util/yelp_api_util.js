@@ -74,6 +74,5 @@ export const fetchAllYelpLocations = (term, location="San Francisco", categories
 //     console.log(data);
 // })
 // .catch(function (err) {
-//   debugger;
 //   console.error(err);
 // });

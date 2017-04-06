@@ -39,7 +39,7 @@ class Dustbin extends Component {
     }
 
     return connectDropTarget(
-      <div >
+      <div style={{style,backgroundColor}}>
         {isActive ?
           'Release to drop' :
           'Drag a box here'
