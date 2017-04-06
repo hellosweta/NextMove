@@ -22,11 +22,9 @@ export default class BubbleChart extends BaseChart {
             .text(`${node.data.name} (${node.data.value})`);
     }
     onClick(node){
-      this.props.goToCategory(node.data.name);
-       var target =  $('.BarChart');
-      $('html, body').animate({
-            scrollTop: target.offset().top
-        }, 500);
+      this.props.goToCategroy(node.data.name);
+      $("html, body").animate({ scrollTop: "500px" });
+
     }
 
     create(data) {
@@ -65,7 +63,6 @@ export default class BubbleChart extends BaseChart {
     }
 
     update(data) {
-
         this.root = d3.hierarchy(data).sum(nodeData => nodeData.value);
         const formattedData = this.bubble(this.root).children;
 
