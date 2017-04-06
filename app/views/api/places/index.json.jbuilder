@@ -1,9 +1,4 @@
-json.array! @places do |obj|
-  json.reference obj.reference
-  json.vicinity obj.vicinity
-  json.lat obj.lat
-  json.lng obj.lng
-  json.name obj.name
-  json.type obj.types
-  json.rating obj.rating
+json.array! @places do |place|
+  json.name place.name
+  json.types place.types
 end

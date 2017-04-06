@@ -1,11 +1,13 @@
 class Api::PlacesController < ApplicationController
 
   def index
-    request_options = {
-      :types => params[:types],
-      :radius => params[:radius]
+    search_params = {
+      type: params[:type],
+      radius: params[:radius],
+      location: "#{params[:lat]},#{params[:lon]}"
     }
-    @places = search(params[:lat], params[:lon], request_options)
+
+    @places = search(search_params)
     render :index
   end
 

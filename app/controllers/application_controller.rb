@@ -3,20 +3,40 @@ class ApplicationController < ActionController::Base
 
   helper_method :search
 
-  # def search(lat, lon, radius, client)
-  def search(lat, lon, request_options)
-    # debugger
-    @client ||= GooglePlaces::Client.new('AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E')
-    places = @client.spots(lat, lon, request_options)
+  # def search(lat, lon, request_options)
+  #   @client ||= GooglePlaces::Client.new('AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E')
+  #   @client.spots(lat, lon, request_options)
+  # end
 
-    # next_page_token = places.last["nextpagetoken"]
-    #
-    # if !next_page_token.nil?
-    #   request_options['next_page_token'] = next_page_token
-    #   places += search(request_options)
-    # end
+  def search(search_params)
+    search_params['key'] = 'AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E'
 
-    places
+    results = []
+    response = GooglePlaces::Request.spots(search_params)
+    results += parse_response(response)
+
+    3.times do
+      if response["next_page_token"]
+        response = search_next_page(response["next_page_token"])
+        results += parse_response(response)
+      end
+    end
+
+    results.compact
+  end
+
+  def parse_response(response)
+    response['results'].map do |result|
+      GooglePlaces::Spot.new(result, 'AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E')
+    end
+  end
+
+  def search_next_page(next_page_token)
+    search_params = {
+      pagetoken: next_page_token,
+      key: 'AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E'
+    }
+    GooglePlaces::Request.spots(search_params)
   end
 
 end
