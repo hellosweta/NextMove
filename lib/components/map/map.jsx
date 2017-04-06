@@ -12,7 +12,7 @@ class LeafletMap extends React.Component {
       lat: 37.763178,
       lng: -122.446836,
       zoom: 20,
-      maxIntensity: 5,
+      maxIntensity: 3,
       crimeFavorabilityScore: 0,
       transitFavorabilityScore: 0,
       restaurantFavorabilityScore: 0,
@@ -25,6 +25,7 @@ class LeafletMap extends React.Component {
     this.getIntensity = this.getIntensity.bind(this);
     this.getWeights = this.getWeights.bind(this);
     this.handleMapClick = this.handleMapClick.bind(this);
+    this.handleMarkerClick = this.handleMarkerClick.bind(this);
   }
 
   componentDidMount(){
@@ -42,7 +43,7 @@ class LeafletMap extends React.Component {
     ranks.forEach((filter, idx) => {
       if (ranks.length === 3) {
         const weights = [.5, .3, .2]
-        eval("intensity" + filter + `=${this.state.maxIntensity * weights[idx]}`);
+        eval("intensity" + filter + `=${weights[idx]}`);
       }
 
     });
@@ -56,11 +57,17 @@ class LeafletMap extends React.Component {
     })
   }
   handleMarkerClick(e){
-    hashHistory.push('search')
+    hashHistory.push('/search')
+    debugger;
+    this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+    let target = $('.bubble-chart');
+    $('html, body').animate({
+      scrollTop: target.offset().top
+    }, 500);
   }
 
   getIntensity(crimeIntensity, transitIntensity, restaurantIntensity){
-    let factor = 1.5;
+    let factor = 40;
     let minimum = Math.min(this.props.allRestaurants.length, this.props.allCrimes.length, this.props.allTransit.length)
     this.state.crimeFavorabilityScore = (1/this.props.allCrimes.length) * minimum * crimeIntensity * factor
     this.state.transitFavorabilityScore = (1/this.props.allTransit.length) * minimum * transitIntensity * factor
@@ -68,6 +75,7 @@ class LeafletMap extends React.Component {
   }
 
   render() {
+
     const position = [this.state.lat, this.state.lng];
 
   //  const norwest = "37.807155, -122.521630";
@@ -99,7 +107,7 @@ class LeafletMap extends React.Component {
     // fitBoundsOnUpdate
     const icon = L.icon({
        className: 'my-div-icon',
-       iconSize: [30, 60],
+       iconSize: [30, 50],
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
@@ -119,6 +127,7 @@ class LeafletMap extends React.Component {
       const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, this.state.restaurantFavorabilityScore]))
       const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, this.state.crimeFavorabilityScore]))
       let positive_factors = restaurants.concat(transit)
+
       let negative_factors = crimes
       return (
         <div>
@@ -128,24 +137,24 @@ class LeafletMap extends React.Component {
             zoom={3}
             bounds={bounds}
             onClick={this.handleMapClick}>
-            <HeatmapLayer
-              points={positive_factors}
-              radius={20}
-              max={this.state.maxIntensity}
-              gradient={inverse_gradient}
-              longitudeExtractor={m => m[1]}
-              latitudeExtractor={m => m[0]}
-              intensityExtractor={m => parseFloat(m[2])}
-              blur={30}/>
+
             <HeatmapLayer
               points={negative_factors}
               radius={20}
               gradient={gradient}
-              max={this.state.maxIntensity}
               longitudeExtractor={m => m[1]}
               latitudeExtractor={m => m[0]}
               intensityExtractor={m => parseFloat(m[2])}
               blur={30}/>
+
+              <HeatmapLayer
+                points={positive_factors}
+                radius={20}
+                gradient={inverse_gradient}
+                longitudeExtractor={m => m[1]}
+                latitudeExtractor={m => m[0]}
+                intensityExtractor={m => parseFloat(m[2])}
+                blur={30}/>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
