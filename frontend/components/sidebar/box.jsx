@@ -9,7 +9,7 @@ const style = {
   marginRight: '1.5rem',
   marginBottom: '1.5rem',
   cursor: 'move',
-  float: 'left',
+  width: '50px'
 };
 
 const boxSource = {
@@ -39,7 +39,7 @@ const boxSource = {
 
     return (
       connectDragSource(
-        <div >
+        <div style={style}>
           {name}
         </div>,
       )

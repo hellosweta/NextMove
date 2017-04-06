@@ -4,7 +4,10 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import Dustbin from './dustbin';
 import Box from './box';
 
-export default class Container extends Component {
+export default class SideBar extends Component {
+  // constructor(prosp){
+  //   super(props)
+  // }
   render() {
     return (
       <DragDropContextProvider backend={HTML5Backend}>
