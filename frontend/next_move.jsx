@@ -7,7 +7,10 @@ import {
 } from './actions/transit_actions';
 import { requestAllCrimes } from './actions/crimes_actions';
 import { fetchPlaces } from './util/places_api_util';
+import { requestFilteredTransitData } from './actions/transit_actions';
 
+
+window.requestFilteredTransitData = requestFilteredTransitData;
 window.requestAllCrimes = requestAllCrimes;
 window.fetchPlaces = fetchPlaces;
 
