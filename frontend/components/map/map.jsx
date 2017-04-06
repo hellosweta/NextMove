@@ -16,8 +16,8 @@ class LeafletMap extends React.Component {
     };
   }
   componentDidMount(){
-    // this.props.requestAllRestaurants();
-    // this.props.requestAllCrimes();
+    this.props.requestAllRestaurants();
+    this.props.requestAllCrimes();
   }
 
   render() {

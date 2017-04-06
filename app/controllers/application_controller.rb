@@ -14,9 +14,10 @@ class ApplicationController < ActionController::Base
     results = []
     response = GooglePlaces::Request.spots(search_params)
     results += parse_response(response)
-
-    3.times do
+    # debugger
+    2.times do
       if response["next_page_token"]
+        sleep(2)
         response = search_next_page(response["next_page_token"])
         results += parse_response(response)
       end
@@ -36,6 +37,7 @@ class ApplicationController < ActionController::Base
       pagetoken: next_page_token,
       key: 'AIzaSyASgVW43IJ48fysieFZk3Xi3AIbicdiR2E'
     }
+    # debugger
     GooglePlaces::Request.spots(search_params)
   end
 
