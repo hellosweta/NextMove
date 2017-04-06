@@ -4,7 +4,6 @@ import {
 
 const FilteredRestaurantsReducer = (state = [], action) => {
   Object.freeze(state);
-  
   switch (action.type) {
     case RECEIVE_FILTERED_RESTAURANTS:
       return action.restaurants;
