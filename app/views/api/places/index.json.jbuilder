@@ -1,5 +1,4 @@
-# json.stuff @response
-json.array! @stuff do |obj|
+json.array! @places do |obj|
   json.reference obj.reference
   json.vicinity obj.vicinity
   json.lat obj.lat
