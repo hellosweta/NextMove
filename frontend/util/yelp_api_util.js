@@ -1,5 +1,18 @@
 const radiusInMeters = radiusInMiles => radiusInMiles * 1609.34;
 
+export const fetchSomeYelpLocations = (term, latitude, longitude, radius = radiusInMeters(0.25)) => (
+  $.ajax({
+    url: '/api/yelp',
+    data: { yelp_search: {
+      term,
+      latitude,
+      longitude,
+      radius
+      }
+    }
+  })
+);
+
 // export const fetchAllYelpLocations = (term, location="San Francisco", categories = "") => (
 //   $.get({
 //     url: `https://api.yelp.com/v3/businesses/search?location=${location}&term=${term}`,
