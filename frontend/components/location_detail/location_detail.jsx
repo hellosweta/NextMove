@@ -26,6 +26,9 @@ class LocationDetail extends React.Component{
     if(newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
     }
+    if(newProps.filteredTransit.length){
+      transit = newProps.filteredTransit.length;
+    }
     this.setState( {data: {
         children: [
             { name: "crime", value: crime },

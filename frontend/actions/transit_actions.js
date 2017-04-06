@@ -40,7 +40,7 @@ export const requestAllTransitData = () => dispatch => (
   dispatch(receiveAllTransitData(bartStops, sfmtaStops))
 );
 
-export const requestFilteredTransitData = (radiusInMiles, lat, lon) => dispatch => (
+export const requestFilteredTransitData = (lat, lon, radiusInMiles) => dispatch => (
   PlacesAPIUtil.fetchFilteredTransit(radiusInMiles, lat, lon)
     .then(stops => dispatch(receiveFilteredTransitData(stops)))
 );
