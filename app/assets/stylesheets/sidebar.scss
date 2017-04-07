@@ -11,10 +11,18 @@
 }
 
 .drag-area {
-  width:  30vw;
-  padding: 1rem;
+  width: 100%;
+  padding: 14px 0;
 
   color: black;
   text-align: center;
   font-size: 15px;
+}
+
+.drag-area:first-of-type {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.panel-default {
+  width: 350px;
 }
