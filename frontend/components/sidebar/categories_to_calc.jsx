@@ -20,14 +20,13 @@ const style = {
 
 const boxTarget = {
   drop(props, monitor, component) {
+    let sourceId = monitor.internalMonitor.registry.pinnedSourceId;
+    let source = monitor.internalMonitor.registry.handlers[sourceId];
     let CalcStateRank = component.state.rank;
-    if (CalcStateRank.length == 2){
+    if (CalcStateRank.length == 2 && source.component.props.addToChooseRank){
       // add the leading category from the calc bin to the choose bin
-      let sourceId = monitor.internalMonitor.registry.pinnedSourceId;
-      let source = monitor.internalMonitor.registry.handlers[sourceId];
       source.component.props.addToChooseRank(CalcStateRank[1]);
     }
-
     component.addToRank(monitor.getItem().name);
     return {
       name: `${props.allowedDropEffect} Dustbin`,
@@ -54,7 +53,9 @@ class Dustbin extends Component {
     }else{
       rank = [name];
     }
+
     this.setState({rank})
+
   }
 
   removeRank(name){
