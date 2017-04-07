@@ -2,3 +2,14 @@
     height: 400px;
     width: 100%;
 }
+
+.leaflet-popup {
+  transform: translate3d(1093px, 378px, 0px)
+}
+.leaflet-zoom-animated{
+  transform: translate3d(1093px, 378px, 0px)
+
+}
+.leaflet-popup-content-wrapper {
+  height: 24px;
+}

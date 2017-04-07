@@ -14,11 +14,12 @@ const mapDispatchToProps = dispatch =>({
   requestAllRestaurants: () => dispatch(requestAllRestaurants()),
   requestAllCrimes: () => dispatch(requestAllCrimes()),
   requestFilteredCrimes: (lat, lon, radius) =>
-                      dispatch(requestFilteredCrimes(lat, lon, radius)),
+    dispatch(requestFilteredCrimes(lat, lon, radius)),
   requestFilteredTransitData: (lat, lon, radius) =>
                  dispatch(requestFilteredTransitData(lat, lon, radius)),
   requestFilteredRestaurants: (lat, lon, radius) =>
                  dispatch(requestFilteredRestaurants(lat, lon, radius)),
+
   requestAllTransit: () => dispatch(requestAllTransitData())
 });
 
