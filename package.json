@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "engines": {
-    "node": "4.1.1",
-    "npm": "2.1.x"
+    "node": "6.10.1",
+    "npm": "3.10.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
