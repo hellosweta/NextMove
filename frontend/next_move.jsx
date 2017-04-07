@@ -5,6 +5,9 @@ import Root from './components/root';
 import {
   requestBartData, requestSfmtaData, requestAllTransitData
 } from './actions/transit_actions';
+import {
+  requestFilteredRestaurants
+} from './actions/restaurants_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
@@ -12,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestBartData = requestBartData;
   window.requestSfmtaData = requestSfmtaData;
   window.requestAllTransitData = requestAllTransitData;
+  window.requestFilteredRestaurants = requestFilteredRestaurants;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

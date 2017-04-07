@@ -3,14 +3,19 @@ require 'http'
 
 class Api::YelpController < ApplicationController
   def index
-    @locations = get_locations(search_params).businesses
+    @locations = get_locations(search_params)['businesses']
     render :index
   end
 
   private
 
   def search_params
-    params.require(:yelp_search).permit(:latitude, :longitude, :radius, :term)
+    {
+      latitude: params[:latitude],
+      longitude: params[:longitude],
+      radius: params[:radius].to_i,
+      term: params[:term]
+    }
   end
 
   def bearer_token
@@ -26,9 +31,9 @@ class Api::YelpController < ApplicationController
     "#{response['token_type']} #{response['access_token']}"
   end
 
-  def get_locations(params)
+  def get_locations(query)
     url = "https://api.yelp.com/v3/businesses/search"
-    response = HTTP.auth(bearer_token).get(url, params: params)
+    response = HTTP.auth(bearer_token).get(url, params: query)
     response.parse
   end
 
