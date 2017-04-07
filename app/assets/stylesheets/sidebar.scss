@@ -13,6 +13,15 @@
   margin-right: 5px;
 }
 
+.sidebar {
+  width: 300px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
 .drag-area-container {
   display: flex;
   flex-direction: column;
@@ -36,8 +45,4 @@
   font-size: 16px;
   font-weight: bold;
   // margin: 0 0 15px 0;
-}
-
-.panel-default {
-  width: 350px;
 }

@@ -24,9 +24,7 @@ export default class SideBar extends Component {
           onClick={ () => this.setState({ open: !this.state.open }) }>
           <Glyphicon glyph="chevron-right" />
         </Button>
-        <Panel
-          collapsible
-          expanded={ this.state.open }>
+        <div className="sidebar">
           <DragDropContextProvider backend={HTML5Backend}>
             <div className="drag-area-container">
               <CategoriesToCalc allowedDropEffect="move"
@@ -34,7 +32,7 @@ export default class SideBar extends Component {
               <CategoriesToChoose allowedDropEffect="move"/>
             </div>
           </DragDropContextProvider>
-        </Panel>
+        </div>
       </div>
     );
   }
