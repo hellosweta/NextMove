@@ -13,7 +13,7 @@ class Api::YelpController < ApplicationController
     {
       latitude: params[:latitude].to_f,
       longitude: params[:longitude].to_f,
-      radius: 400,
+      radius: params[:radius].to_i,
       term: params[:term],
       limit: 50,
       sort_by: 'distance'
