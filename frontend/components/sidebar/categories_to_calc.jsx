@@ -57,11 +57,11 @@ class Dustbin extends Component {
   sendRankUpdate(e){
     let rank = this.state.rank.map(rank =>{
       switch (rank) {
-        case 'Crime':
+        case 'Safety':
         return 'crimes'
-        case 'TransitStops':
+        case 'Public Transit':
         return 'transitStops'
-        case 'Restaurant':
+        case 'Restaurants':
           return 'restaurants'
         default:
       }
