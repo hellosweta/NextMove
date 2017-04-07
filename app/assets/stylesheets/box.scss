@@ -1,0 +1,24 @@
+.all-boxes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.box {
+  width: 50%;
+
+  border: 1px dashed gray;
+  padding: 0.5rem 1rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  color: black;
+
+  cursor: move;
+}

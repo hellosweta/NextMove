@@ -2,16 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
 import ItemTypes from './item_types';
 
-const style = {
-  border: '1px dashed gray',
-  backgroundColor: 'black',
-  padding: '0.5rem 1rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  cursor: 'move',
-  width: '50px'
-};
-
 const boxSource = {
   beginDrag(props) {
     return {
@@ -36,9 +26,9 @@ const boxSource = {
 
     return (
       connectDragSource(
-        <div style={style}>
+        <div className="box">
           {name}
-        </div>,
+        </div>
       )
     );
   }
