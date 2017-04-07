@@ -69,8 +69,8 @@ class Dustbin extends Component {
       <div className="drag-area">
       <div>
         {isActive ?
-          'Release to drop' :
-          'Choose a category'
+          'Drop Here' :
+          'Choose Categories'
         }
       </div>
         { currentRank }

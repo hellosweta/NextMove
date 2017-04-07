@@ -98,8 +98,8 @@ class Dustbin extends Component {
       <div className="drag-area">
       <div>
         {isActive ?
-          'Release to drop' :
-          'Drag a category here'
+          'Drop Here' :
+          'Displayed on Map'
         }
       </div>
         { currentRank }
