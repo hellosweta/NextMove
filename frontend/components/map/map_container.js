@@ -8,6 +8,7 @@ const mapStateToProps = state =>({
   allRestaurants: state.allRestaurants,
   allCrimes: state.allCrimes,
   allTransit: state.allTransit.bartStops.concat(state.allTransit.sfmtaStops)
+  Rank: state.rank
 });
 
 const mapDispatchToProps = dispatch =>({

@@ -74,15 +74,20 @@ class LeafletMap extends React.Component {
     bounds = L.latLngBounds(southWest, northEast);
 
     const blue_gradient = {
-      0.1: 'rgba(0,0,238,.01)', 0.2: 'rgba(0,0,238,.02)', 0.4: 'rgba(0,0,238,.04)',
-      0.6: 'rgba(0,0,238,.06)', 0.8: 'rgba(0,0,238,.08)', 1.0: 'rgba(0,0,238,.1)',
+      0.1: 'rgba(213,62,79,.1)', 0.2: 'rgba(252,141,89,.08)', 0.4: 'rgba(254,224,139,.06)',
+      0.6: 'rgba(230,245,152,.04)', 0.8: 'rgba(153,213,148,.02)', 1.0: 'rgba(50,136,18,.01)',
     };
 
     const red_gradient = {
-      0.1: 'rgba(40,0,0,.01)', 0.2: 'rgba(80,0,0,.02)', 0.4: 'rgba(120,0,0,.04)',
-      0.6: 'rgba(160,0,0,.06)', 0.8: 'rgba(200,0,0,.08)', 1.0: 'rgba(238,0,0,.1)',
+      0.1: 'rgba(50,136,18,.01)', 0.2: 'rgba(153,213,148,.02)', 0.4: 'rgba(230,245,152,.04)',
+      0.6: 'rgba(254,224,139,.06)', 0.8: 'rgba(252,141,89,.08)', 1.0: 'rgba(213,62,79,.1)',
     };
-
+    // 213,62,79
+    // 252,141,89
+    // 254,224,139
+    // 230,245,152
+    // 153,213,148
+    // 50,136,18
     const icon = L.icon({
        className: 'my-div-icon',
        iconSize: [30, 50],
@@ -116,7 +121,7 @@ class LeafletMap extends React.Component {
             scrollWheelZoom= {this.state.clicked}>
 
             <HeatmapLayer
-              points={ranks[1]}
+              points={this.props.rank[1]}
               radius={20}
               gradient={blue_gradient}
               longitudeExtractor={m => m[1]}
@@ -125,7 +130,7 @@ class LeafletMap extends React.Component {
               blur={30}/>
 
               <HeatmapLayer
-                points={ranks[0]}
+                points={this.props.rank[0]}
                 radius={20}
                 gradient={red_gradient}
                 longitudeExtractor={m => m[1]}
