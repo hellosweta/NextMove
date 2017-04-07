@@ -4,7 +4,7 @@
    width:100%;
 
    background-color: white;
-   border-bottom: 2px solid #bfcad2;
+   border-bottom: 1px solid black;
 
    display: flex;
    justify-content: center;
@@ -12,5 +12,18 @@
 }
 
 .header h1 {
-  font-weight: bold;
+  font-family: 'Racing Sans One', cursive;
+  font-size: 40px;
+}
+
+.logo-pt-1 {
+  color: rgb(76, 148, 182);
+}
+
+.logo-pt-2 {
+  color: rgb(237, 175, 89);
+}
+
+.logo-pt-3 {
+  color: rgb(173, 28, 70);
 }
