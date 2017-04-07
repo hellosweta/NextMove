@@ -50,7 +50,7 @@ class RestaurantDetail extends React.Component{
     return (
     <div>
       <div className='chart-container bar-chart'>
-          <h2 className='chart-header'>Restaurant Chart</h2>
+          <h2 className='chart-header'>Restaurant Rating</h2>
           <Chart
               type={"bar"}
               width={500}
