@@ -6,13 +6,8 @@ import LocationDetail from './location_detail';
 
 const mapStateToProps = state => ({
   filteredCrimes: state.filteredCrimes,
-  filteredTransit: state.filteredTransit
-});
-
-const mapDispatchToProps = dispatch => ({
-
-  // requestFilteredCrimes:  (lat, lon, radiusInMiles) =>
-  //               dispatch(requestFilteredCrimes(lat, lon, radiusInMiles))
+  filteredTransit: state.filteredTransit,
+  filteredRestaurants: state.filteredRestaurants
 });
 
 export default connect(
