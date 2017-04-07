@@ -6,10 +6,15 @@
   "directories": {
     "doc": "docs"
   },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
