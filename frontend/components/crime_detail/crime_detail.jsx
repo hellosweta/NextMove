@@ -70,8 +70,8 @@ formatCategoryname(categoryName){
 
   render(){
     return (
-      <div className='BarChart'>
-          <h2>Crime Chart</h2>
+      <div className='chart-container bar-chart'>
+          <h2 className='chart-header'>Crime Chart</h2>
           <Chart
               type={"bar"}
               width={1100}
