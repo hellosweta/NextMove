@@ -7,14 +7,14 @@ import Map from './map';
 const mapStateToProps = state =>({
   allRestaurants: state.allRestaurants,
   allCrimes: state.allCrimes,
-  allTransit: state.allTransit.bartStops.concat(state.allTransit.sfmtaStops)
+  allTransit: state.allTransit.bartStops.concat(state.allTransit.sfmtaStops),
+  rank: state.rank
 });
 
 const mapDispatchToProps = dispatch =>({
   requestAllRestaurants: () => dispatch(requestAllRestaurants()),
   requestAllCrimes: () => dispatch(requestAllCrimes()),
   requestAllTransit: () => dispatch(requestAllTransitData()),
-
   requestFilteredCrimes: (lat, lon, radius) =>
     dispatch(requestFilteredCrimes(lat, lon, radius)),
   requestFilteredTransitData: (lat, lon, radius) =>
