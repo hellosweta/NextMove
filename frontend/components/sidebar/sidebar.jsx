@@ -19,7 +19,9 @@ export default class SideBar extends Component {
   render() {
     return (
       <div className="sidebar-container">
-        <Button onClick={ () => this.setState({ open: !this.state.open }) }>
+        <Button
+          className="sidebar-button"
+          onClick={ () => this.setState({ open: !this.state.open }) }>
           <Glyphicon glyph="chevron-right" />
         </Button>
         <Panel

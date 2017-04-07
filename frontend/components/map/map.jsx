@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
+import { Popover } from 'react-bootstrap';
 import { hashHistory } from 'react-router';
 import SideBarContainer from '../sidebar/sidebar_container';
 
@@ -91,9 +92,9 @@ class LeafletMap extends React.Component {
     });
     const marker = this.state.clicked ? (
      <Marker position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
-       <Popup>
-         <span>Click for More Details</span>
-       </Popup>
+        <Popover id="popover-positioned-top" title="Popover top">
+          <strong>Holy guacamole!</strong> Click for more detail.
+        </Popover>
      </Marker>
    ) : null
 

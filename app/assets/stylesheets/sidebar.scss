@@ -4,9 +4,13 @@
   align-items: center;
 
   position: absolute;
-  right: 0;
+  right: 10px;
   top: 40px;
   z-index: 400;
+}
+
+.sidebar-button {
+  margin-right: 5px;
 }
 
 .drag-area-container {
@@ -26,6 +30,12 @@
 
 .drag-area:first-of-type {
   border-bottom: 1px solid #d3d3d3;
+}
+
+.drag-area > h1 {
+  font-size: 16px;
+  font-weight: bold;
+  // margin: 0 0 15px 0;
 }
 
 .panel-default {

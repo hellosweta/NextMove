@@ -96,17 +96,17 @@ class Dustbin extends Component {
 
     return connectDropTarget(
       <div className="drag-area">
-      <div>
-        {isActive ?
-          'Drop Here' :
-          'Displayed on Map'
-        }
-      </div>
-        { currentRank }
-      <Button
-        bsStyle="success"
-        onClick={this.sendRankUpdate}>
-        Calculate</Button>
+        <h1>
+          {isActive ?
+            'Drop Here' :
+            'Displayed on Map'
+          }
+        </h1>
+          { currentRank }
+        <Button
+          bsStyle="success"
+          onClick={this.sendRankUpdate}>
+          Calculate</Button>
       </div>
     );
   }

@@ -67,13 +67,13 @@ class Dustbin extends Component {
 
     return connectDropTarget(
       <div className="drag-area">
-      <div>
-        {isActive ?
-          'Drop Here' :
-          'Choose Categories'
-        }
-      </div>
-        { currentRank }
+        <h1>
+          {isActive ?
+            'Drop Here' :
+            'Choose Two Categories'
+          }
+        </h1>
+          { currentRank }
       </div>
     );
   }
