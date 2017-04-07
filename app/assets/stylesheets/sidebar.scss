@@ -4,24 +4,17 @@
   align-items: center;
 }
 
-.category-boxes-container {
+.drag-area-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.category-box {
-  height: 20vw;
+.drag-area {
   width:  30vw;
-
   padding: 1rem;
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
 
   color: black;
   text-align: center;
-  font-size: 1rem;
-  line-height: normal;
-
-  float: left;
+  font-size: 15px;
 }

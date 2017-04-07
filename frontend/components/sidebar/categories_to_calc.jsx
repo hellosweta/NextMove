@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { DropTarget } from 'react-dnd';
+import { Button } from 'react-bootstrap';
 import ItemTypes from './item_types';
 import merge from 'lodash.merge';
 import Box from './box';
@@ -79,10 +80,10 @@ class Dustbin extends Component {
       backgroundColor = 'darkkhaki';
     }
 
-    let currentRank = <ul className="all-boxes-container">
+    let currentRank = <ul className="all-categories-container">
       {this.state.rank.map((category,id) => {
         return(
-          <li key= {id} className="box-container">
+          <li key= {id} className="category-container">
               <Box name={category}
                    removeRank={this.removeRank}
                    iCameFrom={'calc Dustbin'}/>
@@ -94,7 +95,7 @@ class Dustbin extends Component {
 
 
     return connectDropTarget(
-      <div className="category-box">
+      <div className="drag-area">
       <div>
         {isActive ?
           'Release to drop' :
@@ -102,7 +103,10 @@ class Dustbin extends Component {
         }
       </div>
         { currentRank }
-      <button onClick={this.sendRankUpdate}>Calculate</button>
+      <Button
+        bsStyle="success"
+        onClick={this.sendRankUpdate}>
+        Calculate</Button>
       </div>
     );
   }

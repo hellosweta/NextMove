@@ -51,10 +51,10 @@ class Dustbin extends Component {
       backgroundColor = 'darkkhaki';
     }
 
-    let currentRank = <ul className="all-boxes-container">
+    let currentRank = <ul className="all-categories-container">
       {this.state.rank.map( (category,id) => {
         return(
-          <li key= {id} className="box-container">
+          <li key= {id} className="category-container">
               <Box name={category}
                    removeRank={this.removeRank}
                    addToChooseRank={this.addToChooseRank}
@@ -66,7 +66,7 @@ class Dustbin extends Component {
           </ul>
 
     return connectDropTarget(
-      <div className="category-box">
+      <div className="drag-area">
       <div>
         {isActive ?
           'Release to drop' :

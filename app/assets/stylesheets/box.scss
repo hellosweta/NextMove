@@ -1,22 +1,21 @@
-.all-boxes-container {
+.all-categories-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.box-container {
+.category-container {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.box {
+.category {
   width: 50%;
 
   border: 1px dashed gray;
   padding: 0.5rem 1rem;
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 10px 0;
 
   color: black;
 

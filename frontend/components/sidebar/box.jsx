@@ -26,7 +26,7 @@ const boxSource = {
 
     return (
       connectDragSource(
-        <div className="box">
+        <div className="category">
           {name}
         </div>
       )
