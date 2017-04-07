@@ -23,7 +23,7 @@ export default class BubbleChart extends BaseChart {
     }
     onClick(node){
       this.props.goToCategory(node.data.name);
-       var target =  $('.BarChart');
+       var target =  $('.bar-chart');
       $('html, body').animate({
             scrollTop: target.offset().top
         }, 500);

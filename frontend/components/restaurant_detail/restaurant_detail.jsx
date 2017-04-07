@@ -33,8 +33,8 @@ class RestaurantDetail extends React.Component{
   render(){
     return (
     <div>
-      <div className='BarChart'>
-          <h2>Restaurant Chart</h2>
+      <div className='chart-container bar-chart'>
+          <h2 className='chart-header'>Restaurant Chart</h2>
           <Chart
               type={"bar"}
               width={500}

@@ -64,7 +64,7 @@ class LeafletMap extends React.Component {
       let positive_factors = restaurants
       let negative_factors = crimes
       return (
-        <div>
+        <div className="map-container">
           <Map style={{height: "100vh"}} center={position} zoom={this.state.zoom} bounds={bounds}>
             <HeatmapLayer
               points={positive_factors}

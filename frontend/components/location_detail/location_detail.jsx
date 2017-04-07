@@ -49,9 +49,9 @@ class LocationDetail extends React.Component{
 
   render(){
     return (
-      <div className="charts-container">
-        <div className="bubble-chart">
-            <h2>Current Chart</h2>
+      <div className="all-charts-container">
+        <div className="chart-container bubble-chart">
+            <h2 className='chart-header'>Current Chart</h2>
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
@@ -59,8 +59,8 @@ class LocationDetail extends React.Component{
                 showTooltips={true}
                 data={this.state.data}
             />
-          { this.props.children }
         </div>
+        { this.props.children }
       </div>
   );
   }
