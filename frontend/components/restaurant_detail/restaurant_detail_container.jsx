@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 import RestaurantDetail from './restaurant_detail';
 
 const mapStateToProps = state =>({
-
+  filteredRestaurants: state.filteredRestaurants
 });
 
-const mapDispatchToProps = dispatch =>({
-
-});
 
 export default connect(
-  null,
+  mapStateToProps,
   null
 )(RestaurantDetail);

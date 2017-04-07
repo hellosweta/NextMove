@@ -4,7 +4,7 @@ import ItemTypes from './item_types';
 
 const style = {
   border: '1px dashed gray',
-  backgroundColor: 'white',
+  backgroundColor: 'black',
   padding: '0.5rem 1rem',
   marginRight: '1.5rem',
   marginBottom: '1.5rem',
@@ -20,15 +20,10 @@ const boxSource = {
   },
 
   endDrag(props, monitor) {
-    const item = monitor.getItem();
-    const dropResult = monitor.getDropResult();
-
-    if (dropResult) {
-      window.alert( // eslint-disable-line no-alert
-        `You dropped ${item.name} into ${dropResult.name}!`,
-      );
-    }
-  },
+   const item = monitor.getItem();
+   const dropResult = monitor.getDropResult();
+   props.removeRank(props.name);
+ },
 };
  class Box extends Component {
 

@@ -29,7 +29,6 @@ class TransitDetail extends React.Component{
     }
   }
   getData(filteredData){
-    debugger;
     let aggrigate = {}
     filteredData.forEach((transit) =>{
       let category = transit.type
