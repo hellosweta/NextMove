@@ -1,0 +1,24 @@
+.all-categories-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.category {
+  width: 50%;
+
+  border: 2px dotted gray;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 10px 0;
+
+  color: black;
+
+  cursor: move;
+}
