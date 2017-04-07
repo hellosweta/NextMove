@@ -29,7 +29,7 @@ const boxTarget = {
     }
     component.addToRank(monitor.getItem().name);
     return {
-      name: `${props.allowedDropEffect} Dustbin`,
+      name: `calc Dustbin`,
         allowedDropEffect: props.allowedDropEffect,
     };
   },
@@ -44,18 +44,18 @@ class Dustbin extends Component {
   }
 
   addToRank(name){
-    let rank;
-    if(this.state.rank.length){
-      rank = this.state.rank
-      let temp = rank[0];
-      rank[0] = name;
-      rank[1] = temp;
-    }else{
-      rank = [name];
+    if(!this.state.rank.includes(name)){
+      let rank;
+      if(this.state.rank.length){
+        rank = this.state.rank
+        let temp = rank[0];
+        rank[0] = name;
+        rank[1] = temp;
+      }else{
+        rank = [name];
+      }
+      this.setState({rank})
     }
-
-    this.setState({rank})
-
   }
 
   removeRank(name){
@@ -98,7 +98,8 @@ class Dustbin extends Component {
         return(
           <li key= {id}>
               <Box name={category}
-                   removeRank={this.removeRank}/>
+                   removeRank={this.removeRank}
+                   iCameFrom={'calc Dustbin'}/>
           </li>
         )
       }
