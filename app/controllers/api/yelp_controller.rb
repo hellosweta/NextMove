@@ -11,10 +11,12 @@ class Api::YelpController < ApplicationController
 
   def search_params
     {
-      latitude: params[:latitude],
-      longitude: params[:longitude],
-      radius: params[:radius].to_i,
-      term: params[:term]
+      latitude: params[:latitude].to_f,
+      longitude: params[:longitude].to_f,
+      radius: 400,
+      term: params[:term],
+      limit: 50,
+      sort_by: 'distance'
     }
   end
 
