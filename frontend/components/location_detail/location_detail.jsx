@@ -23,11 +23,15 @@ class LocationDetail extends React.Component{
     let crime = this.state.data.children[0].value
     let transit = this.state.data.children[1].value
     let restaurant = this.state.data.children[2].value
+
     if(newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
     }
     if(newProps.filteredTransit.length){
       transit = newProps.filteredTransit.length;
+    }
+    if(newProps.filteredRestaurants.length){
+      restaurant = newProps.filteredRestaurants.length;
     }
     this.setState( {data: {
         children: [
