@@ -73,14 +73,14 @@ class LeafletMap extends React.Component {
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
 
-    const red_gradient = {
-      0.1: '#89BDE0', 0.2: '#96E3E6', 0.4: '#82CEB6',
-      0.6: '#FAF3A5', 0.8: '#F5D98B', 1.0: '#DE9A96',
+    const blue_gradient = {
+      0.1: 'rgba(0,0,238,.01)', 0.2: 'rgba(0,0,238,.02)', 0.4: 'rgba(0,0,238,.04)',
+      0.6: 'rgba(0,0,238,.06)', 0.8: 'rgba(0,0,238,.08)', 1.0: 'rgba(0,0,238,.1)',
     };
 
-    const blue_gradient = {
-      1.0: '#89BDE0', 0.8: '#96E3E6', 0.6: '#82CEB6',
-      0.4: '#FAF3A5', 0.2: '#F5D98B', .1: '#DE9A96'
+    const red_gradient = {
+      0.1: 'rgba(40,0,0,.01)', 0.2: 'rgba(80,0,0,.02)', 0.4: 'rgba(120,0,0,.04)',
+      0.6: 'rgba(160,0,0,.06)', 0.8: 'rgba(200,0,0,.08)', 1.0: 'rgba(238,0,0,.1)',
     };
 
     const icon = L.icon({
@@ -104,7 +104,7 @@ class LeafletMap extends React.Component {
       const transit = this.props.allTransit.map(el => ([el.stop_lat, el.stop_lon, this.state.transitFavorabilityScore]))
       const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, this.state.restaurantFavorabilityScore]))
       const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, this.state.crimeFavorabilityScore]))
-      let ranks = [restaurants];
+      let ranks = [crimes, restaurants];
       return (
         <div>
           <Map
@@ -115,16 +115,23 @@ class LeafletMap extends React.Component {
             onClick={this.handleMapClick}
             scrollWheelZoom= {this.state.clicked}>
 
-            {ranks.length === 2 ? this.renderSecondHeatmap(ranks[1], blue_gradient) : null}
-
             <HeatmapLayer
-              points={ranks[0]}
+              points={ranks[1]}
               radius={20}
-              gradient={red_gradient}
+              gradient={blue_gradient}
               longitudeExtractor={m => m[1]}
               latitudeExtractor={m => m[0]}
               intensityExtractor={m => parseFloat(m[2])}
               blur={30}/>
+
+              <HeatmapLayer
+                points={ranks[0]}
+                radius={20}
+                gradient={red_gradient}
+                longitudeExtractor={m => m[1]}
+                latitudeExtractor={m => m[0]}
+                intensityExtractor={m => parseFloat(m[2])}
+                blur={30}/>
 
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
