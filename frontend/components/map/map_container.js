@@ -13,14 +13,14 @@ const mapStateToProps = state =>({
 const mapDispatchToProps = dispatch =>({
   requestAllRestaurants: () => dispatch(requestAllRestaurants()),
   requestAllCrimes: () => dispatch(requestAllCrimes()),
+  requestAllTransit: () => dispatch(requestAllTransitData()),
+
   requestFilteredCrimes: (lat, lon, radius) =>
     dispatch(requestFilteredCrimes(lat, lon, radius)),
   requestFilteredTransitData: (lat, lon, radius) =>
                  dispatch(requestFilteredTransitData(lat, lon, radius)),
   requestFilteredRestaurants: (lat, lon, radius) =>
                  dispatch(requestFilteredRestaurants(lat, lon, radius)),
-
-  requestAllTransit: () => dispatch(requestAllTransitData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);
