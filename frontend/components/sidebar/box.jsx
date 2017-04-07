@@ -22,7 +22,9 @@ const boxSource = {
   endDrag(props, monitor) {
    const item = monitor.getItem();
    const dropResult = monitor.getDropResult();
-   props.removeRank(props.name);
+   if(dropResult && props.iCameFrom !==dropResult.name){
+     props.removeRank(props.name);
+   }
  },
 };
  class Box extends Component {

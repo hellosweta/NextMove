@@ -22,7 +22,7 @@ const boxTarget = {
   drop(props, monitor, component) {
     component.addToChooseRank(monitor.getItem().name);
     return {
-      name: `${props.allowedDropEffect} Dustbin`,
+      name: `choose Dustbin`,
       allowedDropEffect: props.allowedDropEffect,
     };
   },
@@ -38,9 +38,11 @@ class Dustbin extends Component {
   }
 
   addToChooseRank(name){
-    let rank = this.state.rank
-    rank.push(name);
-    this.setState({rank})
+    if(!this.state.rank.includes(name)){
+      let rank = this.state.rank
+      rank.push(name);
+      this.setState({rank})
+    }
   }
 
   removeRank(name){
@@ -69,7 +71,8 @@ class Dustbin extends Component {
           <li key= {id}>
               <Box name={category}
                    removeRank={this.removeRank}
-                   addToChooseRank={this.addToChooseRank}/>
+                   addToChooseRank={this.addToChooseRank}
+                   iCameFrom={'choose Dustbin'}/>
           </li>
         )
       }
