@@ -15,15 +15,38 @@ class TransitDetail extends React.Component{
       };
   }
 
-  componentDidMount() {
-      setTimeout(() => {
-          this.setState({
-            data: [
-              { xValue: 'Bart', yValue: 5 },
-              { xValue: "Muni", yValue: 5 },
-            ]
-          });
-      }, 3000);
+  componentDidMount(){
+    if(Object.keys(this.props.filteredTransit).length){
+      let data = this.getData(this.props.filteredTransit)
+      this.setState({data});
+    }
+  }
+
+  componentWillReceiveProps(newProps){
+    if(Object.keys(newProps.filteredTransit).length){
+      let data = this.getData(newProps.filteredTransit)
+      this.setState({data});
+    }
+  }
+  getData(filteredData){
+    debugger;
+    let aggrigate = {}
+    filteredData.forEach((transit) =>{
+      let category = transit.type
+      if (aggrigate[category]){
+        aggrigate[category] = aggrigate[category] + 1
+      }else {
+        aggrigate[category] = 1
+      }
+    })
+
+    let data = [];
+    Object.entries(aggrigate).forEach((category)=> {
+      data.push({xValue: category[0], yValue: category[1] })
+    })
+
+    data.sort((a,b) => b.yValue - a.yValue);
+    return data;
   }
 
   render(){

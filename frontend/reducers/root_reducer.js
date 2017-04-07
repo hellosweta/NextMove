@@ -14,7 +14,6 @@ const RootReducer = combineReducers({
   filteredRestaurants: FilteredRestaurantsReducer,
   allCrimes: AllCrimesReducer,
   filteredCrimes: FilteredCrimesReducer,
-
   allTransit: AllTransitReducer,
   filteredTransit: FilteredTransitReducer,
   rank: RankReducer
