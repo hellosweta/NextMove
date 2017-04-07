@@ -1,0 +1,23 @@
+main, body, h1, h2, h3, h4, h5, div, nav, aside, ul, li, p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font: inherit;
+  font-family: sans-serif;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  list-style-type: none;
+
+  background: transparent;
+}
+
+#root {
+  width: 100%;
+}
+//
+// a:hover {
+//   cursor: pointer;
+// }

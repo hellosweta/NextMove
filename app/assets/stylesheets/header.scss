@@ -1,0 +1,16 @@
+.header {
+   position: relative;
+   height:60px;
+   width:100%;
+
+   background-color: white;
+   border-bottom: 2px solid #bfcad2;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.header h1 {
+  font-weight: bold;
+}
