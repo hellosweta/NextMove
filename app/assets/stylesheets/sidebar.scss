@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  position: absolute;
+  right: 0;
+  top: 40px;
+  z-index: 400;
 }
 
 .drag-area-container {
