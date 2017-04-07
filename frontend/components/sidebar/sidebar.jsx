@@ -17,15 +17,12 @@ export default class SideBar extends Component {
   }
 
   render() {
-    const barStyle = { width: "1000px" };
     return (
       <div className="sidebar-container">
         <Button onClick={ () => this.setState({ open: !this.state.open }) }>
           <Glyphicon glyph="chevron-right" />
         </Button>
         <Panel
-          style={ barStyle }
-          className="width"
           collapsible
           expanded={ this.state.open }>
           <DragDropContextProvider backend={HTML5Backend}>
