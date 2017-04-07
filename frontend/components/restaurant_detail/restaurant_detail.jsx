@@ -9,25 +9,41 @@ class RestaurantDetail extends React.Component{
           data: [
               { xValue: 'Indian', yValue: 5 },
               { xValue: "Ethiopian", yValue: 1 },
-              { xValue: "Italian", yValue: 12 },
-              { xValue: "Mexican", yValue: 20 },
-              { xValue: "FastFood", yValue: 25 },
           ]
       };
   }
 
-  componentDidMount() {
-      setTimeout(() => {
-          this.setState({
-            data: [
-              { xValue: 'Indian', yValue: 15 },
-              { xValue: "Ethiopian", yValue: 14 },
-              { xValue: "Italian", yValue: 22 },
-              { xValue: "Mexican", yValue: 25 },
-              { xValue: "FastFood", yValue: 2 },
-            ]
-          });
-      }, 3000);
+  componentDidMount(){
+    if(Object.keys(this.props.filteredRestaurants).length){
+      let data = this.getData(this.props.filteredRestaurants)
+      this.setState({data});
+    }
+  }
+
+  componentWillReceiveProps(newProps){
+    if(Object.keys(newProps.filteredRestaurants).length){
+      let data = this.getData(newProps.filteredRestaurants)
+      this.setState({data});
+    }
+  }
+  getData(filteredData){
+    let aggrigate = {}
+    filteredData.forEach((restaurant) =>{
+      let category = restaurant.rating
+      if (aggrigate[category]){
+        aggrigate[category] = aggrigate[category] + 1
+      }else {
+        aggrigate[category] = 1
+      }
+    })
+
+    let data = [];
+    Object.entries(aggrigate).forEach((category)=> {
+      data.push({xValue: category[0], yValue: category[1] })
+    })
+
+    data.sort((a,b) => b.xValue - a.xValue);
+    return data;
   }
 
   render(){
