@@ -106,7 +106,7 @@ class LeafletMap extends React.Component {
       const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, this.state.crimeFavorabilityScore]))
       let ranks = [crimes, restaurants];
       return (
-        <div>
+        <div className="map-container">
           <Map
             style={{height: "100vh"}}
             center={position}
