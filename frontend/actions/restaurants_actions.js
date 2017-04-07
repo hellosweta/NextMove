@@ -27,7 +27,7 @@ export const requestAllRestaurants = () => dispatch => {
   }
 };
 
-export const requestFilteredRestaurants = (latitude, longitude, term="restaurants",radiusInMiles=0.25) => dispatch => (
+export const requestFilteredRestaurants = (latitude, longitude, radiusInMiles=0.25, term="restaurants") => dispatch => (
   YelpAPIUtil.fetchFilteredYelpLocations(latitude, longitude, term, radiusInMiles)
     .then(restaurants => dispatch(receiveFilteredRestaurants(restaurants)))
 );
