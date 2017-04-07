@@ -26,15 +26,10 @@ export default class SideBar extends Component {
           collapsible
           expanded={ this.state.open }>
           <DragDropContextProvider backend={HTML5Backend}>
-            <div>
-              <div style={{ overflow: 'hidden', clear: 'both' }}>
-                <CategoriesToCalc allowedDropEffect="move"
-                         updateRank={this.props.updateRank} />
-                <CategoriesToChoose allowedDropEffect="move"/>
-              </div>
-              <div style={{ overflow: 'hidden', clear: 'both' }}>
-
-              </div>
+            <div className="category-boxes-container">
+              <CategoriesToCalc allowedDropEffect="move"
+                       updateRank={this.props.updateRank} />
+              <CategoriesToChoose allowedDropEffect="move"/>
             </div>
           </DragDropContextProvider>
         </Panel>
