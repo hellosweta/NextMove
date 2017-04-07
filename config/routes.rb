@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   end
 
   root "static_pages#root"
+
+  namespace :api, defaults: { format: :json } do
+    resources :places, only: [:index]
+  end
 end
