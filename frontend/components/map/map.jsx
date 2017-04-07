@@ -59,6 +59,7 @@ class LeafletMap extends React.Component {
   handleMarkerClick(e){
     hashHistory.push('/search')
     this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+    this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
     let target = $('.bubble-chart');
     $('html, body').animate({
       scrollTop: target.offset().top

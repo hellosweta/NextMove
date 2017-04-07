@@ -3,14 +3,10 @@ import { connect } from 'react-redux';
 import TransitDetail from './transit_detail';
 
 const mapStateToProps = state =>({
-
-});
-
-const mapDispatchToProps = dispatch =>({
-
+  filteredTransit: state.filteredTransit
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   null
 )(TransitDetail);

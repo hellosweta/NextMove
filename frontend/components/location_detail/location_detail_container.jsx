@@ -6,6 +6,7 @@ import LocationDetail from './location_detail';
 
 const mapStateToProps = state => ({
   filteredCrimes: state.filteredCrimes,
+  filteredTransit: state.filteredTransit
 });
 
 const mapDispatchToProps = dispatch => ({
