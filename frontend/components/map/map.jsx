@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { DragDropContextProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { Popover } from 'react-bootstrap';
@@ -30,9 +32,9 @@ class LeafletMap extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestAllRestaurants();
-    this.props.requestAllCrimes();
-    this.props.requestAllTransit();
+    // this.props.requestAllRestaurants();
+    // this.props.requestAllCrimes();
+    // this.props.requestAllTransit();
   }
 
   componentWillReceiveProps(newProps){
@@ -159,8 +161,10 @@ class LeafletMap extends React.Component {
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
             {marker}
           </Map>
+          <DragDropContextProvider backend={HTML5Backend}>
+            <SideBarContainer />
+          </DragDropContextProvider>
 
-          <SideBarContainer />
         </div>
       );
     }
