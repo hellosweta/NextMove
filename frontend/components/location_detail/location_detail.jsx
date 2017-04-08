@@ -8,14 +8,17 @@ class LocationDetail extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-          data: {
-              children: [
-                  { name: "crime", value: 10 },
-                  { name: "transit", value: 10 },
-                  { name: "restaurant", value: 10 }
-              ]
-          }
-        };
+      receivedCrime: false,
+      receivedTransit: false,
+      receivedRestaurant: false,
+      data: {
+        children: [
+          { name: "crime", value: 10 },
+          { name: "transit", value: 10 },
+          { name: "restaurant", value: 10 }
+        ]
+      }
+    };
     this.goToCategory = this.goToCategory.bind(this);
   }
 
@@ -23,38 +26,55 @@ class LocationDetail extends React.Component{
     let crime = this.state.data.children[0].value
     let transit = this.state.data.children[1].value
     let restaurant = this.state.data.children[2].value
+    let type;
 
-    if(newProps.filteredCrimes.length){
+    if (this.props.filteredCrimes.length !== newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
+      type = 'receivedCrime';
     }
-    if(newProps.filteredTransit.length){
+    else if (this.props.filteredTransit.length !== newProps.filteredTransit.length){
       transit = newProps.filteredTransit.length;
+      type = 'receivedTransit';
     }
-    if(newProps.filteredRestaurants.length){
+    else if (this.props.filteredRestaurants.length !== newProps.filteredRestaurants.length){
       restaurant = newProps.filteredRestaurants.length;
+      type = 'receivedRestaurant';
     }
-    this.setState( {data: {
-        children: [
+
+    // debugger;
+    if (type) {
+      this.setState({
+        [type]: true,
+        data: {
+          children: [
             { name: "crime", value: crime },
             { name: "transit", value: transit },
             { name: "restaurant", value: restaurant }
           ]
         }
       });
+    }
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //
+  // }
 
   goToCategory(){
     let that = this;
-    return (category) =>{
+    return (category) => {
       if (that.props.location.pathname !== `/search/${category}`)
       hashHistory.push(`/search/${category}`);
     };
   }
 
   render(){
-    return (
-      <div className="all-charts-container">
-        <div className="chart-container bubble-chart">
+    if (!(this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant)) {
+      return <div>I AM LOADING</div>;
+    } else {
+      return (
+        <div className="all-charts-container">
+          <div className="chart-container bubble-chart">
             <h2 className='chart-header'>Current Chart</h2>
             <Chart
                 goToCategory = {this.goToCategory()}
@@ -63,10 +83,11 @@ class LocationDetail extends React.Component{
                 showTooltips={true}
                 data={this.state.data}
             />
+          </div>
+          { this.props.children }
         </div>
-        { this.props.children }
-      </div>
-  );
+      );
+    }
   }
 }
 
