@@ -14,7 +14,9 @@
 }
 
 .sidebar {
-  width: 300px;
+  // width: 300px;
+  transition: width 500ms;
+  overflow: hidden;
   margin-bottom: 20px;
   background-color: #fff;
   border-radius: 6px;
@@ -30,6 +32,7 @@
 
 .drag-area {
   width: 100%;
+  min-width: 250px;
   padding: 14px 0;
 
   color: black;

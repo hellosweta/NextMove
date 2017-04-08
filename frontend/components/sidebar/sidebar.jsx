@@ -17,6 +17,17 @@ export default class SideBar extends Component {
   }
 
   render() {
+    const sidebarStyle = () => {
+      if (this.state.open) {
+        return { width: 300 + 'px' };
+      } else {
+        return { width: 0, display: 'block' };
+      }
+    };
+
+    // const sidebarStyle = { width: sidebarWidth() };
+
+
     return (
       <div className="sidebar-container">
         <Button
@@ -24,12 +35,14 @@ export default class SideBar extends Component {
           onClick={ () => this.setState({ open: !this.state.open }) }>
           <Glyphicon glyph="chevron-right" />
         </Button>
-        <div className="sidebar">
+        <div className="sidebar" style={ sidebarStyle() }>
           <DragDropContextProvider backend={HTML5Backend}>
             <div className="drag-area-container">
-              <CategoriesToCalc allowedDropEffect="move"
-                       updateRank={this.props.updateRank} />
-              <CategoriesToChoose allowedDropEffect="move"/>
+              <CategoriesToCalc
+                allowedDropEffect="move"
+                updateRank={this.props.updateRank} />
+              <CategoriesToChoose
+                allowedDropEffect="move"/>
             </div>
           </DragDropContextProvider>
         </div>
