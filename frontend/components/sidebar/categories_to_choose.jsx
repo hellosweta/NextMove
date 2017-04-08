@@ -4,20 +4,6 @@ import ItemTypes from './item_types';
 import merge from 'lodash.merge';
 import Box from './box';
 
-
-const style = {
-  height: '20vw',
-  width:  '30vw',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  color: 'white',
-  padding: '1rem',
-  textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
-};
-
 const boxTarget = {
   drop(props, monitor, component) {
     component.addToChooseRank(monitor.getItem().name);
@@ -31,7 +17,7 @@ const boxTarget = {
 class Dustbin extends Component {
   constructor(props){
     super(props)
-    this.state={ rank: ['Crime', 'TransitStops' ,'Restaurant']}
+    this.state={ rank: ['Safety', 'Public Transit' ,'Restaurants']}
 
     this.removeRank = this.removeRank.bind(this);
     this.addToChooseRank = this.addToChooseRank.bind(this);
@@ -65,10 +51,10 @@ class Dustbin extends Component {
       backgroundColor = 'darkkhaki';
     }
 
-    let currnetRank = <ul>
+    let currentRank = <ul className="all-categories-container">
       {this.state.rank.map( (category,id) => {
         return(
-          <li key= {id}>
+          <li key= {id} className="category-container">
               <Box name={category}
                    removeRank={this.removeRank}
                    addToChooseRank={this.addToChooseRank}
@@ -80,14 +66,14 @@ class Dustbin extends Component {
           </ul>
 
     return connectDropTarget(
-      <div style={merge({},style,{backgroundColor})}>
-      <div >
-        {isActive ?
-          'Release to drop' :
-          'Choose a category'
-        }
-      </div>
-        { currnetRank }
+      <div className="drag-area">
+        <h1>
+          {isActive ?
+            'Drop Here' :
+            'Choose Two Categories'
+          }
+        </h1>
+          { currentRank }
       </div>
     );
   }
