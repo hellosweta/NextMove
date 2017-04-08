@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from "d3";
 import Chart from '../../../assets/vendors/d3act/Chart';
 import { hashHistory } from 'react-router';
-import merge from 'lodash.merge'
+import merge from 'lodash.merge';
 
 class LocationDetail extends React.Component{
   constructor(props) {
@@ -20,9 +20,9 @@ class LocationDetail extends React.Component{
   }
 
   componentWillReceiveProps(newProps){
-    let crime = this.state.data.children[0].value
-    let transit = this.state.data.children[1].value
-    let restaurant = this.state.data.children[2].value
+    let crime = this.state.data.children[0].value;
+    let transit = this.state.data.children[1].value;
+    let restaurant = this.state.data.children[2].value;
 
     if(newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
@@ -55,7 +55,7 @@ class LocationDetail extends React.Component{
     return (
       <div className="all-charts-container">
         <div className="chart-container bubble-chart">
-            <h2 className='chart-header'>Current Chart</h2>
+            <h2 className='chart-header'>Location Breakdown</h2>
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
