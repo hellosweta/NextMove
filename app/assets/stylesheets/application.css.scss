@@ -14,12 +14,12 @@
  *= require_self
  */
 
- // Reset
- @import "base/reset.scss";
+// Reset
+  @import "base/reset.scss";
 
- // Core
- @import "base/palette.scss";
- @import "base/fonts.scss";
+// Core
+  @import "base/palette.scss";
+  @import "base/fonts.scss";
 
 // Components
-@import "components/*";
+  @import "components/*";
