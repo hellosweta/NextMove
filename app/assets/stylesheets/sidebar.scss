@@ -13,6 +13,17 @@
   margin-right: 5px;
 }
 
+.sidebar {
+  // width: 300px;
+  transition: width 500ms;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
 .drag-area-container {
   display: flex;
   flex-direction: column;
@@ -21,6 +32,7 @@
 
 .drag-area {
   width: 100%;
+  // min-width: 250px;
   padding: 14px 0;
 
   color: black;
@@ -36,8 +48,4 @@
   font-size: 16px;
   font-weight: bold;
   // margin: 0 0 15px 0;
-}
-
-.panel-default {
-  width: 350px;
 }
