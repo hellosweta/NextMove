@@ -4,12 +4,15 @@ import { requestAllCrimes, requestFilteredCrimes } from '../../actions/crimes_ac
 import { requestAllTransitData, requestFilteredTransitData } from '../../actions/transit_actions';
 import Map from './map';
 
-const mapStateToProps = state =>({
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps.location);
+  return({
   allRestaurants: state.allRestaurants,
   allCrimes: state.allCrimes,
   allTransit: state.allTransit.bartStops.concat(state.allTransit.sfmtaStops),
-  rank: state.rank
-});
+  rank: state.rank,
+  ownProps: ownProps,
+})};
 
 const mapDispatchToProps = dispatch =>({
   requestAllRestaurants: () => dispatch(requestAllRestaurants()),

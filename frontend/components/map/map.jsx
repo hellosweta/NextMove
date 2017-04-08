@@ -32,9 +32,9 @@ class LeafletMap extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.requestAllRestaurants();
-    // this.props.requestAllCrimes();
-    // this.props.requestAllTransit();
+    this.props.requestAllRestaurants();
+    this.props.requestAllCrimes();
+    this.props.requestAllTransit();
   }
 
   componentWillReceiveProps(newProps){
@@ -43,6 +43,7 @@ class LeafletMap extends React.Component {
         rank: newProps.rank
       })
     }
+
   }
 
   handleMapClick(e){
@@ -89,8 +90,8 @@ class LeafletMap extends React.Component {
     bounds = L.latLngBounds(southWest, northEast);
 
     const blue_gradient = {
-      0.1: 'rgba(213,62,79,.1)', 0.2: 'rgba(252,141,89,.08)', 0.4: 'rgba(254,224,139,.06)',
-      0.6: 'rgba(230,245,152,.04)', 0.8: 'rgba(153,213,148,.02)', 1.0: 'rgba(50,136,18,.01)',
+      0.1: 'rgba(213,62,79,.01)', 0.2: 'rgba(252,141,89,.02)', 0.4: 'rgba(254,224,139,.04)',
+      0.6: 'rgba(230,245,152,.06)', 0.8: 'rgba(153,213,148,.08)', 1.0: 'rgba(50,136,18,.1)',
     };
 
     const red_gradient = {
@@ -142,7 +143,6 @@ class LeafletMap extends React.Component {
       const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, this.state.restaurantFavorabilityScore]))
       const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, this.state.crimeFavorabilityScore]))
       let gradients = [blue_gradient, red_gradient]
-
       return (
         <div className="map-container">
           <Map
