@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { DragDropContextProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import { Button, Panel, Glyphicon } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 import CategoriesToCalc from './categories_to_calc';
 import CategoriesToChoose from './categories_to_choose';
 import Box from './box';
@@ -33,15 +31,13 @@ export default class SideBar extends Component {
           <Glyphicon glyph={`chevron-${this.state.open ? 'right' : 'left'}`} />
         </Button>
         <div className="sidebar" style={ sidebarStyle() }>
-          <DragDropContextProvider backend={HTML5Backend}>
-            <div className="drag-area-container">
-              <CategoriesToCalc
-                allowedDropEffect="move"
-                updateRank={this.props.updateRank} />
-              <CategoriesToChoose
-                allowedDropEffect="move"/>
-            </div>
-          </DragDropContextProvider>
+          <div className="drag-area-container">
+            <CategoriesToCalc
+              allowedDropEffect="move"
+              updateRank={this.props.updateRank} />
+            <CategoriesToChoose
+              allowedDropEffect="move"/>
+          </div>
         </div>
       </div>
     );
