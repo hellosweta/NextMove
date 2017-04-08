@@ -6,10 +6,15 @@
   "directories": {
     "doc": "docs"
   },
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
-    "start": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -31,6 +36,7 @@
     "leaflet": "^1.0.3",
     "lodash.merge": "^4.6.0",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.8",
     "react-dnd": "^2.3.0",
     "react-dnd-html5-backend": "^2.3.0",
     "react-dom": "^15.4.2",

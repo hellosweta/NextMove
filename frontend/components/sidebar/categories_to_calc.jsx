@@ -1,22 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { DropTarget } from 'react-dnd';
+import { Button } from 'react-bootstrap';
 import ItemTypes from './item_types';
 import merge from 'lodash.merge';
 import Box from './box';
-
-
-const style = {
-  height: '20vw',
-  width:  '30vw',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  color: 'white',
-  padding: '1rem',
-  textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
-};
 
 const boxTarget = {
   drop(props, monitor, component) {
@@ -70,11 +57,11 @@ class Dustbin extends Component {
   sendRankUpdate(e){
     let rank = this.state.rank.map(rank =>{
       switch (rank) {
-        case 'Crime':
+        case 'Safety':
         return 'crimes'
-        case 'TransitStops':
+        case 'Public Transit':
         return 'transitStops'
-        case 'Restaurant':
+        case 'Restaurants':
           return 'restaurants'
         default:
       }
@@ -93,10 +80,10 @@ class Dustbin extends Component {
       backgroundColor = 'darkkhaki';
     }
 
-    let currnetRank = <ul>
+    let currentRank = <ul className="all-categories-container">
       {this.state.rank.map((category,id) => {
         return(
-          <li key= {id}>
+          <li key= {id} className="category-container">
               <Box name={category}
                    removeRank={this.removeRank}
                    iCameFrom={'calc Dustbin'}/>
@@ -108,15 +95,18 @@ class Dustbin extends Component {
 
 
     return connectDropTarget(
-      <div style={merge({},style,{backgroundColor})}>
-      <div >
-        {isActive ?
-          'Release to drop' :
-          'Drag a category here'
-        }
-      </div>
-        { currnetRank }
-      <button onClick={this.sendRankUpdate}>Calculate</button>
+      <div className="drag-area">
+        <h1>
+          {isActive ?
+            'Drop Here' :
+            'Displayed on Map'
+          }
+        </h1>
+          { currentRank }
+        <Button
+          bsStyle="success"
+          onClick={this.sendRankUpdate}>
+          Calculate</Button>
       </div>
     );
   }
