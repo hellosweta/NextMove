@@ -21,19 +21,16 @@ export default class SideBar extends Component {
       if (this.state.open) {
         return { width: 300 + 'px' };
       } else {
-        return { width: 0, display: 'block' };
+        return { width: 0 };
       }
     };
-
-    // const sidebarStyle = { width: sidebarWidth() };
-
 
     return (
       <div className="sidebar-container">
         <Button
           className="sidebar-button"
           onClick={ () => this.setState({ open: !this.state.open }) }>
-          <Glyphicon glyph="chevron-right" />
+          <Glyphicon glyph={`chevron-${this.state.open ? 'right' : 'left'}`} />
         </Button>
         <div className="sidebar" style={ sidebarStyle() }>
           <DragDropContextProvider backend={HTML5Backend}>
