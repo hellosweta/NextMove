@@ -32,9 +32,9 @@ class LeafletMap extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.requestAllRestaurants();
-    // this.props.requestAllCrimes();
-    // this.props.requestAllTransit();
+    this.props.requestAllRestaurants();
+    this.props.requestAllCrimes();
+    this.props.requestAllTransit();
   }
 
   componentWillReceiveProps(newProps){
