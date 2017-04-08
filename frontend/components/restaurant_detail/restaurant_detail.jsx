@@ -9,9 +9,7 @@ class RestaurantDetail extends React.Component{
           data: [
               { xValue: 'Indian', yValue: 5 },
               { xValue: "Ethiopian", yValue: 1 },
-              { xValue: "Italian", yValue: 12 },
-              { xValue: "Mexican", yValue: 20 },
-              { xValue: "FastFood", yValue: 25 },
+      
           ]
       };
   }
