@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import { DropTarget } from 'react-dnd';
 import { Button } from 'react-bootstrap';
 import ItemTypes from './item_types';
@@ -14,10 +15,61 @@ const boxTarget = {
       // add the leading category from the calc bin to the choose bin
       source.component.props.addToChooseRank(CalcStateRank[1]);
     }
+
+    // this where we add the box
     component.addToRank(monitor.getItem().name);
+
+
+    // below is where we check if the boxes need to be shuffled
+
+    // don't shuffle if the source of the box is choose Dustbin
+    if (source.component.props.iCameFrom === 'choose Dustbin') return;
+    const dragitem = monitor.getItem().name;
+    const hoverIndex = component.state.rank.indexOf(dragitem);
+
+    // Determine rectangle on screen
+    const hoverBoundingRect = findDOMNode(component).getBoundingClientRect();
+    // Get vertical middle
+    const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+
+    // Determine mouse position
+    const clientOffset = monitor.getClientOffset();
+
+    // Get pixels to the top
+    const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+
+    // Only perform the move when the mouse has crossed half of the items height
+    // When dragging downwards, only move when the item it at index 0
+    // When dragging upwards,  only move when the item it at index 1
+    //
+
+    if (hoverIndex === -1 ) return {
+                                name: `calc Dustbin`,
+                                allowedDropEffect: props.allowedDropEffect,
+                              };
+    // Dragging downwards
+    if ( hoverIndex === 1 && hoverClientY < 0) {
+      return {
+        name: `calc Dustbin`,
+        allowedDropEffect: props.allowedDropEffect,
+      };
+    }
+
+    // Dragging upwards
+    if (hoverIndex === 0 && hoverClientY > hoverMiddleY * 2) {
+      return {
+        name: `calc Dustbin`,
+        allowedDropEffect: props.allowedDropEffect,
+      };
+    }
+
+
+    // Time to actually perform the action
+    component.moveBox(dragitem, hoverIndex);
+
     return {
       name: `calc Dustbin`,
-        allowedDropEffect: props.allowedDropEffect,
+      allowedDropEffect: props.allowedDropEffect,
     };
   },
 };
@@ -28,6 +80,16 @@ class Dustbin extends Component {
     this.state={ rank: []}
     this.removeRank = this.removeRank.bind(this);
     this.sendRankUpdate = this.sendRankUpdate.bind(this);
+  }
+
+  moveBox(dragitem, hoverIndex) {
+    let rank = this.state.rank;
+    if((hoverIndex === 1 || hoverIndex === 0 )&& rank[hoverIndex] === dragitem ){
+      let temp = rank[0]
+      rank[0] =rank[1]
+      rank[1] = temp;
+      this.setState({rank})
+    }
   }
 
   addToRank(name){
@@ -53,6 +115,8 @@ class Dustbin extends Component {
     }
     this.setState({rank})
   }
+
+
 
   sendRankUpdate(e){
     let rank = this.state.rank.map(rank =>{
