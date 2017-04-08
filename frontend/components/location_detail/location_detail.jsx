@@ -69,25 +69,43 @@ class LocationDetail extends React.Component{
   }
 
   render(){
-    if (!(this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant)) {
-      return <div>I AM LOADING</div>;
-    } else {
-      return (
-        <div className="all-charts-container">
-          <div className="chart-container bubble-chart">
-            <h2 className='chart-header'>Current Chart</h2>
-            <Chart
-                goToCategory = {this.goToCategory()}
-                type={"bubble"}
-                diameter={500}
-                showTooltips={true}
-                data={this.state.data}
-            />
+
+
+
+    const loadingBar = () => {
+      if (!(this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant)) {
+        return (
+          <div className="loading-bar">
+            <div className="load-wrapp">
+              <div className="load-3">
+                <p>Calculating...</p>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+              </div>
+            </div>
+            <div className="clear"></div>
           </div>
-          { this.props.children }
+        );
+      }
+    };
+
+    return (
+      <div className="all-charts-container">
+        { loadingBar() }
+        <div className="chart-container bubble-chart">
+          <h2 className='chart-header'>Current Chart</h2>
+          <Chart
+              goToCategory = {this.goToCategory()}
+              type={"bubble"}
+              diameter={500}
+              showTooltips={true}
+              data={this.state.data}
+          />
         </div>
-      );
-    }
+        { this.props.children }
+      </div>
+    );
   }
 }
 
