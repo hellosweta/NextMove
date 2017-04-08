@@ -36,9 +36,9 @@ class LeafletMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    if (newProps.rank != this.props.rank) {
+    if (newProps.ranks.length > 0 || newProps.ranks != this.state.ranks) {
       this.setState({
-        rank: newProps.rank
+        ranks: newProps.ranks
       })
     }
 
@@ -56,14 +56,34 @@ class LeafletMap extends React.Component {
     this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
     this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
     this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+    this.setState({
+      clicked: false,
+    })
     let target = $('.bubble-chart');
     $('html, body').animate({
       scrollTop: target.offset().top
     }, 500);
   }
 
-  renderHeatmap(rank, gradients){
-    let layers = rank.map((rank, idx) => {
+  renderHeatmap(ranks){
+    const blue_gradient = {
+      0.1: 'rgba(213,62,79,.01)', 0.2: 'rgba(252,141,89,.02)', 0.4: 'rgba(254,224,139,.04)',
+      0.6: 'rgba(230,245,152,.06)', 0.8: 'rgba(153,213,148,.08)', 1.0: 'rgba(50,136,18,.1)',
+    };
+
+    const red_gradient = {
+      0.1: 'rgba(50,136,18,.01)', 0.2: 'rgba(153,213,148,.02)', 0.4: 'rgba(230,245,152,.04)',
+      0.6: 'rgba(254,224,139,.06)', 0.8: 'rgba(252,141,89,.08)', 1.0: 'rgba(213,62,79,.1)',
+    };
+    let gradients;
+    
+    if (ranks.length > 1) {
+      gradients = [blue_gradient, red_gradient]
+    }else{
+      gradients = [red_gradient]
+    }
+
+    let layers = ranks.map((rank, idx) => {
       return(<HeatmapLayer
         key={idx}
         points={rank}
@@ -87,15 +107,7 @@ class LeafletMap extends React.Component {
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
 
-    const blue_gradient = {
-      0.1: 'rgba(213,62,79,.01)', 0.2: 'rgba(252,141,89,.02)', 0.4: 'rgba(254,224,139,.04)',
-      0.6: 'rgba(230,245,152,.06)', 0.8: 'rgba(153,213,148,.08)', 1.0: 'rgba(50,136,18,.1)',
-    };
 
-    const red_gradient = {
-      0.1: 'rgba(50,136,18,.01)', 0.2: 'rgba(153,213,148,.02)', 0.4: 'rgba(230,245,152,.04)',
-      0.6: 'rgba(254,224,139,.06)', 0.8: 'rgba(252,141,89,.08)', 1.0: 'rgba(213,62,79,.1)',
-    };
     // 213,62,79
     // 252,141,89
     // 254,224,139
@@ -125,11 +137,14 @@ class LeafletMap extends React.Component {
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
+    const popup = L.popup(
+
+    )
     const marker = this.state.clicked ? (
      <Marker position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
-        <Popover id="popover-positioned-top" title="Popover top">
-          <strong>Holy guacamole!</strong> Click for more detail.
-        </Popover>
+      <Popup>
+        <span className="marker-content">A pretty CSS3 popup.<br/>Easily customizable.</span>
+      </Popup>
      </Marker>
    ) : null
 
@@ -140,7 +155,10 @@ class LeafletMap extends React.Component {
       const transitStops = this.props.allTransit.map(el => ([el.stop_lat, el.stop_lon, this.state.transitFavorabilityScore]))
       const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, this.state.restaurantFavorabilityScore]))
       const crimes = this.props.allCrimes.map(el => ([el.lat, el.lon, this.state.crimeFavorabilityScore]))
-      let gradients = [blue_gradient, red_gradient]
+      let data;
+      if (this.state.ranks) {
+        data = this.state.ranks.map((rank) => eval(rank));
+      }
       return (
         <div className="map-container">
           <Map
@@ -149,9 +167,9 @@ class LeafletMap extends React.Component {
             zoom={3}
             bounds={bounds}
             onClick={this.handleMapClick}
-            scrollWheelZoom= {this.state.clicked}>
+            scrollWheelZoom={this.state.clicked}>
 
-            {this.state.rank ? this.renderHeatmap([eval(this.state.rank[0]), eval(this.state.rank[0])], gradients): null}
+            {this.state.ranks ? this.renderHeatmap(data): null}
 
 
             <TileLayer
