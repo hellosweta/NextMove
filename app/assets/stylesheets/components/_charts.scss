@@ -1,8 +1,15 @@
 .all-charts-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 20px;
+  margin: 20px;
+  padding: 5px;
+  background: $grey;
+  border-radius: 2px;
+  align-self: center;
+  font-family: $lato;
+  width: auto;
 }
 
 .chart-container {
@@ -10,16 +17,28 @@
   flex-direction: column;
   align-items: center;
 
-  padding: 20px;
-  border: 1px solid gray;
-  border-radius: 5px;
+  background: whitesmoke;
 
- -moz-box-shadow:    inset 0 0 10px #000000;
- -webkit-box-shadow: inset 0 0 10px #000000;
- box-shadow:         inset 0 0 10px #000000;
+  padding: 20px;
+  border-radius: 2px;
+  margin: 5px;
+
+ // -moz-box-shadow:    inset 0 0 10px #000000;
+ // -webkit-box-shadow: inset 0 0 10px #000000;
+ // box-shadow:         inset 0 0 10px #000000;
 }
 
 .chart-header {
+  font-family: $questrial;
   font-weight: bold;
   font-size: 20px;
+}
+
+.chart {
+  font-family: $lato;
+  text-transform: uppercase;
+}
+
+.bar {
+  fill: $teal;
 }
