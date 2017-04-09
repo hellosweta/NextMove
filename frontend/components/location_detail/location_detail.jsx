@@ -22,12 +22,21 @@ class LocationDetail extends React.Component{
     this.goToCategory = this.goToCategory.bind(this);
   }
 
-  componentWillReceiveProps(newProps){
-    if (this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant) {
+    if (
+      this.state.receivedCrime &&
+      this.state.receivedTransit &&
+      this.state.receivedRestaurant
+    ) {
       this.setState({
         receivedCrime: false,
         receivedTransit: false,
-        receivedRestaurant: false,
+        receivedRestaurant: false
+      });
+    } else if (nextProps.location.pathname !== "/search") {
+      this.setState({
+        receivedCrime: true,
+        receivedTransit: true,
+        receivedRestaurant: true
       });
     }
 
@@ -36,16 +45,16 @@ class LocationDetail extends React.Component{
     let restaurant = this.state.data.children[2].value
     let type;
 
-    if (this.props.filteredCrimes.length !== newProps.filteredCrimes.length){
-      crime = newProps.filteredCrimes.length;
+    if (this.props.filteredCrimes.length !== nextProps.filteredCrimes.length){
+      crime = nextProps.filteredCrimes.length;
       type = 'receivedCrime';
     }
-    else if (this.props.filteredTransit.length !== newProps.filteredTransit.length){
-      transit = newProps.filteredTransit.length;
+    else if (this.props.filteredTransit.length !== nextProps.filteredTransit.length){
+      transit = nextProps.filteredTransit.length;
       type = 'receivedTransit';
     }
-    else if (this.props.filteredRestaurants.length !== newProps.filteredRestaurants.length){
-      restaurant = newProps.filteredRestaurants.length;
+    else if (this.props.filteredRestaurants.length !== nextProps.filteredRestaurants.length){
+      restaurant = nextProps.filteredRestaurants.length;
       type = 'receivedRestaurant';
     }
 

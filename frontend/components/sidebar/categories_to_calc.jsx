@@ -119,18 +119,20 @@ class Dustbin extends Component {
 
 
   sendRankUpdate(e){
-    let rank = this.state.rank.map(rank =>{
-      switch (rank) {
-        case 'Safety':
-        return 'crimes'
-        case 'Public Transit':
-        return 'transitStops'
-        case 'Restaurants':
+    if (this.state.rank.length){
+      let rank = this.state.rank.map(rank =>{
+        switch (rank) {
+          case 'Safety':
+          return 'crimes'
+          case 'Public Transit':
+          return 'transitStops'
+          case 'Restaurants':
           return 'restaurants'
-        default:
-      }
-    })
-    this.props.updateRank(rank);
+          default:
+        }
+      })
+      this.props.updateRank(rank);
+    }
   }
 
   render() {
@@ -144,18 +146,26 @@ class Dustbin extends Component {
       backgroundColor = 'darkkhaki';
     }
 
-    let currentRank = <ul className="all-categories-container">
-      {this.state.rank.map((category,id) => {
-        return(
-          <li key= {id} className="category-container">
-              <Box name={category}
-                   removeRank={this.removeRank}
-                   iCameFrom={'calc Dustbin'}/>
-          </li>
-        )
-      }
-      )}
-    </ul>
+    let currentRank;
+    if (this.state.rank.length){
+      currentRank =
+      <ul className="all-categories-container">
+        {this.state.rank.map((category,id) => {
+          return(
+            <li key= {id} className="category-container">
+                <Box name={category}
+                     removeRank={this.removeRank}
+                     iCameFrom={'calc Dustbin'}/>
+            </li>
+          )
+        }
+        )}
+      </ul>
+    }else{
+      currentRank =
+          <p>Please drag categories here</p>
+    }
+
 
 
     return connectDropTarget(
