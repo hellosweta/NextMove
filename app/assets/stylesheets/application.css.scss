@@ -13,9 +13,13 @@
 
  *= require_self
  */
-@import "./reset.scss";
-@import "./header.scss";
-@import "./map.scss";
-@import "./sidebar.scss";
-@import "./draggable.scss";
-@import "./charts.scss";
+
+// Reset
+  @import "base/reset.scss";
+
+// Core
+  @import "base/palette.scss";
+  @import "base/fonts.scss";
+
+// Components
+  @import "components/*";

@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { DragDropContextProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { Popover } from 'react-bootstrap';
@@ -57,17 +59,26 @@ class LeafletMap extends React.Component {
   }
 
   handleMarkerClick(e){
-    hashHistory.push('/search')
-    this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-    this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-    this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-    this.setState({
-      clicked: false,
-    })
-    let target = $('.bubble-chart');
-    $('html, body').animate({
-      scrollTop: target.offset().top
-    }, 500);
+    // if (
+    //   this.state.clickLatLng.lat < 37.723597 ||
+    //   this.state.clickLatLng.lat > 37.807155 ||
+    //   this.state.clickLatLng.lng < -122.521630 ||
+    //   this.state.clickLatLng.lng > -122.351775
+    // ) {
+    //   window.alert('OUTSIDE OF BOUNDS');
+    // } else {
+      hashHistory.push('/search')
+      this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+      this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+      this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+      this.setState({
+        clicked: false,
+      })
+      let target = $('.bubble-chart');
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 500);
+    // }
   }
 
   renderHeatmap(ranks){
@@ -206,8 +217,7 @@ class LeafletMap extends React.Component {
           <Map
             style={{height: "100vh"}}
             center={position}
-            zoom={3}
-            bounds={bounds}
+            zoom={13}
             onClick={this.handleMapClick}
             scrollWheelZoom={this.state.clicked}>
 
@@ -218,8 +228,10 @@ class LeafletMap extends React.Component {
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
             {marker}
           </Map>
+          <DragDropContextProvider backend={HTML5Backend}>
+            <SideBarContainer />
+          </DragDropContextProvider>
 
-          <SideBarContainer />
         </div>
       );
     }

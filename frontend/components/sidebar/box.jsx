@@ -9,14 +9,15 @@ const boxSource = {
     };
   },
 
-  endDrag(props, monitor) {
+  endDrag(props, monitor, component) {
    const item = monitor.getItem();
    const dropResult = monitor.getDropResult();
-   if(dropResult && props.iCameFrom !==dropResult.name){
-     props.removeRank(props.name);
+   if(dropResult && props.iCameFrom !== dropResult.name){
+     props.removeRank(props.name, props.iCameFrom);
    }
  },
 };
+
  class Box extends Component {
 
   render() {

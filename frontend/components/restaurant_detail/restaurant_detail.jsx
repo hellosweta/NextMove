@@ -15,32 +15,32 @@ class RestaurantDetail extends React.Component{
 
   componentDidMount(){
     if(Object.keys(this.props.filteredRestaurants).length){
-      let data = this.getData(this.props.filteredRestaurants)
+      let data = this.getData(this.props.filteredRestaurants);
       this.setState({data});
     }
   }
 
   componentWillReceiveProps(newProps){
     if(Object.keys(newProps.filteredRestaurants).length){
-      let data = this.getData(newProps.filteredRestaurants)
+      let data = this.getData(newProps.filteredRestaurants);
       this.setState({data});
     }
   }
   getData(filteredData){
-    let aggrigate = {}
+    let aggrigate = {};
     filteredData.forEach((restaurant) =>{
-      let category = restaurant.rating
+      let category = restaurant.rating;
       if (aggrigate[category]){
-        aggrigate[category] = aggrigate[category] + 1
+        aggrigate[category] = aggrigate[category] + 1;
       }else {
-        aggrigate[category] = 1
+        aggrigate[category] = 1;
       }
-    })
+    });
 
     let data = [];
     Object.entries(aggrigate).forEach((category)=> {
-      data.push({xValue: category[0], yValue: category[1] })
-    })
+      data.push({xValue: category[0], yValue: category[1] });
+    });
 
     data.sort((a,b) => b.xValue - a.xValue);
     return data;
@@ -50,7 +50,7 @@ class RestaurantDetail extends React.Component{
     return (
     <div>
       <div className='chart-container bar-chart'>
-          <h2 className='chart-header'>Restaurant Rating</h2>
+          <h2 className='chart-header'>Restaurant Ratings</h2>
           <Chart
               type={"bar"}
               width={500}
