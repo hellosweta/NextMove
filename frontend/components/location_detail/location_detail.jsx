@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from "d3";
 import Chart from '../../../assets/vendors/d3act/Chart';
 import { hashHistory } from 'react-router';
-import merge from 'lodash.merge'
+import merge from 'lodash.merge';
 
 class LocationDetail extends React.Component{
   constructor(props) {
@@ -35,7 +35,6 @@ class LocationDetail extends React.Component{
     let transit = this.state.data.children[1].value
     let restaurant = this.state.data.children[2].value
     let type;
-    // debugger;
 
     if (this.props.filteredCrimes.length !== newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
@@ -106,14 +105,14 @@ class LocationDetail extends React.Component{
       <div className="all-charts-container">
         { loadingBar() }
         <div className="chart-container bubble-chart">
-          <h2 className='chart-header'>Current Chart</h2>
-          <Chart
-              goToCategory = {this.goToCategory()}
-              type={"bubble"}
-              diameter={500}
-              showTooltips={true}
-              data={this.state.data}
-          />
+            <h2 className='chart-header'>Location Breakdown</h2>
+            <Chart
+                goToCategory = {this.goToCategory()}
+                type={"bubble"}
+                diameter={500}
+                showTooltips={true}
+                data={this.state.data}
+            />
         </div>
         { this.props.children }
       </div>

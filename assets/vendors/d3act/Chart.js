@@ -10,30 +10,30 @@ export default class Chart extends React.Component {
         super(props);
 
         this.chartToClassMappings = {
-            bubble: BubbleChart,
-            bar: BarChart,
-            pie: PieChart
+          bubble: BubbleChart,
+          bar: BarChart,
+          pie: PieChart
         };
     }
 
     componentDidMount() {
-        if (Object.keys(this.props.data).length === 0) {
-            return;
-        }
+      if (Object.keys(this.props.data).length === 0) {
+          return;
+      }
 
-        const el = findDOMNode(this);
+      const el = findDOMNode(this);
 
-        if (this.props.type === "custom") {
-            this.chart = new this.props.customChart(el, this.props);
-        } else {
-            this.chart = new this.chartToClassMappings[this.props.type](el, this.props);
-        }
+      if (this.props.type === "custom") {
+          this.chart = new this.props.customChart(el, this.props);
+      } else {
+          this.chart = new this.chartToClassMappings[this.props.type](el, this.props);
+      }
 
-        this.chart.create(this.props.data);
+      this.chart.create(this.props.data);
     }
 
     componentDidUpdate() {
-        this.chart.update(this.props.data);
+      this.chart.update(this.props.data);
     }
 
     componentWillUnmount() {
