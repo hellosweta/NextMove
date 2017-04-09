@@ -73,8 +73,7 @@ export default class BarChart extends BaseChart {
             .attr("height", d => { return this.props.height - this.y(d.yValue); })
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
-            .on("mouseout", this.onMouseOut.bind(this))
-            .style("fill", 'steelblue')
+            .on("mouseout", this.onMouseOut.bind(this));
 
 
         this.svg.selectAll("path")
@@ -105,8 +104,7 @@ export default class BarChart extends BaseChart {
         .enter().append("rect")
             .on("mouseover", this.onMouseOver.bind(this))
             .on("mousemove", this.onMouseMove.bind(this))
-            .on("mouseout", this.onMouseOut.bind(this))
-            .style("fill", 'steelblue')
+            .on("mouseout", this.onMouseOut.bind(this));
 
         this.svg.selectAll("rect")
             .data(data)

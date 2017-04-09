@@ -26,7 +26,10 @@ export default class BaseChart {
 
     // Overwrite this function to apply your own color scheme
     getColor(range = 10) {
-        return d3.scaleSequential(d3.interpolateRainbow).domain([0,range]);
+      return d3.scaleOrdinal()
+        .domain([0, 1, 2, 3])
+        .range(['#FFA630', '#CCD749', '#C1607D', '#4CBFBF']);
+        // return d3.scaleSequential(d3.interpolateRainbow).domain([0,range]);
         // return d3.scaleOrdinal(d3.schemeCategory20c);
     }
 
