@@ -3,7 +3,8 @@ require 'http'
 
 class Api::YelpController < ApplicationController
   def index
-    @locations = get_locations(search_params)['businesses']
+    @bearer_token = bearer_token
+    @locations = get_locations(search_params)
     render :index
   end
 
@@ -16,7 +17,8 @@ class Api::YelpController < ApplicationController
       radius: params[:radius].to_i,
       term: params[:term],
       limit: 50,
-      sort_by: 'distance'
+      sort_by: 'distance',
+      offset: 0
     }
   end
 
@@ -35,8 +37,14 @@ class Api::YelpController < ApplicationController
 
   def get_locations(query)
     url = "https://api.yelp.com/v3/businesses/search"
-    response = HTTP.auth(bearer_token).get(url, params: query)
-    response.parse
+    results = []
+    5.times do |i|
+      response = HTTP.auth(@bearer_token).get(url, params: query)
+      results += response.parse["businesses"]
+      query[:offset] += 50
+    end
+
+    results
   end
 
 end
