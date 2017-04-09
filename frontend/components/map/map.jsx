@@ -111,7 +111,6 @@ class LeafletMap extends React.Component {
       gradients = this.state.ranks.map((rank, idx) =>
         gradientKey[rank]
       )
-      debugger;
       return (
         ranks.reverse().map((rank, idx) => (<HeatmapLayer
         key={idx}
