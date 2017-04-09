@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   allRestaurants: state.allRestaurants,
   allCrimes: state.allCrimes,
   allTransit: state.allTransit.bartStops.concat(state.allTransit.sfmtaStops),
-  rank: state.rank,
+  ranks: state.rank,
   ownProps: ownProps,
 })};
 
