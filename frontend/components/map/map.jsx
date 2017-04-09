@@ -89,12 +89,12 @@ class LeafletMap extends React.Component {
       0.6: 'rgba(120, 198, 121, .06)', 0.8: 'rgba(49, 163, 84, .08)', 1.0: 'rgba(0, 104, 55, .1)',
     };
     const purple_gradient = {
-      0.1: 'rgba(254,235,226, .04)', 0.2: 'rgba(252,197,192, .04)', 0.4: 'rgba(250,159,181,.04)',
-      0.6: 'rgba(247,104,161,.06)', 0.8: 'rgba(197,27,138,.08)', 1.0: 'rgba(122,1,119,.1)',
+      0.1: 'rgba(179,88,6, .1)', 0.2: 'rgba(241,163,64, .1)', 0.4: 'rgba(247,159,26,.1)',
+      0.6: 'rgba(216,218,235,.1)', 0.8: 'rgba(153,142,195,.1)', 1.0: 'rgba(84,39,136,.1)',
     };
     const red_gradient = {
-      0.1: 'rgba(254,229,217,.04)', 0.2: 'rgba(252,187,161,.04)', 0.4: 'rgba(252,146,114,.04)',
-      0.6: 'rgba(251,106,74,.06)', 0.8: 'rgba(222,45,38,.08)', 1.0: 'rgba(165,15,21,.2)',
+      0.1: 'rgba(255,255,178,.1)', 0.2: 'rgba(254,217,118,.1)', 0.4: 'rgba(254,178,76,.1)',
+      0.6: 'rgba(253,141,60,.06)', 0.8: 'rgba(240,59,32,.08)', 1.0: 'rgba(189,0,38,.2)',
     };
     const no_gradient = {
       0.1: 'rgba(0,0,0,0)', 1: 'rgba(0,0,0,0)'
@@ -111,6 +111,8 @@ class LeafletMap extends React.Component {
       gradients = this.state.ranks.map((rank, idx) =>
         gradientKey[rank]
       )
+      gradients = gradients.reverse();
+
       return (
         ranks.reverse().map((rank, idx) => (<HeatmapLayer
         key={idx}
