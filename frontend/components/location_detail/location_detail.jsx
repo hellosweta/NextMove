@@ -23,6 +23,7 @@ class LocationDetail extends React.Component{
   }
 
   componentWillReceiveProps(newProps){
+    
     if (this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant) {
       this.setState({
         receivedCrime: false,
