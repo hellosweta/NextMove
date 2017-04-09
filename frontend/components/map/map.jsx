@@ -36,12 +36,17 @@ class LeafletMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    if (newProps.ranks.length > 0 || newProps.ranks != this.state.ranks) {
+    if (newProps.ranks.length > 0 ) {
       this.setState({
-        ranks: newProps.ranks
+        ranks: newProps.ranks,
+        newRanks: false,
+      })
+    } else if (this.state.ranks && newProps.ranks != this.state.ranks) {
+      this.setState({
+        ranks: newProps.ranks,
+        newRanks: true,
       })
     }
-
   }
 
   handleMapClick(e){
@@ -66,25 +71,38 @@ class LeafletMap extends React.Component {
   }
 
   renderHeatmap(ranks){
-    const blue_gradient = {
-      0.1: 'rgba(213,62,79,.01)', 0.2: 'rgba(252,141,89,.02)', 0.4: 'rgba(254,224,139,.04)',
-      0.6: 'rgba(230,245,152,.06)', 0.8: 'rgba(153,213,148,.08)', 1.0: 'rgba(50,136,18,.1)',
+    // React.unmountComponentAtNode(document.getElementById('heatmap-0'));
+    // React.unmountComponentAtNode(document.getElementById('heatmap-1'));
+    const green_gradient = {
+      0.1: 'rgba(255, 255, 204, .04)', 0.2: 'rgba(217, 240, 163, .04)', 0.4: 'rgba(173, 221, 142, .04)',
+      0.6: 'rgba(120, 198, 121, .06)', 0.8: 'rgba(49, 163, 84, .08)', 1.0: 'rgba(0, 104, 55, .1)',
     };
-
+    const purple_gradient = {
+      0.1: 'rgba(254,235,226, .04)', 0.2: 'rgba(252,197,192, .04)', 0.4: 'rgba(250,159,181,.04)',
+      0.6: 'rgba(247,104,161,.06)', 0.8: 'rgba(197,27,138,.08)', 1.0: 'rgba(122,1,119,.1)',
+    };
     const red_gradient = {
-      0.1: 'rgba(50,136,18,.01)', 0.2: 'rgba(153,213,148,.02)', 0.4: 'rgba(230,245,152,.04)',
-      0.6: 'rgba(254,224,139,.06)', 0.8: 'rgba(252,141,89,.08)', 1.0: 'rgba(213,62,79,.1)',
+      0.1: 'rgba(254,229,217,.04)', 0.2: 'rgba(252,187,161,.04)', 0.4: 'rgba(252,146,114,.04)',
+      0.6: 'rgba(251,106,74,.06)', 0.8: 'rgba(222,45,38,.08)', 1.0: 'rgba(165,15,21,.2)',
     };
-    let gradients;
-    
-    if (ranks.length > 1) {
-      gradients = [blue_gradient, red_gradient]
-    }else{
-      gradients = [red_gradient]
-    }
+    const no_gradient = {
+      0.1: 'rgba(0,0,0,0)', 1: 'rgba(0,0,0,0)'
+    };
 
-    let layers = ranks.map((rank, idx) => {
-      return(<HeatmapLayer
+    const gradientKey = {
+      "crimes": red_gradient,
+      "restaurants": purple_gradient,
+      "transitStops": green_gradient,
+    }
+    let layers;
+    let gradients;
+    if (ranks.length > 1) {
+      gradients = this.state.ranks.map((rank, idx) =>
+        gradientKey[rank]
+      )
+      debugger;
+      return (
+        ranks.reverse().map((rank, idx) => (<HeatmapLayer
         key={idx}
         points={rank}
         radius={20}
@@ -92,15 +110,39 @@ class LeafletMap extends React.Component {
         longitudeExtractor={m => m[1]}
         latitudeExtractor={m => m[0]}
         intensityExtractor={m => parseFloat(m[2])}
-        blur={30}/>)
-    });
-    return layers;
+        blur={30}/>)))
+    } else if (ranks.length === 1) {
+      gradients = [no_gradient, gradientKey[this.state.ranks[0]]]
+      let data = [[37.796509, -122.453212, 0], ranks[0]]
+      return (
+        data.map((datum, idx) => (<HeatmapLayer
+        points={datum}
+        key={idx}
+        radius={20}
+        gradient={gradients[idx]}
+        longitudeExtractor={m => m[1]}
+        latitudeExtractor={m => m[0]}
+        intensityExtractor={m => parseFloat(m[2])}
+        blur={30}/>)))
+    }
+
+    // let layers = ranks.map((rank, idx) => {
+    //   return(<HeatmapLayer
+    //     key={idx}
+    //     id={`heatmap-${idx}`}
+    //     points={rank}
+    //     radius={20}
+    //     gradient={gradients[idx]}
+    //     longitudeExtractor={m => m[1]}
+    //     latitudeExtractor={m => m[0]}
+    //     intensityExtractor={m => parseFloat(m[2])}
+    //     blur={30}/>)
+    // });
+    // return layers;
   }
 
   render() {
-
     const position = [this.state.lat, this.state.lng];
-
   //  const norwest = "37.807155, -122.521630";
   //  const soueast = "37.723597, -122.351775";
     const southWest = L.latLng(37.74187, -122.47791),
@@ -169,8 +211,7 @@ class LeafletMap extends React.Component {
             onClick={this.handleMapClick}
             scrollWheelZoom={this.state.clicked}>
 
-            {this.state.ranks ? this.renderHeatmap(data): null}
-
+            {this.state.ranks || this.state.newRanks === true ? this.renderHeatmap(data) : null }
 
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
