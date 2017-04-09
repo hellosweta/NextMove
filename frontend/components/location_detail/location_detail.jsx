@@ -22,6 +22,7 @@ class LocationDetail extends React.Component{
     this.goToCategory = this.goToCategory.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
     if (
       this.state.receivedCrime &&
       this.state.receivedTransit &&
