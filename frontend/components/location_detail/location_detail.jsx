@@ -8,52 +8,102 @@ class LocationDetail extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-          data: {
-              children: [
-                  { name: "crime", value: 10 },
-                  { name: "transit", value: 10 },
-                  { name: "restaurant", value: 10 }
-              ]
-          }
-        };
+      receivedCrime: false,
+      receivedTransit: false,
+      receivedRestaurant: false,
+      data: {
+        children: [
+          { name: "crime", value: 10 },
+          { name: "transit", value: 10 },
+          { name: "restaurant", value: 10 }
+        ]
+      }
+    };
     this.goToCategory = this.goToCategory.bind(this);
   }
 
   componentWillReceiveProps(newProps){
-    let crime = this.state.data.children[0].value;
-    let transit = this.state.data.children[1].value;
-    let restaurant = this.state.data.children[2].value;
+    if (this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant) {
+      this.setState({
+        receivedCrime: false,
+        receivedTransit: false,
+        receivedRestaurant: false,
+      });
+    }
 
-    if(newProps.filteredCrimes.length){
+    let crime = this.state.data.children[0].value
+    let transit = this.state.data.children[1].value
+    let restaurant = this.state.data.children[2].value
+    let type;
+
+    if (this.props.filteredCrimes.length !== newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
+      type = 'receivedCrime';
     }
-    if(newProps.filteredTransit.length){
+    else if (this.props.filteredTransit.length !== newProps.filteredTransit.length){
       transit = newProps.filteredTransit.length;
+      type = 'receivedTransit';
     }
-    if(newProps.filteredRestaurants.length){
+    else if (this.props.filteredRestaurants.length !== newProps.filteredRestaurants.length){
       restaurant = newProps.filteredRestaurants.length;
+      type = 'receivedRestaurant';
     }
-    this.setState( {data: {
-        children: [
+
+    // debugger;
+    if (type) {
+      this.setState({
+        [type]: true,
+        data: {
+          children: [
             { name: "crime", value: crime },
             { name: "transit", value: transit },
             { name: "restaurant", value: restaurant }
           ]
         }
       });
+    }
   }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant) {
+  //     this.setState({
+  //       receivedCrime: false,
+  //       receivedTransit: false,
+  //       receivedRestaurant: false,
+  //     });
+  //   }
+  // }
 
   goToCategory(){
     let that = this;
-    return (category) =>{
+    return (category) => {
       if (that.props.location.pathname !== `/search/${category}`)
       hashHistory.push(`/search/${category}`);
     };
   }
 
   render(){
+    const loadingBar = () => {
+      if (!(this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant)) {
+        return (
+          <div className="loading-bar">
+            <div className="load-wrapp">
+              <div className="load-3">
+                <p>Calculating...</p>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+              </div>
+            </div>
+            <div className="clear"></div>
+          </div>
+        );
+      }
+    };
+
     return (
       <div className="all-charts-container">
+        { loadingBar() }
         <div className="chart-container bubble-chart">
             <h2 className='chart-header'>Location Breakdown</h2>
             <Chart
@@ -66,7 +116,7 @@ class LocationDetail extends React.Component{
         </div>
         { this.props.children }
       </div>
-  );
+    );
   }
 }
 
