@@ -54,14 +54,23 @@ class LeafletMap extends React.Component {
   }
 
   handleMarkerClick(e){
-    hashHistory.push('/search')
-    this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-    this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-    this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-    let target = $('.bubble-chart');
-    $('html, body').animate({
-      scrollTop: target.offset().top
-    }, 500);
+    // if (
+    //   this.state.clickLatLng.lat < 37.723597 ||
+    //   this.state.clickLatLng.lat > 37.807155 ||
+    //   this.state.clickLatLng.lng < -122.521630 ||
+    //   this.state.clickLatLng.lng > -122.351775
+    // ) {
+    //   window.alert('OUTSIDE OF BOUNDS');
+    // } else {
+      hashHistory.push('/search')
+      this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+      this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+      this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+      let target = $('.bubble-chart');
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 500);
+    // }
   }
 
   renderHeatmap(rank, gradients){
@@ -148,8 +157,7 @@ class LeafletMap extends React.Component {
           <Map
             style={{height: "100vh"}}
             center={position}
-            zoom={3}
-            bounds={bounds}
+            zoom={13}
             onClick={this.handleMapClick}
             scrollWheelZoom= {this.state.clicked}>
 

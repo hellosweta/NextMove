@@ -23,10 +23,19 @@ class LocationDetail extends React.Component{
   }
 
   componentWillReceiveProps(newProps){
+    if (this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant) {
+      this.setState({
+        receivedCrime: false,
+        receivedTransit: false,
+        receivedRestaurant: false,
+      });
+    }
+
     let crime = this.state.data.children[0].value
     let transit = this.state.data.children[1].value
     let restaurant = this.state.data.children[2].value
     let type;
+    // debugger;
 
     if (this.props.filteredCrimes.length !== newProps.filteredCrimes.length){
       crime = newProps.filteredCrimes.length;
@@ -56,8 +65,14 @@ class LocationDetail extends React.Component{
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant) {
+  //     this.setState({
+  //       receivedCrime: false,
+  //       receivedTransit: false,
+  //       receivedRestaurant: false,
+  //     });
+  //   }
   // }
 
   goToCategory(){
@@ -69,9 +84,6 @@ class LocationDetail extends React.Component{
   }
 
   render(){
-
-
-
     const loadingBar = () => {
       if (!(this.state.receivedCrime && this.state.receivedTransit && this.state.receivedRestaurant)) {
         return (
