@@ -85,16 +85,20 @@ class LeafletMap extends React.Component {
     // React.unmountComponentAtNode(document.getElementById('heatmap-0'));
     // React.unmountComponentAtNode(document.getElementById('heatmap-1'));
     const green_gradient = {
-      0.1: 'rgba(255, 255, 204, .04)', 0.2: 'rgba(217, 240, 163, .04)', 0.4: 'rgba(173, 221, 142, .04)',
-      0.6: 'rgba(120, 198, 121, .06)', 0.8: 'rgba(49, 163, 84, .08)', 1.0: 'rgba(0, 104, 55, .1)',
+      0.1: 'rgba(255, 255, 204, .2)', 0.2: 'rgba(217, 240, 163, .2)', 0.4: 'rgba(173, 221, 142, .2)',
+      0.6: 'rgba(120, 198, 121, .2)', 0.8: 'rgba(49, 163, 84, .2)', 1.0: 'rgba(0, 104, 55, .2)',
+    };
+    const blue_gradient = {
+      0.1: 'rgba(178,24,43, .2)', 0.2: 'rgba(239,138,98, .2)', 0.4: 'rgba(253,219,199, .2)',
+      0.6: 'rgba(209,229,240, .2)', 0.8: 'rgba(103,169,207, .2)', 1.0: 'rgba(33,102,172, .2)',
     };
     const purple_gradient = {
-      0.1: 'rgba(179,88,6, .1)', 0.2: 'rgba(241,163,64, .1)', 0.4: 'rgba(247,159,26,.1)',
-      0.6: 'rgba(216,218,235,.1)', 0.8: 'rgba(153,142,195,.1)', 1.0: 'rgba(84,39,136,.1)',
+      0.1: 'rgba(27,120,55, .2)', 0.2: 'rgba(127,191,123, .2)', 0.4: 'rgba(217,240,211, .2)',
+      0.6: 'rgba(231,212,232,.2)', 0.8: 'rgba(175,141,195,.2)', 1.0: 'rgba(118,42,131,.2)',
     };
     const red_gradient = {
-      0.1: 'rgba(255,255,178,.1)', 0.2: 'rgba(254,217,118,.1)', 0.4: 'rgba(254,178,76,.1)',
-      0.6: 'rgba(253,141,60,.06)', 0.8: 'rgba(240,59,32,.08)', 1.0: 'rgba(189,0,38,.2)',
+      0.1: 'rgba(26,152,80,.2)', 0.08: 'rgba(145,207,96,.2)', 0.4: 'rgba(230,245,152,.2)',
+      0.6: 'rgba(254, 224, 139,.2)', 0.8: 'rgba(244, 109, 46,.2)', 1.0: 'rgba(214, 14, 4,.2)',
     };
     const no_gradient = {
       0.1: 'rgba(0,0,0,0)', 1: 'rgba(0,0,0,0)'
@@ -103,7 +107,7 @@ class LeafletMap extends React.Component {
     const gradientKey = {
       "crimes": red_gradient,
       "restaurants": purple_gradient,
-      "transitStops": green_gradient,
+      "transitStops": blue_gradient,
     }
     let layers;
     let gradients;
