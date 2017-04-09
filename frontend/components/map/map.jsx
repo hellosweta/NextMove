@@ -29,6 +29,7 @@ class LeafletMap extends React.Component {
     this.handleMapClick = this.handleMapClick.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.renderHeatmap = this.renderHeatmap.bind(this);
+    this.renderLegend = this.renderLegend.bind(this);
   }
 
   componentDidMount(){
@@ -80,7 +81,13 @@ class LeafletMap extends React.Component {
       }, 500);
     // }
   }
-
+  renderLegend(){
+    // return [
+    //   <ul key="legend" className="legend">
+    //     <li>Public Transit</li>
+    //     <li><span></span></li>
+    //   </ul>]
+  }
   renderHeatmap(ranks){
     // React.unmountComponentAtNode(document.getElementById('heatmap-0'));
     // React.unmountComponentAtNode(document.getElementById('heatmap-1'));
@@ -205,6 +212,9 @@ class LeafletMap extends React.Component {
       </Popup>
      </Marker>
    ) : null
+    // const legend = this.state.ranks || this.state.newRanks === true ?
+    // (
+    //   ) : null
 
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
@@ -227,12 +237,21 @@ class LeafletMap extends React.Component {
             scrollWheelZoom={this.state.clicked}>
 
             {this.state.ranks || this.state.newRanks === true ? this.renderHeatmap(data) : null }
-
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
             {marker}
           </Map>
+          <div className="legend-box">
+            <ul key="legend" className="legend">
+              <li>Public Transit</li>
+              <li><span className="public-transit">"   "</span></li>
+              <li>Crime</li>
+              <li><span className="crime">"   "</span></li>
+              <li>Restaurants</li>
+              <li><span className="restaurants">"   "</span></li>
+            </ul>
+          </div>
           <DragDropContextProvider backend={HTML5Backend}>
             <SideBarContainer />
           </DragDropContextProvider>

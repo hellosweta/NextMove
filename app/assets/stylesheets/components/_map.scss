@@ -17,3 +17,18 @@
   width: 100%;
   position: relative;
 }
+.legend-box{
+  position: absolute;
+  bottom: 300px;
+  z-index: 400;
+
+}
+.legend {
+  display: flex;
+}
+.legend li{
+  display: inline-block;
+}
+#popover-positioned-top {
+  z-index: 400;
+}
