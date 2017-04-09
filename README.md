@@ -2,7 +2,7 @@
 
 [NextMoveSF][nextmovesf] is a data visualization tool that helps people pick the San Francisco neighborhood that's right for them. It utilizes React.js with a Redux implementation of Flux architecture on the frontend, and Ruby on Rails on the backend.
 
-![Splash page][splash-photo]
+![Map][map]
 
 ## Features
 
@@ -12,7 +12,7 @@
 + Additional data visualization charts and detailed breakdown for localized radius searches
 + Mobile friendly design with responsive layout
 
-![Interactive orbital map of our solar system][orbital-map-photo]
+![Data Charts][data-charts]
 
 ## Project Design
 
@@ -33,12 +33,10 @@ NextMoveSF is a single-page application built on Rails and React.js.
 + Migration of the backend from Rails to a more lightweight framework like Node.js.
 
 
-[nextmovesf]:
+[nextmovesf]: https://www.nextmovesf.info
 [proposal]: ./docs/README.md
 [components]: ./docs/component-hierarchy.md
 [wireframes]: ./docs/wireframes
 [technologies]: ./docs/technologies.md
-[splash-photo]:
-[orbital-map-photo]:
-[hosts-photo]:
-[host-detail-photo]:
+[splash-photo]: 
+[data-charts]:

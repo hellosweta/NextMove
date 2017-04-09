@@ -6,6 +6,18 @@ NextMoveSF runs on Ruby on Rails and is hosted on Heroku. The backend provides R
 
 NextMoveSF utilizes the React.js framework and follows Flux architecture to deliver a clean, efficient user experience.
 
+## Leaflet.js
+
+Leaflet.js was used to generate the lightweight and mobile-friendly map. The library's heat mapping tools were leveraged to dynamically update the mapped datasets in response to state changes initiated by the user. Leaflet's tools were customized in order to provide a simple drag-and-drop UI for interacting with multiple map overlays that we created.
+
+## D3.js
+
+D3.js was used to create the data visualizations for smaller areas (0.25 mile radius) chosen by the user. We set up a connection between the Leaflet map and the D3 visualization charts so that the user may click anywhere on the map to see a more detailed breakdown of the data within a 0.25 mile radius of that spot. The charts are responsive to user engagement and dynamically update in response to 
+
+## External API's
+
+The external API's used in this project were Socrata, BART.gov, SFMTA, Google Places, and Yelp Fusion. Socrata was used to access the enormous stores of open source data aggregated by SF OpenData. Custom SQL queries were crafted to parse the large body of crime and restaurant results returned by SF OpenData's responses.
+
 ## npm
 
 Node package manager (npm) installs and manages all frontend dependencies.
