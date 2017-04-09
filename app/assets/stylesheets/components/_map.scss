@@ -4,21 +4,16 @@
 }
 
 .leaflet-popup {
-  transform: translate3d(1093px, 378px, 0px)
+  transform: translate3d(1093px, 378px, 0px);
 }
-.leaflet-zoom-animated{
-  transform: translate3d(1093px, 378px, 0px)
 
-}
-.leaflet-popup-content-wrapper {
+
+.leaflet-popup.leaflet-zoom-animated {
   height: 24px;
+  bottom: 8px !important;
 }
 
 .map-container {
   width: 100%;
   position: relative;
-}
-
-#popover-positioned-top {
-  z-index: 400;
 }
