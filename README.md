@@ -31,7 +31,9 @@ NextMoveSF is a single-page application built on Rails and React.js.
 ## Future Directions
 
 + Migration of the backend from Rails to a more lightweight framework like Node.js.
-
++ Addition of more criteria such as Nightlife, Cost of Living, Microclimates, and access to Nature Areas.
++ Addition of more D3 visualization charts, such as pie charts or word clouds.
++ Scraping data for criteria that may not have existing API's (i.e., NextDoor, Craigslist)
 
 [nextmovesf]: https://www.nextmovesf.info
 [proposal]: ./docs/README.md
