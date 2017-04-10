@@ -40,5 +40,5 @@ NextMoveSF is a single-page application built on Rails and React.js.
 [components]: ./docs/component-hierarchy.md
 [wireframes]: ./docs/wireframes
 [technologies]: ./docs/technologies.md
-[splash-photo]:
-[data-charts]:
+[splash-photo]: ./docs/screenshots/map.png
+[data-charts]: ./docs/screenshots/location_breakdown.png
