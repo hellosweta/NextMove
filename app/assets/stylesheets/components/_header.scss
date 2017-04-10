@@ -1,29 +1,45 @@
 .header {
    position: relative;
-   height:60px;
+   height:100px;
    width:100%;
 
    background-color: white;
-   border-bottom: 1px solid black;
+   border-bottom: 1px solid $grey;
 
    display: flex;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
 }
-
-.header h1 {
-  font-family: 'Racing Sans One', cursive;
+.logo{
+  height: 140px;
+  padding: 15px 10px 10px;
+  margin-left: 20px;
+}
+.full-title{
+  display: flex;
+  padding: 0px 0px 5px 13px;
+}
+.title {
+  font-family: 'Poiret One', cursive;
   font-size: 40px;
+  position: relative;
+  display: flex;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+.title-SF{
+  font-family: 'Poiret One', cursive;
+  font-size: 40px;
+  font-weight: bold;
+
+  color: $orange;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-.logo-pt-1 {
-  color: rgb(76, 148, 182);
-}
-
-.logo-pt-2 {
-  color: rgb(237, 175, 89);
-}
-
-.logo-pt-3 {
-  color: rgb(173, 28, 70);
+.tagline {
+  font-family: 'Pacifico', cursive;
+  color: $teal;
+  font-size: 20px;
+  margin: 0px;
 }

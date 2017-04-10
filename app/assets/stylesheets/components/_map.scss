@@ -25,6 +25,8 @@
   left: 58px;
   z-index: 400;
   display: flex;
+  border: 2px solid $grey;
+  border-radius: 3px;
 }
 
 .legend {
@@ -39,7 +41,6 @@
 .legend li{
   display: inline-block;
   padding: 5px;
-  border: 1px solid gray;
   border-radius: 4px;
   margin: 0 4px;
 }
@@ -80,5 +81,5 @@
   padding: 8px 5px;
   color: $orange;
   font-weight: bold;
-  
+
 }
