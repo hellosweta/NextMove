@@ -17,7 +17,7 @@ const boxTarget = {
 class Dustbin extends Component {
   constructor(props){
     super(props)
-    this.state={ rank: ['Safety', 'Public Transit' ,'Restaurants']}
+    this.state={ rank: ['Crime', 'Public Transit' ,'Restaurants']}
 
     this.removeRank = this.removeRank.bind(this);
     this.addToChooseRank = this.addToChooseRank.bind(this);

@@ -32,9 +32,18 @@
   font-size: 15px;
   font-weight: bold;
 }
+
 .legend li{
   display: inline-block;
   padding: 5px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.legend span {
+  margin-left: 6px;
+  border-radius: 4px;
 }
 
 .public-transit {

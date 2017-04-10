@@ -244,12 +244,9 @@ class LeafletMap extends React.Component {
           </Map>
           <div className="legend-box">
             <ul key="legend" className="legend">
-              <li>Public Transit</li>
-              <li><span className="public-transit">"   "</span></li>
-              <li>Crime</li>
-              <li><span className="crime">"   "</span></li>
-              <li>Restaurants</li>
-              <li><span className="restaurants">"   "</span></li>
+              <li>Public Transit<span className="public-transit">"   "</span></li>
+              <li>Crime<span className="crime">"   "</span></li>
+              <li>Restaurants<span className="restaurants">"   "</span></li>
             </ul>
           </div>
           <DragDropContextProvider backend={HTML5Backend}>
