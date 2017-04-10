@@ -211,7 +211,7 @@ class LeafletMap extends React.Component {
      </Marker>
    )
     const hackyPopup = this.state.clicked ? (<ul>
-      <li className="hacky-popup">Click Marker for More Info!</li>
+      <li className="hacky-popup">Click Marker Location Breakdown!</li>
     </ul>)  : null
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
