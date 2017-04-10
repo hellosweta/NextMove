@@ -173,7 +173,7 @@ class Dustbin extends Component {
         <h1>
           {isActive ?
             'Drop Here' :
-            'Displayed on Map'
+            'Current Selection'
           }
         </h1>
           { currentRank }

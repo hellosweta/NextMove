@@ -12,7 +12,7 @@ const App = ({children}) =>{
         <div>
           <div className="full-title">
 
-            <h1 className="title">NextMove    <h1 className="title-SF">SF</h1></h1>
+            <h1 className="title">NextMove</h1><h1 className="title-SF">SF</h1>
 
           </div>
           <h4 className="tagline">Visualize Your Next Home</h4>

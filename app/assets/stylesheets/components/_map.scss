@@ -25,7 +25,6 @@
   left: 58px;
   z-index: 400;
   display: flex;
-  border: 2px solid $grey;
   border-radius: 3px;
 }
 
@@ -36,6 +35,7 @@
   border-radius: 3px;
   font-size: 15px;
   font-weight: bold;
+  border: 2px solid $grey;
 }
 
 .legend li{
@@ -77,8 +77,8 @@
   z-index: 400;
 }
 .hacky-popup{
-  font-size: 24px;
-  padding: 8px 5px;
+  font-size: 20px;
+  padding: 10px 5px;
   color: $orange;
   font-weight: bold;
 

@@ -219,7 +219,7 @@ class LeafletMap extends React.Component {
      </Marker>
    )
     const hackyPopup = this.state.clicked ? (<ul>
-      <li className="hacky-popup">Click Marker Location Breakdown!</li>
+      <li className="hacky-popup">Click Marker For Location Specific Data!</li>
     </ul>)  : null
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
@@ -232,7 +232,6 @@ class LeafletMap extends React.Component {
       if (this.state.ranks) {
         data = this.state.ranks.map((rank) => eval(rank));
       }
-      console.log(this.state.clicked);
       return (
         <div className="map-container">
           <Map
