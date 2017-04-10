@@ -34,7 +34,7 @@ NextMoveSF is a single-page application built on Rails and React.js.
 + Addition of more D3 visualization charts, such as pie charts or word clouds.
 + Scraping data for criteria that may not have existing API's (i.e., NextDoor, Craigslist)
 
-[nextmovesf]: https://www.nextmovesf.info
+[nextmovesf]: http://nextmovesf.info
 [proposal]: ./docs/README.md
 [components]: ./docs/component-hierarchy.md
 [wireframes]: ./docs/wireframes
