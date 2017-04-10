@@ -5,7 +5,6 @@ import { requestAllTransitData, requestFilteredTransitData } from '../../actions
 import Map from './map';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps.location);
   return({
   allRestaurants: state.allRestaurants,
   allCrimes: state.allCrimes,
