@@ -3,14 +3,16 @@
     width: 100%;
 }
 
-.leaflet-popup {
-  transform: translate3d(1093px, 378px, 0px);
+// .leaflet-popup {
+//   transform: translate3d(1093px, 378px, 0px);
+// }
+
+.leaflet-popup-content-wrapper{
+  height: 25px;
 }
-
-
 .leaflet-popup.leaflet-zoom-animated {
   height: 24px;
-  bottom: 8px !important;
+  bottom: 10px !important;
 }
 
 .map-container {
@@ -20,25 +22,28 @@
 .legend-box{
   position: absolute;
   top: 10px;
-  left: 58px;
+  left: 74px;
   z-index: 400;
+  display: flex;
+  border-radius: 3px;
 }
 
 .legend {
   display: flex;
   padding: 5px;
   margin: 5px;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bold;
+  background: white;
 }
 
 .legend li{
   display: inline-block;
   padding: 5px;
-  border: 1px solid gray;
   border-radius: 4px;
-  margin: 0 4px;
+  margin: 0 6px;
+  padding: 3px 0px 1px;
 }
 
 .legend span {
@@ -49,16 +54,35 @@
 .public-transit {
   background: rgb(33,102,172);
   color: rgb(33,102,172);
+  padding-right: 3px;
 }
 .restaurants{
   background: rgb(118,42,131);
   color: rgb(118,42,131);
+  padding-right: 3px;
 }
 
 .crime{
   background: rgb(214, 14, 4);
   color: rgb(214, 14, 4);
+  padding-right: 3px;
 }
-#popover-positioned-top {
+.marker-content{
+  z-index: 500;
+  background: blue;
+  border: 1px solid black;
+  height: 100px;
+}
+
+.popup{
   z-index: 400;
+}
+.marker{
+  z-index: 400;
+}
+.hacky-popup{
+  font-size: 20px;
+  padding: 10px 5px;
+  color: $orange;
+  font-weight: bold;
 }
