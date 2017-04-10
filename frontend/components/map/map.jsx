@@ -5,6 +5,8 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { Popover } from 'react-bootstrap';
+
+import {esri} from 'esri-leaflet-geocoder'
 import { hashHistory } from 'react-router';
 import SideBarContainer from '../sidebar/sidebar_container';
 
@@ -69,6 +71,16 @@ class LeafletMap extends React.Component {
     //   window.alert('OUTSIDE OF BOUNDS');
     // } else {
       hashHistory.push('/search')
+
+      // debugger;
+      // L.esri.Geocoding.reverseGeocode()
+      // .latlng([this.state.clickLatLng.lat, this.state.clickLatLng.lng])
+      // .run(function(error, result, response){
+      //   debugger;
+      // // callback is called with error, result, and raw response.
+      // // result.latlng contains the coordinates of the located address
+      // // result.address contains information about the match
+      // });
       this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
       this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
       this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);

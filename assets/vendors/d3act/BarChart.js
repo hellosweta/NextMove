@@ -15,7 +15,8 @@ export default class BarChart extends BaseChart {
     }
 
     createAxisX(x) {
-        return d3.axisBottom(x);
+        return d3.axisBottom(x).tickSize(0)
+;
     }
 
     createAxisY(y) {
@@ -52,11 +53,18 @@ export default class BarChart extends BaseChart {
         this.svg.append("g")
             .attr("class", "x axis")
             .attr("transform", `translate(0, ${this.props.height})`)
-            .call(xAxis);
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform",'translate(15,5)rotate(-20)');
 
         this.svg.append("g")
             .attr("class", "y axis")
+            .attr("transform", `translate(-1, 0)`)
             .call(yAxis)
+
         .append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 6)
@@ -65,6 +73,7 @@ export default class BarChart extends BaseChart {
 
         this.svg.selectAll(".bar")
             .data(data)
+
         .enter().append("rect")
             .attr("class", "bar")
             .attr("x", d => { return this.x(d.xValue); })
@@ -97,7 +106,13 @@ export default class BarChart extends BaseChart {
 
         // Let's update the x & y axis
         this.svg.selectAll("g.y.axis").call(updatedAxisY);
-        this.svg.selectAll("g.x.axis").call(updatedAxisX);
+        this.svg.selectAll("g.x.axis").call(updatedAxisX)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform",'translate(15,5)rotate(-20)');
+
 
         this.svg.selectAll(".bar")
             .data(data)

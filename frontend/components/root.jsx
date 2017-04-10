@@ -19,12 +19,14 @@ const Root = ({ store }) =>{
       <Router history= { hashHistory }>
         <Route path='/' component={ App }>
           <Route path='/search' component={ LocationDetailContainer }>
-            <Route path='/search/crime'
-              component={ CrimeDetailContainer } />
-            <Route path='/search/transit'
-               component={ TransitDetailContainer } />
-             <Route path='/search/restaurant'
-              component={ RestaurantDetailContainer } />
+            <div className='BarChart'>
+              <Route path='/search/crime'
+                component={ CrimeDetailContainer } />
+              <Route path='/search/transit'
+                component={ TransitDetailContainer } />
+              <Route path='/search/restaurant'
+                component={ RestaurantDetailContainer } />
+            </div>
           </Route>
         </Route>
       </Router>
