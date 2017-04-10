@@ -39,11 +39,24 @@
   font-size: 15px;
 }
 
-.drag-area:first-of-type {
-  border-bottom: 1px solid #d3d3d3;
+.drag-area:not(:first-of-type) {
+  border-top: 1px solid #d3d3d3;
 }
 
 .drag-area > h1 {
   font-size: 16px;
   font-weight: bold;
+}
+
+.pin-instructions {
+  padding: 0 20px 10px;
+}
+
+.pin-instructions > h1 {
+  line-height: 20px;
+}
+
+.btn-success{
+  background-color: $teal !important;
+  border-color: $teal !important;
 }
