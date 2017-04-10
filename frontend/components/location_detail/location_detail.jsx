@@ -59,6 +59,7 @@ class LocationDetail extends React.Component{
       type = 'receivedRestaurant';
     }
 
+    // debugger;
     if (type) {
       this.setState({
         [type]: true,
@@ -98,6 +99,7 @@ class LocationDetail extends React.Component{
           <div className="loading-bar">
             <div className="load-wrapp">
               <div className="load-3">
+                <p>Calculating...</p>
                 <div className="line"></div>
                 <div className="line"></div>
                 <div className="line"></div>
@@ -111,9 +113,9 @@ class LocationDetail extends React.Component{
 
     return (
       <div className="all-charts-container">
+        { loadingBar() }
         <div className="chart-container bubble-chart">
             <h2 className='chart-header'>Location Breakdown</h2>
-            { loadingBar() }
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}

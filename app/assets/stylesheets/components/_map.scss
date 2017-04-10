@@ -17,3 +17,39 @@
   width: 100%;
   position: relative;
 }
+.legend-box{
+  position: absolute;
+  top: 10px;
+  left: 58px;
+  z-index: 400;
+}
+
+.legend {
+  display: flex;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.legend li{
+  display: inline-block;
+  padding: 5px;
+}
+
+.public-transit {
+  background: rgb(33,102,172);
+  color: rgb(33,102,172);
+}
+.restaurants{
+  background: rgb(118,42,131);
+  color: rgb(118,42,131);
+}
+
+.crime{
+  background: rgb(214, 14, 4);
+  color: rgb(214, 14, 4);
+}
+#popover-positioned-top {
+  z-index: 400;
+}
