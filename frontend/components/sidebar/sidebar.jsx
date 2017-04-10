@@ -32,11 +32,15 @@ export default class SideBar extends Component {
         </Button>
         <div className="sidebar" style={ sidebarStyle() }>
           <div className="drag-area-container">
+            <CategoriesToChoose
+              allowedDropEffect="move"/>
             <CategoriesToCalc
               allowedDropEffect="move"
               updateRank={this.props.updateRank} />
-            <CategoriesToChoose
-              allowedDropEffect="move"/>
+            <div className="drag-area pin-instructions">
+              <h1>Click on dropped pins for a detailed breakdown of the area</h1>
+            </div>
+
           </div>
         </div>
       </div>

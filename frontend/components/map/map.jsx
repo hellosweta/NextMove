@@ -5,6 +5,8 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { Popover } from 'react-bootstrap';
+
+import inside from 'point-in-polygon';
 import { hashHistory } from 'react-router';
 import SideBarContainer from '../sidebar/sidebar_container';
 
@@ -29,6 +31,7 @@ class LeafletMap extends React.Component {
     this.handleMapClick = this.handleMapClick.bind(this);
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.renderHeatmap = this.renderHeatmap.bind(this);
+    this.renderLegend = this.renderLegend.bind(this);
   }
 
   componentDidMount(){
@@ -56,6 +59,7 @@ class LeafletMap extends React.Component {
       clickLatLng: e.latlng,
       clicked: true,
     })
+
   }
 
   handleMarkerClick(e){
@@ -67,34 +71,47 @@ class LeafletMap extends React.Component {
     // ) {
     //   window.alert('OUTSIDE OF BOUNDS');
     // } else {
-      hashHistory.push('/search')
-      this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-      this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-      this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-      this.setState({
-        clicked: false,
-      })
-      let target = $('.bubble-chart');
-      $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 500);
-    // }
-  }
 
+    var polygon = [[-122.4281, 37.7068],[-122.5048,37.7068],[-122.5158,37.7835],[-122.4062,37.8108],[-122.3569,37.7287],[-122.3898,37.7068]];
+      if(inside([ this.state.clickLatLng.lng, this.state.clickLatLng.lat ], polygon)){
+        hashHistory.push('/search')
+        this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+        this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+        this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+        this.setState({
+          clicked: false,
+        })
+        let target = $('.bubble-chart');
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 500);
+      }
+  }
+  renderLegend(){
+    // return [
+    //   <ul key="legend" className="legend">
+    //     <li>Public Transit</li>
+    //     <li><span></span></li>
+    //   </ul>]
+  }
   renderHeatmap(ranks){
     // React.unmountComponentAtNode(document.getElementById('heatmap-0'));
     // React.unmountComponentAtNode(document.getElementById('heatmap-1'));
     const green_gradient = {
-      0.1: 'rgba(255, 255, 204, .04)', 0.2: 'rgba(217, 240, 163, .04)', 0.4: 'rgba(173, 221, 142, .04)',
-      0.6: 'rgba(120, 198, 121, .06)', 0.8: 'rgba(49, 163, 84, .08)', 1.0: 'rgba(0, 104, 55, .1)',
+      0.1: 'rgba(255, 255, 204, .2)', 0.2: 'rgba(217, 240, 163, .2)', 0.4: 'rgba(173, 221, 142, .2)',
+      0.6: 'rgba(120, 198, 121, .2)', 0.8: 'rgba(49, 163, 84, .2)', 1.0: 'rgba(0, 104, 55, .2)',
+    };
+    const blue_gradient = {
+      0.1: 'rgba(178,24,43, .2)', 0.2: 'rgba(239,138,98, .2)', 0.4: 'rgba(253,219,199, .2)',
+      0.6: 'rgba(209,229,240, .2)', 0.8: 'rgba(103,169,207, .2)', 1.0: 'rgba(33,102,172, .2)',
     };
     const purple_gradient = {
-      0.1: 'rgba(254,235,226, .04)', 0.2: 'rgba(252,197,192, .04)', 0.4: 'rgba(250,159,181,.04)',
-      0.6: 'rgba(247,104,161,.06)', 0.8: 'rgba(197,27,138,.08)', 1.0: 'rgba(122,1,119,.1)',
+      0.1: 'rgba(27,120,55, .2)', 0.2: 'rgba(127,191,123, .2)', 0.4: 'rgba(217,240,211, .2)',
+      0.6: 'rgba(231,212,232,.2)', 0.8: 'rgba(175,141,195,.2)', 1.0: 'rgba(118,42,131,.2)',
     };
     const red_gradient = {
-      0.1: 'rgba(254,229,217,.04)', 0.2: 'rgba(252,187,161,.04)', 0.4: 'rgba(252,146,114,.04)',
-      0.6: 'rgba(251,106,74,.06)', 0.8: 'rgba(222,45,38,.08)', 1.0: 'rgba(165,15,21,.2)',
+      0.1: 'rgba(26,152,80,.2)', 0.08: 'rgba(145,207,96,.2)', 0.4: 'rgba(230,245,152,.2)',
+      0.6: 'rgba(254, 224, 139,.2)', 0.8: 'rgba(244, 109, 46,.2)', 1.0: 'rgba(214, 14, 4,.2)',
     };
     const no_gradient = {
       0.1: 'rgba(0,0,0,0)', 1: 'rgba(0,0,0,0)'
@@ -103,7 +120,7 @@ class LeafletMap extends React.Component {
     const gradientKey = {
       "crimes": red_gradient,
       "restaurants": purple_gradient,
-      "transitStops": green_gradient,
+      "transitStops": blue_gradient,
     }
     let layers;
     let gradients;
@@ -111,6 +128,8 @@ class LeafletMap extends React.Component {
       gradients = this.state.ranks.map((rank, idx) =>
         gradientKey[rank]
       )
+      gradients = gradients.reverse();
+
       return (
         ranks.reverse().map((rank, idx) => (<HeatmapLayer
         key={idx}
@@ -189,16 +208,11 @@ class LeafletMap extends React.Component {
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
-    const popup = L.popup(
 
-    )
-    const marker = this.state.clicked ? (
-     <Marker position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
-      <Popup>
-        <span className="marker-content">A pretty CSS3 popup.<br/>Easily customizable.</span>
-      </Popup>
+    const marker = (
+     <Marker className="marker" position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
      </Marker>
-   ) : null
+   )
 
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
@@ -221,12 +235,19 @@ class LeafletMap extends React.Component {
             scrollWheelZoom={this.state.clicked}>
 
             {this.state.ranks || this.state.newRanks === true ? this.renderHeatmap(data) : null }
-
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
             {marker}
           </Map>
+          <div className="legend-box">
+            <ul key="legend" className="legend">
+              <li>Public Transit<span className="public-transit">"   "</span></li>
+              <li>Crime<span className="crime">"   "</span></li>
+              <li>Restaurants<span className="restaurants">"   "</span></li>
+            </ul>
+
+          </div>
           <DragDropContextProvider backend={HTML5Backend}>
             <SideBarContainer />
           </DragDropContextProvider>

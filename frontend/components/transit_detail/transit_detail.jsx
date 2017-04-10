@@ -56,7 +56,7 @@ class TransitDetail extends React.Component{
               type={"bar"}
               width={250}
               height={500}
-              margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+              margin={{ top: 40, right: 40, bottom: 70, left: 40 }}
               showTooltips={true}
               data={this.state.data}
           />
