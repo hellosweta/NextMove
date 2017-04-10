@@ -5,6 +5,8 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { Popover } from 'react-bootstrap';
+
+import inside from 'point-in-polygon';
 import { hashHistory } from 'react-router';
 import SideBarContainer from '../sidebar/sidebar_container';
 
@@ -69,18 +71,24 @@ class LeafletMap extends React.Component {
     // ) {
     //   window.alert('OUTSIDE OF BOUNDS');
     // } else {
-      hashHistory.push('/search')
-      this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-      this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-      this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-      this.setState({
-        clicked: false,
-      })
-      let target = $('.bubble-chart');
-      $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 500);
-    // }
+
+    var polygon = [[-122.4281, 37.7068],[-122.5048,37.7068],[-122.5158,37.7835],[-122.4062,37.8108],[-122.3569,37.7287],[-122.3898,37.7068]];
+      if(inside([ this.state.clickLatLng.lng, this.state.clickLatLng.lat ], polygon)){
+        hashHistory.push('/search')
+        this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+        this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+        this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
+        this.setState({
+          clicked: false,
+        })
+        let target = $('.bubble-chart');
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 500);
+      }else{
+        alert('please query in the city of SF only')
+      }
+
   }
   renderLegend(){
     // return [
