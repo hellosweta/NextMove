@@ -8,15 +8,21 @@ NextMoveSF utilizes the React.js framework and follows Flux architecture to deli
 
 ## Leaflet.js
 
-Leaflet.js was used to generate the lightweight and mobile-friendly map. The library's heat mapping tools were leveraged to dynamically update the mapped datasets in response to state changes initiated by the user. Leaflet's tools were customized in order to provide a simple drag-and-drop UI for interacting with multiple map overlays that we created.
+Leaflet.js and Mapbox were used to generate the lightweight and mobile-friendly map. These open-source tools allowed full customization of the map, while the react-leaflet node package was used to connect it to the React state. Additionally, the Leaflet.heat plugin was leveraged in order to layer multiple heat maps simultaneously according to React state changes initiated by the user. All of these features are accessed via a simple drag-and-drop UI that permit quick and intuitive engagement with the map's features.
 
 ## D3.js
 
-D3.js was used to create the data visualizations for smaller areas (0.25 mile radius) chosen by the user. We set up a connection between the Leaflet map and the D3 visualization charts so that the user may click anywhere on the map to see a more detailed breakdown of the data within a 0.25 mile radius of that spot. The charts are responsive to user engagement and dynamically update in response to 
+D3.js was used to create detailed data visualizations for smaller areas chosen by the user. Clicks on the map initiate AJAX calls to external API's that fetch more detailed data for that spot. The d3act package was used to connect the charts to the React state so that they dynamically update in response to state changes effected by incoming data streams.
+
+Additionally, d3act was used to create, update, and destroy SVG elements directly within the DOM. Functional linking to the charts was accomplished by edits to the d3act source code, such as integration with the React Router and adding the ability to change hashHistory in response to events originating from within the D3 charts themselves.
 
 ## External API's
 
 The external API's used in this project were Socrata, BART.gov, SFMTA, Google Places, and Yelp Fusion. Socrata was used to access the enormous stores of open source data aggregated by SF OpenData. Custom SQL queries were crafted to parse the large body of crime and restaurant results returned by SF OpenData's responses.
+
+## React DnD
+
+React DnD was used to implement the drag-and-drop UI in the map's sidebar. Drag events effected by the user dispatch actions to the store in order to update the datasets rendered on the heat map.
 
 ## npm
 
