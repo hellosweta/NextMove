@@ -57,6 +57,7 @@ class LeafletMap extends React.Component {
       clickLatLng: e.latlng,
       clicked: true,
     })
+
   }
 
   handleMarkerClick(e){
@@ -205,17 +206,13 @@ class LeafletMap extends React.Component {
     const popup = L.popup(
 
     )
-    const marker = this.state.clicked ? (
-     <Marker position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
-      <Popup>
-        <span className="marker-content">A pretty CSS3 popup.<br/>Easily customizable.</span>
-      </Popup>
+    const marker = (
+     <Marker className="marker" position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
      </Marker>
-   ) : null
-    // const legend = this.state.ranks || this.state.newRanks === true ?
-    // (
-    //   ) : null
-
+   )
+    const hackyPopup = this.state.clicked ? (<ul>
+      <li className="hacky-popup">Click Marker for More Info!</li>
+    </ul>)  : null
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
     } else {
@@ -227,6 +224,7 @@ class LeafletMap extends React.Component {
       if (this.state.ranks) {
         data = this.state.ranks.map((rank) => eval(rank));
       }
+      console.log(this.state.clicked);
       return (
         <div className="map-container">
           <Map
@@ -251,6 +249,7 @@ class LeafletMap extends React.Component {
               <li>Restaurants</li>
               <li><span className="restaurants">"   "</span></li>
             </ul>
+            {hackyPopup}
           </div>
           <DragDropContextProvider backend={HTML5Backend}>
             <SideBarContainer />
