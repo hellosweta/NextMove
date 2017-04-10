@@ -85,10 +85,7 @@ class LeafletMap extends React.Component {
         $('html, body').animate({
           scrollTop: target.offset().top
         }, 500);
-      }else{
-        alert('please query in the city of SF only')
       }
-
   }
   renderLegend(){
     // return [
@@ -211,16 +208,12 @@ class LeafletMap extends React.Component {
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
-    const popup = L.popup(
 
-    )
     const marker = (
      <Marker className="marker" position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
      </Marker>
    )
-    const hackyPopup = this.state.clicked ? (<ul>
-      <li className="hacky-popup">Click Marker For Location Specific Data!</li>
-    </ul>)  : null
+
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
     } else {
@@ -253,7 +246,7 @@ class LeafletMap extends React.Component {
               <li>Crime<span className="crime">"   "</span></li>
               <li>Restaurants<span className="restaurants">"   "</span></li>
             </ul>
-            {hackyPopup}
+
           </div>
           <DragDropContextProvider backend={HTML5Backend}>
             <SideBarContainer />

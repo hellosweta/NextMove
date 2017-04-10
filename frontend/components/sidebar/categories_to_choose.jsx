@@ -70,7 +70,7 @@ class Dustbin extends Component {
         <h1>
           {isActive ?
             'Drop Here' :
-            'Choose Two Datasets To Display On Map'
+            'Select Two Categories'
           }
         </h1>
           { currentRank }

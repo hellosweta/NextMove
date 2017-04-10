@@ -180,7 +180,7 @@ class Dustbin extends Component {
         <Button
           bsStyle="success"
           onClick={this.sendRankUpdate}>
-          Calculate</Button>
+          Map It!</Button>
       </div>
     );
   }
