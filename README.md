@@ -1,6 +1,6 @@
 # NextMoveSF
 
-[NextMoveSF][nextmovesf] is a data visualization tool that helps people pick the San Francisco neighborhood that's right for them. Users choose the criteria that matter to them, and NextMoveSF displays a heat map of hotspots that match their preferences. It utilizes React.js with a Redux implementation of Flux architecture on the frontend, and Ruby on Rails on the backend.
+[NextMoveSF][nextmovesf] is a data visualization tool that helps people find the San Francisco neighborhood that's right for them. Users choose their criteria and NextMoveSF displays a heat map of spots that match their preferences. It utilizes React.js with a Redux implementation of Flux architecture on the frontend, and Ruby on Rails on the backend.
 
 ![Map][map]
 
@@ -10,7 +10,6 @@
 + Engagement with realtime data from SF OpenData, Google Places, and Yelp
 + Efficient communication with multiple external API's including Socrata, BART.gov, SFMTA, Google Places, and Yelp Fusion
 + Additional data visualization charts and detailed breakdown for localized radius searches
-+ Mobile friendly design with responsive layout
 
 ![Data Charts][data-charts]
 
@@ -40,5 +39,5 @@ NextMoveSF is a single-page application built on Rails and React.js.
 [components]: ./docs/component-hierarchy.md
 [wireframes]: ./docs/wireframes
 [technologies]: ./docs/technologies.md
-[splash-photo]: ./docs/screenshots/map.png
+[map]: ./docs/screenshots/map.png
 [data-charts]: ./docs/screenshots/location_breakdown.png
