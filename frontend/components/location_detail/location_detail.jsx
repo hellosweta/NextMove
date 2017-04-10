@@ -59,6 +59,7 @@ class LocationDetail extends React.Component{
       type = 'receivedRestaurant';
     }
 
+    // debugger;
     if (type) {
       this.setState({
         [type]: true,
