@@ -12,6 +12,14 @@
     <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Poiret+One" rel="stylesheet">
+    <!-- DJ's google analytics -->
+
+        <%= favicon_link_tag 'https://image.flaticon.com/icons/svg/188/188467.svg' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,10 +29,17 @@
       ga('create', 'UA-96664660-1', 'auto');
       ga('send', 'pageview');
     </script>
-        <%= favicon_link_tag 'https://image.flaticon.com/icons/svg/188/188467.svg' %>
-  </head>
 
-  <body>
-    <%= yield %>
+    <!-- Bruk's google analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-97406872-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
   </body>
 </html>
