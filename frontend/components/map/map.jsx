@@ -63,14 +63,6 @@ class LeafletMap extends React.Component {
   }
 
   handleMarkerClick(e){
-    // if (
-    //   this.state.clickLatLng.lat < 37.723597 ||
-    //   this.state.clickLatLng.lat > 37.807155 ||
-    //   this.state.clickLatLng.lng < -122.521630 ||
-    //   this.state.clickLatLng.lng > -122.351775
-    // ) {
-    //   window.alert('OUTSIDE OF BOUNDS');
-    // } else {
 
     var polygon = [[-122.4281, 37.7068],[-122.5048,37.7068],[-122.5158,37.7835],[-122.4062,37.8108],[-122.3569,37.7287],[-122.3898,37.7068]];
       if(inside([ this.state.clickLatLng.lng, this.state.clickLatLng.lat ], polygon)){
@@ -95,8 +87,6 @@ class LeafletMap extends React.Component {
     //   </ul>]
   }
   renderHeatmap(ranks){
-    // React.unmountComponentAtNode(document.getElementById('heatmap-0'));
-    // React.unmountComponentAtNode(document.getElementById('heatmap-1'));
     const green_gradient = {
       0.1: 'rgba(255, 255, 204, .2)', 0.2: 'rgba(217, 240, 163, .2)', 0.4: 'rgba(173, 221, 142, .2)',
       0.6: 'rgba(120, 198, 121, .2)', 0.8: 'rgba(49, 163, 84, .2)', 1.0: 'rgba(0, 104, 55, .2)',
@@ -110,9 +100,13 @@ class LeafletMap extends React.Component {
       0.6: 'rgba(231,212,232,.2)', 0.8: 'rgba(175,141,195,.2)', 1.0: 'rgba(118,42,131,.2)',
     };
     const red_gradient = {
-      0.1: 'rgba(26,152,80,.2)', 0.08: 'rgba(145,207,96,.2)', 0.4: 'rgba(230,245,152,.2)',
-      0.6: 'rgba(254, 224, 139,.2)', 0.8: 'rgba(244, 109, 46,.2)', 1.0: 'rgba(214, 14, 4,.2)',
-    };
+      0.4: 'blue', 0.8: 'orange', 1.0: 'red'
+    }
+
+    // const red_gradient = {
+    //   0.1: 'rgb(26,152,80)', 0.08: 'rgb(145,207,96)', 0.4: 'rgb(230,245,152)',
+    //   0.6: 'rgb(254, 224, 139)', 0.8: 'rgb(244, 109, 46)', 1.0: 'rgb(214, 14, 4)',
+    // };
     const no_gradient = {
       0.1: 'rgba(0,0,0,0)', 1: 'rgba(0,0,0,0)'
     };
@@ -134,7 +128,7 @@ class LeafletMap extends React.Component {
         ranks.reverse().map((rank, idx) => (<HeatmapLayer
         key={idx}
         points={rank}
-        radius={20}
+        radius={5}
         gradient={gradients[idx]}
         longitudeExtractor={m => m[1]}
         latitudeExtractor={m => m[0]}
@@ -147,27 +141,13 @@ class LeafletMap extends React.Component {
         data.map((datum, idx) => (<HeatmapLayer
         points={datum}
         key={idx}
-        radius={20}
+        radius={5}
         gradient={gradients[idx]}
         longitudeExtractor={m => m[1]}
         latitudeExtractor={m => m[0]}
         intensityExtractor={m => parseFloat(m[2])}
         blur={30}/>)))
     }
-
-    // let layers = ranks.map((rank, idx) => {
-    //   return(<HeatmapLayer
-    //     key={idx}
-    //     id={`heatmap-${idx}`}
-    //     points={rank}
-    //     radius={20}
-    //     gradient={gradients[idx]}
-    //     longitudeExtractor={m => m[1]}
-    //     latitudeExtractor={m => m[0]}
-    //     intensityExtractor={m => parseFloat(m[2])}
-    //     blur={30}/>)
-    // });
-    // return layers;
   }
 
   render() {
@@ -178,30 +158,6 @@ class LeafletMap extends React.Component {
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
 
-
-    // 213,62,79
-    // 252,141,89
-    // 254,224,139
-    // 230,245,152
-    // 153,213,148
-    // 50,136,18
-    // <HeatmapLayer
-    //   points={this.state.rank[1]}
-    //   radius={20}
-    //   gradient={blue_gradient}
-    //   longitudeExtractor={m => m[1]}
-    //   latitudeExtractor={m => m[0]}
-    //   intensityExtractor={m => parseFloat(m[2])}
-    //   blur={30}/>
-    //
-    //   <HeatmapLayer
-    //     points={this.state.rank[0]}
-    //     radius={20}
-    //     gradient={red_gradient}
-    //     longitudeExtractor={m => m[1]}
-    //     latitudeExtractor={m => m[0]}
-    //     intensityExtractor={m => parseFloat(m[2])}
-    //     blur={30}/>
     const icon = L.icon({
        className: 'my-div-icon',
        iconSize: [30, 50],
