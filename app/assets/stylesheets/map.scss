@@ -30,6 +30,7 @@
 .legend li{
   display: inline-block;
 }
-#popover-positioned-top {
-  z-index: 400;
+
+#marker-popover {
+  z-index: 500;
 }

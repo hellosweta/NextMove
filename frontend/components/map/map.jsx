@@ -164,7 +164,7 @@ class LeafletMap extends React.Component {
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
-    
+
     const marker = (
       <Marker
         ref="target"
@@ -180,12 +180,12 @@ class LeafletMap extends React.Component {
         rootClose={ false }
         placement="top"
         container={ this }
-        target={() => ReactDOM.findDOMNode(this.refs.target)}>
+        target={ ReactDOM.findDOMNode(this.refs.target) }>
         <Popover id="marker-popover" title="Marker Popover">
           <strong>Holy guacamole!</strong> Check this info.
         </Popover>
       </Overlay>
-    )
+    );
 
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
@@ -212,6 +212,7 @@ class LeafletMap extends React.Component {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
             { marker }
+            { popover }
           </Map>
           <div className="legend-box">
             <ul key="legend" className="legend">
