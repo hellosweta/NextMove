@@ -114,7 +114,6 @@ class LocationDetail extends React.Component{
       <div className="all-charts-container">
         <div className="chart-container bubble-chart">
             <h2 className='chart-header'>Quarter Mile Location Breakdown</h2>
-            { loadingBar() }
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
