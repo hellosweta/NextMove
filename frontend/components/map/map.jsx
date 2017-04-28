@@ -4,7 +4,7 @@ import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
-import { Popover } from 'react-bootstrap';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 import inside from 'point-in-polygon';
 import { hashHistory } from 'react-router';
@@ -63,7 +63,6 @@ class LeafletMap extends React.Component {
   }
 
   handleMarkerClick(e){
-
     var polygon = [[-122.4281, 37.7068],[-122.5048,37.7068],[-122.5158,37.7835],[-122.4062,37.8108],[-122.3569,37.7287],[-122.3898,37.7068]];
       if(inside([ this.state.clickLatLng.lng, this.state.clickLatLng.lat ], polygon)){
         hashHistory.push('/search')
@@ -165,10 +164,26 @@ class LeafletMap extends React.Component {
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
 
+    const popover = (
+      <Popover id="marker-popover" title="Marker Popover">
+        <strong>Holy guacamole!</strong> Check this info.
+      </Popover>
+    );
+
     const marker = (
-     <Marker className="marker" position={this.state.clickLatLng} icon={icon} onClick={this.handleMarkerClick}>
-     </Marker>
-   )
+      <OverlayTrigger
+        container={ this }
+        defaultOverlayShown={ true }
+        placement="top"
+        rootClose={ false }
+        overlay={ popover }>
+        <Marker
+          className="marker"
+          position={ this.state.clickLatLng }
+          icon={ icon }
+          onClick={ this.handleMarkerClick } />
+      </OverlayTrigger>
+    );
 
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
