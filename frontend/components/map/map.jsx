@@ -24,8 +24,8 @@ class LeafletMap extends React.Component {
       clicked: false,
       clickLatLng: {
         lat: 51,
-        lng: -0.09,
-      },
+        lng: -0.09
+      }
     };
 
     this.handleMapClick = this.handleMapClick.bind(this);
@@ -44,12 +44,12 @@ class LeafletMap extends React.Component {
     if (newProps.ranks.length > 0 ) {
       this.setState({
         ranks: newProps.ranks,
-        newRanks: false,
+        newRanks: false
       })
     } else if (this.state.ranks && newProps.ranks != this.state.ranks) {
       this.setState({
         ranks: newProps.ranks,
-        newRanks: true,
+        newRanks: true
       })
     }
   }
@@ -57,7 +57,7 @@ class LeafletMap extends React.Component {
   handleMapClick(e){
     this.setState({
       clickLatLng: e.latlng,
-      clicked: true,
+      clicked: true
     })
 
   }
@@ -70,7 +70,7 @@ class LeafletMap extends React.Component {
         this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
         this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
         this.setState({
-          clicked: false,
+          clicked: false
         })
         let target = $('.bubble-chart');
         $('html, body').animate({
@@ -113,7 +113,7 @@ class LeafletMap extends React.Component {
     const gradientKey = {
       "crimes": red_gradient,
       "restaurants": purple_gradient,
-      "transitStops": blue_gradient,
+      "transitStops": blue_gradient
     }
     let layers;
     let gradients;
