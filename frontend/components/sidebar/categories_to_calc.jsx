@@ -146,6 +146,8 @@ class Dustbin extends Component {
       backgroundColor = 'darkkhaki';
     }
 
+    let addEmptyCount = 2 - this.state.rank.length;
+    let addEmptyArr = Array.from(new Array(addEmptyCount),(val,index)=>index+ 1);
     let currentRank;
     if (this.state.rank.length){
       currentRank =
@@ -160,10 +162,32 @@ class Dustbin extends Component {
           )
         }
         )}
+
+        {addEmptyArr.map((val) => {
+          return(
+            <li key= {val * 10} className="category-container">
+              <div className="empty_category">
+                {name}
+              </div>
+            </li>
+          )
+        }
+        )}
       </ul>
     }else{
-      currentRank =
+      currentRank = <div>
           <p>Please drag categories here</p>
+            {addEmptyArr.map((val) => {
+              return(
+                <li key= {val * 10} className="category-container">
+                  <div className="empty_category">
+                    {name}
+                  </div>
+                </li>
+              )
+            }
+            )}
+          </div>
     }
 
 

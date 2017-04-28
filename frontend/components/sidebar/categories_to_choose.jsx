@@ -5,6 +5,7 @@ import merge from 'lodash.merge';
 import Box from './box';
 
 const boxTarget = {
+
   drop(props, monitor, component) {
     component.addToChooseRank(monitor.getItem().name);
     return {

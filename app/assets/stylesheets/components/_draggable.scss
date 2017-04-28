@@ -13,12 +13,23 @@
 .category {
   width: 50%;
 
-  border: 2px dotted gray;
+  border: 2px dotted black;
   border-radius: 20px;
   padding: 5px 10px;
   margin: 10px 0;
 
   color: black;
 
+  cursor: move;
+}
+.empty_category{
+  width: 50%;
+  height: 30px;
+  background-color: #d2dcdd;
+  border: 2px dotted black;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 10px 0;
+  color: black;
   cursor: move;
 }
