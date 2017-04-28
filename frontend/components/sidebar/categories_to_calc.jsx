@@ -139,11 +139,11 @@ class Dustbin extends Component {
     const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
 
-    let backgroundColor = '#222';
+    let emptySpotsClass = 'empty_category';
     if (isActive) {
-      backgroundColor = 'darkgreen';
+      emptySpotsClass = "empty_category green";
     } else if (canDrop) {
-      backgroundColor = 'darkkhaki';
+      emptySpotsClass = 'empty_category yellow';
     }
 
     let addEmptyCount = 2 - this.state.rank.length;
@@ -166,8 +166,7 @@ class Dustbin extends Component {
         {addEmptyArr.map((val) => {
           return(
             <li key= {val * 10} className="category-container">
-              <div className="empty_category">
-                {name}
+              <div className={emptySpotsClass}>
               </div>
             </li>
           )
@@ -180,7 +179,7 @@ class Dustbin extends Component {
             {addEmptyArr.map((val) => {
               return(
                 <li key= {val * 10} className="category-container">
-                  <div className="empty_category">
+                  <div className={emptySpotsClass}>
                     {name}
                   </div>
                 </li>

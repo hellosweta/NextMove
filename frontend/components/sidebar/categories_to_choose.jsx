@@ -45,13 +45,15 @@ class Dustbin extends Component {
     const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
 
-    let backgroundColor = '#222';
+    let emptySpotsClass = 'empty_category';
     if (isActive) {
-      backgroundColor = 'darkgreen';
+      emptySpotsClass = "empty_category green";
     } else if (canDrop) {
-      backgroundColor = 'darkkhaki';
+      emptySpotsClass = 'empty_category yellow';
     }
 
+    let addEmptyCount = 3 - this.state.rank.length;
+    let addEmptyArr = Array.from(new Array(addEmptyCount),(val,index)=>index+ 1);
     let currentRank = <ul className="all-categories-container">
       {this.state.rank.map( (category,id) => {
         return(
@@ -64,14 +66,25 @@ class Dustbin extends Component {
         )
       }
       )}
-          </ul>
+
+      {addEmptyArr.map((val) => {
+        return(
+          <li key= {val * 10} className="category-container">
+            <div className= { emptySpotsClass } >
+            </div>
+          </li>
+        )
+      }
+      )}
+
+    </ul>
 
     return connectDropTarget(
       <div className="drag-area">
         <h1>
           {isActive ?
             'Drop Here' :
-            'Select Two Categories'
+            'Drag Two Categories'
           }
         </h1>
           { currentRank }
