@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import { render } from 'react-dom';
 import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { Overlay, Popover } from 'react-bootstrap';
 
 import inside from 'point-in-polygon';
 import { hashHistory } from 'react-router';
@@ -163,27 +164,28 @@ class LeafletMap extends React.Component {
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
     });
+    
+    const marker = (
+      <Marker
+        ref="target"
+        className="marker"
+        position={ this.state.clickLatLng }
+        icon={ icon }
+        onClick={ this.handleMarkerClick } />
+    );
 
     const popover = (
-      <Popover id="marker-popover" title="Marker Popover">
-        <strong>Holy guacamole!</strong> Check this info.
-      </Popover>
-    );
-
-    const marker = (
-      <OverlayTrigger
-        container={ this }
-        defaultOverlayShown={ true }
-        placement="top"
+      <Overlay
+        show={ true }
         rootClose={ false }
-        overlay={ popover }>
-        <Marker
-          className="marker"
-          position={ this.state.clickLatLng }
-          icon={ icon }
-          onClick={ this.handleMarkerClick } />
-      </OverlayTrigger>
-    );
+        placement="top"
+        container={ this }
+        target={() => ReactDOM.findDOMNode(this.refs.target)}>
+        <Popover id="marker-popover" title="Marker Popover">
+          <strong>Holy guacamole!</strong> Check this info.
+        </Popover>
+      </Overlay>
+    )
 
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
@@ -209,7 +211,7 @@ class LeafletMap extends React.Component {
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
-            {marker}
+            { marker }
           </Map>
           <div className="legend-box">
             <ul key="legend" className="legend">
