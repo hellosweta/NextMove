@@ -84,7 +84,7 @@ class Dustbin extends Component {
 
   moveBox(dragitem, hoverIndex) {
     let rank = this.state.rank;
-    if((hoverIndex === 1 || hoverIndex === 0 )&& rank[hoverIndex] === dragitem ){
+    if((hoverIndex === 1 || hoverIndex === 0 ) && rank[hoverIndex] === dragitem &&  rank.length == 2 ){
       let temp = rank[0]
       rank[0] =rank[1]
       rank[1] = temp;
@@ -140,6 +140,7 @@ class Dustbin extends Component {
     const isActive = canDrop && isOver;
 
     let emptySpotsClass = 'empty_category';
+    let otherEmptySpotsClass = 'empty_category';
     if (isActive) {
       emptySpotsClass = "empty_category green";
     } else if (canDrop) {
@@ -164,12 +165,21 @@ class Dustbin extends Component {
         )}
 
         {addEmptyArr.map((val) => {
-          return(
-            <li key= {val * 10} className="category-container">
-              <div className={emptySpotsClass}>
-              </div>
-            </li>
-          )
+            if (val === 1){
+              return(
+              <li key= {val * 10} className="category-container">
+                <div className={emptySpotsClass}>
+                </div>
+              </li>
+            )
+            }else {
+              return(
+              <li key= {val * 10} className="category-container">
+                <div className={otherEmptySpotsClass}>
+                </div>
+              </li>
+            )
+          }
         }
         )}
       </ul>
@@ -177,13 +187,21 @@ class Dustbin extends Component {
       currentRank = <div>
           <p>Please drag categories here</p>
             {addEmptyArr.map((val) => {
-              return(
-                <li key= {val * 10} className="category-container">
-                  <div className={emptySpotsClass}>
-                    {name}
-                  </div>
-                </li>
-              )
+                if (val === 1){
+                  return(
+                  <li key= {val * 10} className="category-container">
+                    <div className={emptySpotsClass}>
+                    </div>
+                  </li>
+                )
+                }else {
+                  return(
+                  <li key= {val * 10} className="category-container">
+                    <div className={otherEmptySpotsClass}>
+                    </div>
+                  </li>
+                )
+              }
             }
             )}
           </div>
