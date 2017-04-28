@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
 import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -70,9 +70,6 @@ class LeafletMap extends React.Component {
         this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
         this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
         this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-        this.setState({
-          clicked: false
-        })
         let target = $('.bubble-chart');
         $('html, body').animate({
           scrollTop: target.offset().top
@@ -158,11 +155,29 @@ class LeafletMap extends React.Component {
     northEast = L.latLng(37.80971, -122.39208),
     bounds = L.latLngBounds(southWest, northEast);
 
+    const popover = (
+      <Popover
+        id="marker-popover"
+        title="Marker Popover"
+        positionTop="true">
+        <strong>Holy guacamole!</strong> Check this info.
+      </Popover>
+    );
+
+    const divIcon = L.Marker([37.763178, -122.446836], {
+      icon: new L.DivIcon({
+        className: 'my-div-icon',
+        html: '<img class="my-div-image" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png"/>'+
+              '<span class="my-div-span">RAF Banff Airfield</span>'
+      })
+    });
+
     const icon = L.icon({
        className: 'my-div-icon',
        iconSize: [30, 50],
        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
+      //  html: popover
     });
 
     const marker = (
@@ -170,19 +185,8 @@ class LeafletMap extends React.Component {
         ref="target"
         className="marker"
         position={ this.state.clickLatLng }
-        icon={ icon }
-        onClick={ this.handleMarkerClick } />
-    );
-
-    const popover = (
-      <Overlay
-        show={ true }
-        rootClose={ false }
-        placement="top"
-        container={ this }
-        target={ ReactDOM.findDOMNode(this.refs.target) }>
-
-      </Overlay>
+        icon={ divIcon }
+        onClick={ this.handleMarkerClick }/>
     );
 
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
@@ -209,14 +213,7 @@ class LeafletMap extends React.Component {
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
-            { marker }
-            <Popover
-              id="marker-popover"
-              title="Marker Popover"
-              style={ { top: "100px", left: "100px" } }
-              positionTop="true">
-              <strong>Holy guacamole!</strong> Check this info.
-            </Popover>
+            { this.state.clicked ? marker : <div></div> }
           </Map>
           <div className="legend-box">
             <ul key="legend" className="legend">
