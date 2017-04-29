@@ -26,7 +26,8 @@ class LeafletMap extends React.Component {
       clickLatLng: {
         lat: 51,
         lng: -0.09
-      }
+      },
+      myClickLatLng: [37.763178, -122.446836]
     };
 
     this.handleMapClick = this.handleMapClick.bind(this);
@@ -148,50 +149,35 @@ class LeafletMap extends React.Component {
   }
 
   render() {
-    const position = [this.state.lat, this.state.lng];
-  //  const norwest = "37.807155, -122.521630";
-  //  const soueast = "37.723597, -122.351775";
-    const southWest = L.latLng(37.74187, -122.47791),
-    northEast = L.latLng(37.80971, -122.39208),
-    bounds = L.latLngBounds(southWest, northEast);
-
-    const popover = (
-      <Popover
-        id="marker-popover"
-        title="Marker Popover"
-        positionTop="true">
-        <strong>Holy guacamole!</strong> Check this info.
-      </Popover>
-    );
-
-    const divIcon = L.Marker([37.763178, -122.446836], {
-      icon: new L.DivIcon({
-        className: 'my-div-icon',
-        html: '<img class="my-div-image" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png"/>'+
-              '<span class="my-div-span">RAF Banff Airfield</span>'
-      })
-    });
-
-    const icon = L.icon({
-       className: 'my-div-icon',
-       iconSize: [30, 50],
-       iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
-       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png',
-      //  html: popover
-    });
-
-    const marker = (
-      <Marker
-        ref="target"
-        className="marker"
-        position={ this.state.clickLatLng }
-        icon={ divIcon }
-        onClick={ this.handleMarkerClick }/>
-    );
-
     if (!(this.props.allRestaurants instanceof Array) || !(this.props.allCrimes instanceof Array) || !(this.props.allTransit instanceof Array)) {
       return(<div></div>)
     } else {
+
+      const position = [this.state.lat, this.state.lng];
+    //  const norwest = "37.807155, -122.521630";
+    //  const soueast = "37.723597, -122.351775";
+      const southWest = L.latLng(37.74187, -122.47791),
+      northEast = L.latLng(37.80971, -122.39208),
+      bounds = L.latLngBounds(southWest, northEast);
+
+      const popover = (
+        <Popover
+          id="marker-popover"
+          title="Marker Popover"
+          positionTop="true">
+          <strong>Holy guacamole!</strong> Check this info.
+        </Popover>
+      );
+
+      // const divIcon = L.Marker([37.763178, -122.446836], {
+      //   icon: L.divIcon({
+      //     className: 'my-div-icon',
+      //     html: '<img class="my-div-image" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png"/>'+
+      //           '<span class="my-div-span">RAF Banff Airfield</span>'
+      //   })
+      // });
+
+
 
       const transitStops = this.props.allTransit.map(el => ([el.stop_lat, el.stop_lon, this.state.transitFavorabilityScore]))
       const restaurants = this.props.allRestaurants.map(el => ([el.lat, el.lon, this.state.restaurantFavorabilityScore]))
@@ -200,21 +186,49 @@ class LeafletMap extends React.Component {
       if (this.state.ranks) {
         data = this.state.ranks.map((rank) => eval(rank));
       }
+      const map = (
+        <Map
+          style={{height: "100vh"}}
+          center={position}
+          zoom={13}
+          onClick={this.handleMapClick}
+          scrollWheelZoom={this.state.clicked}>
+
+          {this.state.ranks || this.state.newRanks === true ? this.renderHeatmap(data) : null }
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
+        </Map>
+    )
+
+    const icon = L.icon({
+       className: 'my-div-icon',
+       iconSize: [30, 50],
+       iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-icon-2x.png',
+       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/images/marker-shadow.png'
+      //  html: popover
+    });
+
+    const marker1 = (
+      <Marker
+        ref="target"
+        className="marker"
+        position={ this.state.clickLatLng }
+        icon={ icon }
+        onClick={ this.handleMarkerClick }/>
+    );
+
+    const marker = L.marker(this.state.myClickLatLng, marker1)
+        .bindTooltip("Test Label",
+        {
+            permanent: true,
+            direction: 'right'
+        }
+    ).addTo(map);
+
       return (
         <div className="map-container">
-          <Map
-            style={{height: "100vh"}}
-            center={position}
-            zoom={13}
-            onClick={this.handleMapClick}
-            scrollWheelZoom={this.state.clicked}>
-
-            {this.state.ranks || this.state.newRanks === true ? this.renderHeatmap(data) : null }
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url='https://api.mapbox.com/styles/v1/hellosweta/cj12k3v5n004l2rt89a28igfd/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGVsbG9zd2V0YSIsImEiOiJjajEyaDhwZnQwNnF5MzNvMms3dzluemZnIn0.RzmThYRkDkV3wEMw7J2JCA'/>
-            { this.state.clicked ? marker : <div></div> }
-          </Map>
+          { map }
           <div className="legend-box">
             <ul key="legend" className="legend">
               <li>Public Transit<span className="public-transit">"   "</span></li>
