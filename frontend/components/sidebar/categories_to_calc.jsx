@@ -141,10 +141,13 @@ class Dustbin extends Component {
 
     let emptySpotsClass = 'empty_category';
     let otherEmptySpotsClass = 'empty_category';
+    let secondBoxClass = 'category';
     if (isActive) {
       emptySpotsClass = "empty_category green";
+      secondBoxClass = "empty_category green";
     } else if (canDrop) {
       emptySpotsClass = 'empty_category yellow';
+      secondBoxClass = 'empty_category yellow';
     }
 
     let addEmptyCount = 2 - this.state.rank.length;
@@ -154,13 +157,25 @@ class Dustbin extends Component {
       currentRank =
       <ul className="all-categories-container">
         {this.state.rank.map((category,id) => {
-          return(
-            <li key= {id} className="category-container">
-                <Box name={category}
-                     removeRank={this.removeRank}
-                     iCameFrom={'calc Dustbin'}/>
-            </li>
-          )
+          if (id == 1){
+            return(
+              <li key= {id} className="category-container">
+                  <Box name={category}
+                       className={secondBoxClass}
+                       removeRank={this.removeRank}
+                       iCameFrom={'calc Dustbin'}/>
+              </li>
+            )
+          }else {
+            return(
+              <li key= {id} className="category-container">
+                  <Box name={category}
+                       className={"category"}
+                       removeRank={this.removeRank}
+                       iCameFrom={'calc Dustbin'}/>
+              </li>
+            )
+          }
         }
         )}
 
@@ -185,7 +200,7 @@ class Dustbin extends Component {
       </ul>
     }else{
       currentRank = <div>
-          <p>Please drag categories here</p>
+          <p id='drag_info'>Please drag categories here</p>
             {addEmptyArr.map((val) => {
                 if (val === 1){
                   return(
