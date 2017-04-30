@@ -11,27 +11,23 @@
 }
 
 .category {
-  display: flex;
   width: 50%;
-  box-shadow: 5px 5px 5px #888888;
-  border: 1px solid gray;
-  border-radius: 10px;
+
+  border: 2px dotted black;
+  border-radius: 20px;
   padding: 5px 10px;
   margin: 10px 0;
+
   color: black;
+
   cursor: move;
 }
-
-  .category i{
-    margin-right: 10px
-  }
 .empty_category{
-  display: flex;
-  width: 51%;
+  width: 50%;
   height: 36px;
   background-color: #d2dcdd;
-  border: inset 4px;
-  border-radius: 10px;
+  border: 2px dotted black;
+  border-radius: 20px;
   padding: 5px 10px;
   margin: 10px 0;
   color: black;
@@ -44,10 +40,4 @@
 
 .yellow{
   background-color: #e6e886;
-}
-
-#drag_info{
-  color: red;
-  font-style: italic;
-  font-weight: bold;
 }

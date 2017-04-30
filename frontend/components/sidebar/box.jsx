@@ -23,13 +23,11 @@ const boxSource = {
   render() {
     const { isDragging, connectDragSource } = this.props;
     const { name } = this.props;
-    const opacity = isDragging ? 0.5 : 1;
-    const className = isDragging ?  'empty_category': this.props.className;
+    const opacity = isDragging ? 0.4 : 1;
 
     return (
       connectDragSource(
-        <div style={{opacity}} className={className}>
-          <i className ="material-icons">drag_handle</i>
+        <div className="category">
           {name}
         </div>
       )

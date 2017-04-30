@@ -10,8 +10,13 @@ export default class BarChart extends BaseChart {
         return d3.scaleLinear().range([this.props.height, 0]);
     }
 
+    getColorScaleRainbow(){
+
+    }
+
     createAxisX(x) {
-        return d3.axisBottom(x).tickSize(0);
+        return d3.axisBottom(x).tickSize(0)
+;
     }
 
     createAxisY(y) {
@@ -59,19 +64,12 @@ export default class BarChart extends BaseChart {
             .attr("class", "y axis")
             .attr("transform", `translate(-1, 0)`)
             .call(yAxis)
+
         .append("text")
             .attr("transform", "rotate(-90)")
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end");
-            // add label to the yaxis
-        this.svg.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 0 - this.props.margin.left)
-            .attr("x",0 - (this.props.height / 2))
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .text(this.props.ylabel);
 
         this.svg.selectAll(".bar")
             .data(data)

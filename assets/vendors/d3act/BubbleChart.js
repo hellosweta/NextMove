@@ -17,10 +17,9 @@ export default class BubbleChart extends BaseChart {
     }
 
     onMouseOver(node) {
-        return (this.tooltip
+        return this.tooltip
             .style("visibility", "visible")
-            .text(`${node.data.name} (${node.data.value})`)
-          );
+            .text(`${node.data.name} (${node.data.value})`);
     }
     onClick(node){
       this.props.goToCategory(node.data.name);
