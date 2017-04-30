@@ -227,7 +227,7 @@ class Dustbin extends Component {
     return connectDropTarget(
       <div className="drag-area">
         <h1>
-          {isActive ?
+          {canDrop ?
             'Drop Here' :
             'Current Selection'
           }
