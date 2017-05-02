@@ -59,7 +59,6 @@ class LocationDetail extends React.Component{
       type = 'receivedRestaurant';
     }
 
-    // debugger;
     if (type) {
       this.setState({
         [type]: true,
@@ -113,7 +112,7 @@ class LocationDetail extends React.Component{
     return (
       <div className="all-charts-container">
         <div className="chart-container bubble-chart">
-            <h2 className='chart-header'>Quarter Mile Location Breakdown</h2>
+          <h2 className='chart-header'>Quarter Mile Location Breakdown</h2>
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
@@ -121,6 +120,7 @@ class LocationDetail extends React.Component{
                 showTooltips={true}
                 data={this.state.data}
             />
+          <p>Click on a Category for Further Breakdown</p>
         </div>
         { this.props.children }
       </div>

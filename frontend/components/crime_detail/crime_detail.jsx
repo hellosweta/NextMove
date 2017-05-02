@@ -71,13 +71,14 @@ formatCategoryname(categoryName){
   render(){
     return (
       <div className='chart-container bar-chart'>
-          <h2 className='chart-header'>2017 Crime Chart </h2>
+          <h2 className='chart-header'>2017 CRIME CHART</h2>
           <Chart
               type={"bar"}
               width={550}
               height={400}
               margin={{ top: 40, right: 40, bottom: 70, left: 70 }}
               showTooltips={true}
+              ylabel={'Crime Count'}
               data={this.state.data}
           />
       </div>

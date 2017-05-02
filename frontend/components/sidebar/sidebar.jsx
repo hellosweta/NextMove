@@ -38,7 +38,7 @@ export default class SideBar extends Component {
               allowedDropEffect="move"
               updateRank={this.props.updateRank} />
             <div className="drag-area pin-instructions">
-              <h1>Click on dropped pins for a detailed breakdown of the area</h1>
+              <h1>Click on map for a detailed breakdown of the area</h1>
             </div>
 
           </div>
