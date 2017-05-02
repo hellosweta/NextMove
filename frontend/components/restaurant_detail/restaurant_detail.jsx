@@ -7,8 +7,8 @@ class RestaurantDetail extends React.Component{
     super(props);
     this.state = {
           data: [
-              { xValue: 'Indian', yValue: 5 },
-              { xValue: "Ethiopian", yValue: 1 },
+              { xValue: '1', yValue: 0 },
+              { xValue: '5', yValue: 0 },
           ]
       };
   }

@@ -2271,3 +2271,336 @@ Completed 200 OK in 475ms (Views: 35.9ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 3404ms (Views: 100.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-05-02 11:36:11 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 1240ms (Views: 1238.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon-16x16.png" for ::1 at 2017-05-02 11:36:14 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon-16x16.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered collection of /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (2.3ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (191.5ms)
+Started GET "/favicon-96x96.png" for ::1 at 2017-05-02 11:36:15 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon-96x96.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered collection of /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (1.8ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (144.9ms)
+Started GET "/favicon-32x32.png" for ::1 at 2017-05-02 11:36:15 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon-32x32.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered collection of /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (1.6ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (150.4ms)
+Started GET "/android-icon-192x192.png" for ::1 at 2017-05-02 11:36:16 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/android-icon-192x192.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered collection of /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (2.6ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /Volumes/DATA/Daniel/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (159.0ms)
+Started GET "/" for ::1 at 2017-05-02 11:39:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 72ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.75565129852505&lon=-122.45275497436525&type=transit_station" for ::1 at 2017-05-02 11:39:58 -0700
+Started GET "/api/yelp?latitude=37.75565129852505&longitude=-122.45275497436525&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:39:58 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.75565129852505", "lon"=>"-122.45275497436525", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.75565129852505", "longitude"=>"-122.45275497436525", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.6ms)
+Completed 200 OK in 310ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (0.5ms)
+Completed 200 OK in 1253ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.737809439912624&lon=-122.43198394775392&type=transit_station" for ::1 at 2017-05-02 11:40:11 -0700
+Started GET "/api/yelp?latitude=37.737809439912624&longitude=-122.43198394775392&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:40:11 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.737809439912624", "lon"=>"-122.43198394775392", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.737809439912624", "longitude"=>"-122.43198394775392", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (2.6ms)
+Completed 200 OK in 1592ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (12.6ms)
+Completed 200 OK in 5288ms (Views: 23.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.75477664884519&lon=-122.45309829711915&type=transit_station" for ::1 at 2017-05-02 11:40:19 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.75477664884519", "lon"=>"-122.45309829711915", "type"=>"transit_station"}
+Started GET "/api/yelp?latitude=37.75477664884519&longitude=-122.45309829711915&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:40:19 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.75477664884519", "longitude"=>"-122.45309829711915", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.2ms)
+Completed 200 OK in 243ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (0.4ms)
+Completed 200 OK in 1141ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.732801485615795&lon=-122.40726470947267&type=transit_station" for ::1 at 2017-05-02 11:40:25 -0700
+Started GET "/api/yelp?latitude=37.732801485615795&longitude=-122.40726470947267&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:40:25 -0700
+Processing by Api::PlacesController#index as JSON
+Processing by Api::YelpController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.732801485615795", "lon"=>"-122.40726470947267", "type"=>"transit_station"}
+  Parameters: {"latitude"=>"37.732801485615795", "longitude"=>"-122.40726470947267", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.5ms)
+Completed 200 OK in 331ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (3.7ms)
+Completed 200 OK in 2010ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-02 11:42:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1296ms (Views: 1294.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.75391706762441&lon=-122.43146896362306&type=transit_station" for ::1 at 2017-05-02 11:42:55 -0700
+Started GET "/api/yelp?latitude=37.75391706762441&longitude=-122.43146896362306&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:42:55 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.75391706762441", "lon"=>"-122.43146896362306", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.75391706762441", "longitude"=>"-122.43146896362306", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (5.0ms)
+Completed 200 OK in 2046ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (3.0ms)
+Completed 200 OK in 2597ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.761622754093196&lon=-122.45687484741212&type=transit_station" for ::1 at 2017-05-02 11:43:02 -0700
+Started GET "/api/yelp?latitude=37.761622754093196&longitude=-122.45687484741212&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:43:02 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.761622754093196", "longitude"=>"-122.45687484741212", "radius"=>"402.335", "term"=>"restaurants"}
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.761622754093196", "lon"=>"-122.45687484741212", "type"=>"transit_station"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.1ms)
+Completed 200 OK in 326ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (3.1ms)
+Completed 200 OK in 1755ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.770865508642906&lon=-122.4694061279297&type=transit_station" for ::1 at 2017-05-02 11:43:07 -0700
+Started GET "/api/yelp?latitude=37.770865508642906&longitude=-122.4694061279297&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:43:07 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.770865508642906", "lon"=>"-122.4694061279297", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.770865508642906", "longitude"=>"-122.4694061279297", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.0ms)
+Completed 200 OK in 304ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (1.7ms)
+Completed 200 OK in 1491ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.76961411000996&lon=-122.43970870971681&type=transit_station" for ::1 at 2017-05-02 11:43:18 -0700
+Started GET "/api/yelp?latitude=37.76961411000996&longitude=-122.43970870971681&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:43:18 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.76961411000996", "lon"=>"-122.43970870971681", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.76961411000996", "longitude"=>"-122.43970870971681", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.0ms)
+Completed 200 OK in 305ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (1.6ms)
+Completed 200 OK in 1911ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.793643275000754&lon=-122.47266769409181&type=transit_station" for ::1 at 2017-05-02 11:43:30 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.793643275000754", "lon"=>"-122.47266769409181", "type"=>"transit_station"}
+Started GET "/api/yelp?latitude=37.793643275000754&longitude=-122.47266769409181&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:43:30 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.793643275000754", "longitude"=>"-122.47266769409181", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (0.9ms)
+Completed 200 OK in 254ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (0.4ms)
+Completed 200 OK in 1443ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.75239393184661&lon=-122.45910644531251&type=transit_station" for ::1 at 2017-05-02 11:43:35 -0700
+Started GET "/api/yelp?latitude=37.75239393184661&longitude=-122.45910644531251&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:43:35 -0700
+Processing by Api::PlacesController#index as JSON
+Processing by Api::YelpController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.75239393184661", "lon"=>"-122.45910644531251", "type"=>"transit_station"}
+  Parameters: {"latitude"=>"37.75239393184661", "longitude"=>"-122.45910644531251", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.7ms)
+Completed 200 OK in 250ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (0.7ms)
+Completed 200 OK in 1319ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
