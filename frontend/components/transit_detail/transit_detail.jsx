@@ -51,13 +51,14 @@ class TransitDetail extends React.Component{
   render(){
     return (
       <div className='chart-container bar-chart'>
-          <h2 className='chart-header'>Transit Chart</h2>
+          <h2 className='chart-header'>TRANSIT CHART</h2>
           <Chart
               type={"bar"}
               width={250}
               height={500}
-              margin={{ top: 40, right: 40, bottom: 70, left: 40 }}
+              margin={{ top: 40, right: 40, bottom: 70, left: 70 }}
               showTooltips={true}
+              ylabel={'Tranist Count'}
               data={this.state.data}
           />
       </div>

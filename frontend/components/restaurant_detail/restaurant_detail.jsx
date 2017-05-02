@@ -50,13 +50,14 @@ class RestaurantDetail extends React.Component{
     return (
     <div>
       <div className='chart-container bar-chart'>
-          <h2 className='chart-header'>Restaurant Ratings</h2>
+          <h2 className='chart-header'>RESTAURANT RATINGS</h2>
           <Chart
               type={"bar"}
               width={500}
               height={500}
-              margin={{ top: 40, right: 40, bottom: 70, left: 40 }}
+              margin={{ top: 40, right: 40, bottom: 70, left: 70 }}
               showTooltips={true}
+              ylabel={'Restaurant Count'}
               data={this.state.data}
           />
       </div>

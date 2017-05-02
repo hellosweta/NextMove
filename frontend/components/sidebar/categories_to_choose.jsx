@@ -60,6 +60,8 @@ class Dustbin extends Component {
         return(
           <li key= {id} className="category-container">
               <Box name={category}
+
+                   className={"category"}
                    removeRank={this.removeRank}
                    addToChooseRank={this.addToChooseRank}
                    iCameFrom={'choose Dustbin'}/>
@@ -77,7 +79,6 @@ class Dustbin extends Component {
             </li>
           )
           }else {
-            debugger
             return(
             <li key= {val * 10} className="category-container">
               <div className={otherEmptySpotsClass}>
@@ -94,7 +95,7 @@ class Dustbin extends Component {
         <h1>
           {isActive ?
             'Drop Here' :
-            'Drag Two Categories'
+            'Drag Upto Two Categories'
           }
         </h1>
           { currentRank }

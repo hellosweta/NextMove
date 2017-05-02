@@ -38,7 +38,25 @@
 
 .chart {
   font-family: $lato;
+  // text-transform: uppercase;
+}
+.bubble-chart {
   text-transform: uppercase;
+}
+.bubble-chart p{
+  margin-top: 7px;
+  text-transform: lowercase;
+  font-style: italic;
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
+}
+
+circle:hover {
+  fill: red !important;
+}
+rect:hover {
+  fill: gold !important;
 }
 
 .bar {
