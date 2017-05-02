@@ -1965,3 +1965,118 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 173ms (Views: 170.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/api/places?radius=402.335&lat=37.75795851095418&lon=-122.49189376831056&type=transit_station" for ::1 at 2017-05-02 11:25:22 -0700
+Started GET "/api/yelp?latitude=37.75795851095418&longitude=-122.49189376831056&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:25:22 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.75795851095418", "lon"=>"-122.49189376831056", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.75795851095418", "longitude"=>"-122.49189376831056", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.9ms)
+Completed 200 OK in 303ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (4.8ms)
+Completed 200 OK in 1948ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.73296741403089&lon=-122.50511169433595&type=transit_station" for ::1 at 2017-05-02 11:25:46 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.73296741403089", "lon"=>"-122.50511169433595", "type"=>"transit_station"}
+Started GET "/api/yelp?latitude=37.73296741403089&longitude=-122.50511169433595&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:25:46 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.73296741403089", "longitude"=>"-122.50511169433595", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (3.3ms)
+Completed 200 OK in 299ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (1.4ms)
+Completed 200 OK in 1664ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.758818038489316&lon=-122.48966217041017&type=transit_station" for ::1 at 2017-05-02 11:26:06 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.758818038489316", "lon"=>"-122.48966217041017", "type"=>"transit_station"}
+Started GET "/api/yelp?latitude=37.758818038489316&longitude=-122.48966217041017&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:26:06 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.758818038489316", "longitude"=>"-122.48966217041017", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.5ms)
+Completed 200 OK in 278ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (1.1ms)
+Completed 200 OK in 1431ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-02 11:27:30 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-02 11:27:37 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.7599037507844&lon=-122.4635696411133&type=transit_station" for ::1 at 2017-05-02 11:27:44 -0700
+Started GET "/api/yelp?latitude=37.7599037507844&longitude=-122.4635696411133&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:27:44 -0700
+Processing by Api::PlacesController#index as JSON
+Processing by Api::YelpController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.7599037507844", "lon"=>"-122.4635696411133", "type"=>"transit_station"}
+  Parameters: {"latitude"=>"37.7599037507844", "longitude"=>"-122.4635696411133", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (9.6ms)
+Completed 200 OK in 2739ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.3ms)
+Completed 200 OK in 2839ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-02 11:29:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 1850ms (Views: 1823.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.77142335323548&lon=-122.44812011718751&type=transit_station" for ::1 at 2017-05-02 11:29:11 -0700
+Started GET "/api/yelp?latitude=37.77142335323548&longitude=-122.44812011718751&radius=402.335&term=restaurants" for ::1 at 2017-05-02 11:29:11 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.77142335323548", "lon"=>"-122.44812011718751", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.77142335323548", "longitude"=>"-122.44812011718751", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (6.2ms)
+Completed 200 OK in 2264ms (Views: 94.4ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (2.0ms)
+Completed 200 OK in 2894ms (Views: 191.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-02 11:29:31 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 1400ms (Views: 1397.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-02 11:30:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
