@@ -57,7 +57,7 @@ class RestaurantDetail extends React.Component{
               height={500}
               margin={{ top: 40, right: 40, bottom: 70, left: 70 }}
               showTooltips={true}
-              ylabel={'Restaurant Count'}
+              ylabel={'# of Restaurants'}
               data={this.state.data}
           />
       </div>
