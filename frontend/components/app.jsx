@@ -15,7 +15,7 @@ const App = ({children}) =>{
             <h1 className="title">NextMove</h1><h1 className="title-SF">SF</h1>
 
           </div>
-          <h4 className="tagline">Visualize Your Next Home</h4>
+          <h4 className="tagline">Find A Neighborhood To Call Home</h4>
         </div>
       </nav>
       <LeafletMap/>

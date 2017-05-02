@@ -95,7 +95,7 @@ class Dustbin extends Component {
         <h1>
           {isActive ?
             'Drop Here' :
-            'Drag Upto Two Categories'
+            'Drag Up To Two Categories'
           }
         </h1>
           { currentRank }

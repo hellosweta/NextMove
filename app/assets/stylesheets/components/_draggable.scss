@@ -22,9 +22,9 @@
   cursor: move;
 }
 
-  .category i{
+.category i{
     margin-right: 10px
-  }
+}
 .empty_category{
   display: flex;
   width: 51%;
@@ -47,7 +47,7 @@
 }
 
 #drag_info{
-  color: red;
+  color: rgb(76, 191, 191);
   font-style: italic;
   font-weight: bold;
 }

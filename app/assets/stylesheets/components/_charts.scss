@@ -45,15 +45,15 @@
 }
 .bubble-chart p{
   margin-top: 7px;
-  text-transform: lowercase;
+  text-transform: capitalize;
   font-style: italic;
   font-weight: bold;
-  color: red;
+  color: rgb(76, 191, 191);
   font-size: 16px;
 }
 
 circle:hover {
-  fill: red !important;
+  fill: rgb(76, 191, 191) !important;
 }
 rect:hover {
   fill: gold !important;

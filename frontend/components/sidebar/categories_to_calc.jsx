@@ -200,7 +200,7 @@ class Dustbin extends Component {
       </ul>
     }else{
       currentRank = <div>
-          <p id='drag_info'>Please drag categories here</p>
+          <p id='drag_info'>Drag categories from above</p>
             {addEmptyArr.map((val) => {
                 if (val === 1){
                   return(
