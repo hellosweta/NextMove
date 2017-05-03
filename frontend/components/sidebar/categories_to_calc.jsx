@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap';
 import ItemTypes from './item_types';
 import merge from 'lodash.merge';
 import Box from './box';
-import { updateRank } from '../../actions/rank_actions';
 
 const boxTarget = {
   drop(props, monitor, component) {
@@ -165,7 +164,7 @@ class Dustbin extends Component {
                        className={secondBoxClass}
                        removeRank={this.removeRank}
                        iCameFrom={'calc Dustbin'}
-                       updateRank={updateRank}/>
+                       updateRank={this.props.updateRank}/>
               </li>
             )
           }else {
@@ -175,7 +174,7 @@ class Dustbin extends Component {
                        className={"category"}
                        removeRank={this.removeRank}
                        iCameFrom={'calc Dustbin'}
-                       updateRank={updateRank}/>
+                       updateRank={this.props.updateRank}/>
               </li>
             )
           }
