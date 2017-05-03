@@ -69,9 +69,8 @@ class LeafletMap extends React.Component {
         this.props.requestFilteredCrimes(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
         this.props.requestFilteredTransitData(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
         this.props.requestFilteredRestaurants(this.state.clickLatLng.lat, this.state.clickLatLng.lng, .25);
-        this.setState({
-          clicked: false,
-        })
+        this.props.requestAddress(this.state.clickLatLng.lat, this.state.clickLatLng.lng);
+        this.setState({ clicked: false })
         let target = $('.bubble-chart');
         $('html, body').animate({
           scrollTop: target.offset().top
