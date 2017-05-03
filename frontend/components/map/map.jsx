@@ -8,7 +8,7 @@ import { Popover } from 'react-bootstrap';
 
 import inside from 'point-in-polygon';
 import { hashHistory } from 'react-router';
-import SideBarContainer from '../sidebar/sidebar_container';
+import SideBar from '../sidebar/sidebar';
 
 class LeafletMap extends React.Component {
   constructor() {
@@ -203,7 +203,7 @@ class LeafletMap extends React.Component {
 
           </div>
           <DragDropContextProvider backend={HTML5Backend}>
-            <SideBarContainer />
+            <SideBar />
           </DragDropContextProvider>
 
         </div>

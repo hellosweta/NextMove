@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-
-import {updateRank} from '../../actions/rank_actions';
-
-import Sidebar from './sidebar';
+import { updateRank } from '../../actions/rank_actions';
+import CategoriesToCalc from './categories_to_calc';
 
 const mapDispatchToProps = dispatch =>({
   updateRank: rank => dispatch(updateRank(rank))
@@ -11,4 +9,4 @@ const mapDispatchToProps = dispatch =>({
 export default connect(
   null,
   mapDispatchToProps
-)(Sidebar);
+)(CategoriesToCalc);

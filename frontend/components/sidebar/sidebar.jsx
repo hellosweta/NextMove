@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
-import CategoriesToCalc from './categories_to_calc';
+import CategoriesToCalcContainer from './categories_to_calc_container';
 import CategoriesToChoose from './categories_to_choose';
 import Box from './box';
 
