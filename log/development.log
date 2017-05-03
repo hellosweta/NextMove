@@ -4440,3 +4440,49 @@ Completed 200 OK in 2812ms (Views: 15.8ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 2934ms (Views: 27.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-05-03 16:20:38 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 55ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.76706601841317&lon=-122.41653442382814&type=transit_station" for ::1 at 2017-05-03 16:20:51 -0700
+Started GET "/api/yelp?latitude=37.76706601841317&longitude=-122.41653442382814&radius=402.335&term=restaurants" for ::1 at 2017-05-03 16:20:51 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.76706601841317", "lon"=>"-122.41653442382814", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.76706601841317", "longitude"=>"-122.41653442382814", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (4.1ms)
+Completed 200 OK in 2646ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (16.2ms)
+Completed 200 OK in 3523ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.7604013633326&lon=-122.50030517578126&type=transit_station" for ::1 at 2017-05-03 16:21:01 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.7604013633326", "lon"=>"-122.50030517578126", "type"=>"transit_station"}
+Started GET "/api/yelp?latitude=37.7604013633326&longitude=-122.50030517578126&radius=402.335&term=restaurants" for ::1 at 2017-05-03 16:21:01 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.7604013633326", "longitude"=>"-122.50030517578126", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (3.5ms)
+Completed 200 OK in 228ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (1.8ms)
+Completed 200 OK in 2498ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-03 16:21:55 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 0.0ms)
+
+
