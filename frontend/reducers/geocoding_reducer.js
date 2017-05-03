@@ -4,7 +4,11 @@ const GeocodingReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ADDRESS:
-      return action.address;
+      if (action.placeData.features[0].place_name) {
+        return action.placeData.features[0].place_name;
+      } else {
+        return "San Francisco";
+      }
     default:
       return state;
   }
