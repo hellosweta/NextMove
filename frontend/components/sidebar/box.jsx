@@ -14,29 +14,30 @@ const boxSource = {
    const dropResult = monitor.getDropResult();
    if(dropResult && props.iCameFrom !== dropResult.name){
      props.removeRank(props.name, props.iCameFrom);
-     props.
+     debugger;
+     props.sendRankUpdate(props.name);
    }
  },
 };
 
  class Box extends Component {
 
- sendRankUpdate(e){
-   if (this.state.rank.length){
-     let rank = this.state.rank.map(rank =>{
-       switch (rank) {
-         case 'Crime':
-         return 'crimes'
-         case 'Public Transit':
-         return 'transitStops'
-         case 'Restaurants':
-         return 'restaurants'
-         default:
-       }
-     })
-     this.props.updateRank(rank);
+   sendRankUpdate(e){
+     if (this.state.rank.length){
+       let rank = this.state.rank.map(rank =>{
+         switch (rank) {
+           case 'Crime':
+           return 'crimes'
+           case 'Public Transit':
+           return 'transitStops'
+           case 'Restaurants':
+           return 'restaurants'
+           default:
+         }
+       })
+       this.props.updateRank(rank);
+     }
    }
- }
 
   render() {
     const { isDragging, connectDragSource } = this.props;

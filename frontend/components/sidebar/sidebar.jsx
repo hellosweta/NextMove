@@ -34,9 +34,8 @@ export default class SideBar extends Component {
           <div className="drag-area-container">
             <CategoriesToChoose
               allowedDropEffect="move"/>
-            <CategoriesToCalc
-              allowedDropEffect="move"
-              updateRank={this.props.updateRank} />
+            <CategoriesToCalcContainer
+              allowedDropEffect="move" />
             <div className="drag-area pin-instructions">
               <h1>Hint: You can click an area of interest for a more detailed breakdown!</h1>
             </div>

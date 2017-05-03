@@ -3928,3 +3928,31 @@ Completed 200 OK in 3206ms (Views: 94.1ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 5472ms (Views: 90.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2017-05-03 14:34:13 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 1880ms (Views: 1831.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-03 14:34:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 42ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-03 14:34:53 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-03 14:35:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3178ms (Views: 3154.8ms | ActiveRecord: 0.0ms)
+
+
