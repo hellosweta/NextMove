@@ -120,6 +120,7 @@ class LocationDetail extends React.Component{
       <div className="all-charts-container">
         <div className="chart-container bubble-chart">
           <h2 className='chart-header'>Stats Within Quarter Mile Radius of { this.state.address }</h2>
+          <p>Click Bubbles for Further Breakdown</p>
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
@@ -127,7 +128,6 @@ class LocationDetail extends React.Component{
                 showTooltips={true}
                 data={this.state.data}
             />
-          <p>Click Bubbles for Further Breakdown</p>
         </div>
         { this.props.children }
       </div>
