@@ -2,7 +2,7 @@ import React from 'react';
 import * as d3 from "d3";
 import Chart from '../../../assets/vendors/d3act/Chart';
 import { hashHistory } from 'react-router';
-import merge from 'lodash.merge';
+import { merge, isEmpty } from 'lodash';
 
 class LocationDetail extends React.Component{
   constructor(props) {
@@ -42,7 +42,7 @@ class LocationDetail extends React.Component{
       });
     }
 
-    if (nextProps.address !== this.state.address) {
+    if (!isEmpty(nextProps.address) && nextProps.address !== this.state.address) {
       let comma = nextProps.address.indexOf(',');
       let address = nextProps.address.slice(0, comma);
       this.setState({ address });
