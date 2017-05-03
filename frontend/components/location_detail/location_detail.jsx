@@ -11,6 +11,7 @@ class LocationDetail extends React.Component{
       receivedCrime: false,
       receivedTransit: false,
       receivedRestaurant: false,
+      address: "San Francisco",
       data: {
         children: [
           { name: "crime", value: 10 },
@@ -39,6 +40,12 @@ class LocationDetail extends React.Component{
         receivedTransit: true,
         receivedRestaurant: true
       });
+    }
+
+    if (nextProps.address !== this.state.address) {
+      let comma = nextProps.address.indexOf(',');
+      let address = nextProps.address.slice(0, comma);
+      this.setState({ address });
     }
 
     let crime = this.state.data.children[0].value
@@ -112,7 +119,7 @@ class LocationDetail extends React.Component{
     return (
       <div className="all-charts-container">
         <div className="chart-container bubble-chart">
-          <h2 className='chart-header'>Quarter Mile Location Breakdown</h2>
+          <h2 className='chart-header'>Stats Within Quarter Mile Radius of { this.state.address }</h2>
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
@@ -120,7 +127,7 @@ class LocationDetail extends React.Component{
                 showTooltips={true}
                 data={this.state.data}
             />
-          <p>Click on a Category for Further Breakdown</p>
+          <p>Click Bubbles for Further Breakdown</p>
         </div>
         { this.props.children }
       </div>
