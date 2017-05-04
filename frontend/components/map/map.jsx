@@ -74,7 +74,7 @@ class LeafletMap extends React.Component {
         let target = $('.bubble-chart');
         $('html, body').animate({
           scrollTop: target.offset().top
-        }, 500);
+        }, 1000);
       }
   }
   renderLegend(){
