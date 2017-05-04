@@ -10,8 +10,6 @@ class CrimeDetail extends React.Component{
               { xValue: "Assult", yValue: 200 },
               { xValue: "Robbery", yValue: 15 },
               { xValue: "talking", yValue: 400},
-              { xValue: "sleep", yValue: 100 },
-              { xValue: "love", yValue: 250 },
           ]
       };
   }
