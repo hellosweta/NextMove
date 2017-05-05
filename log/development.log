@@ -10760,3 +10760,555 @@ Completed 200 OK in 291ms (Views: 5.4ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 1609ms (Views: 4.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:09:03 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:09:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.74234949349794&lon=-122.48125076293947&type=transit_station" for 127.0.0.1 at 2017-05-04 17:09:14 -0700
+Started GET "/api/yelp?latitude=37.74234949349794&longitude=-122.48125076293947&radius=402.335&term=restaurants" for 127.0.0.1 at 2017-05-04 17:09:14 -0700
+Processing by Api::PlacesController#index as JSON
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.74234949349794", "longitude"=>"-122.48125076293947", "radius"=>"402.335", "term"=>"restaurants"}
+  Parameters: {"radius"=>"402.335", "lat"=>"37.74234949349794", "lon"=>"-122.48125076293947", "type"=>"transit_station"}
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.1ms)
+Completed 200 OK in 376ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (2.6ms)
+Completed 200 OK in 1793ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.74615025290321&lon=-122.45086669921876&type=transit_station" for 127.0.0.1 at 2017-05-04 17:09:17 -0700
+Processing by Api::PlacesController#index as JSON
+  Parameters: {"radius"=>"402.335", "lat"=>"37.74615025290321", "lon"=>"-122.45086669921876", "type"=>"transit_station"}
+Started GET "/api/yelp?latitude=37.74615025290321&longitude=-122.45086669921876&radius=402.335&term=restaurants" for 127.0.0.1 at 2017-05-04 17:09:17 -0700
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.74615025290321", "longitude"=>"-122.45086669921876", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (1.2ms)
+Completed 200 OK in 1576ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.4ms)
+Completed 200 OK in 2680ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/places?radius=402.335&lat=37.74615025290321&lon=-122.45086669921876&type=transit_station" for 127.0.0.1 at 2017-05-04 17:09:21 -0700
+Processing by Api::PlacesController#index as JSON
+Started GET "/api/yelp?latitude=37.74615025290321&longitude=-122.45086669921876&radius=402.335&term=restaurants" for 127.0.0.1 at 2017-05-04 17:09:21 -0700
+  Parameters: {"radius"=>"402.335", "lat"=>"37.74615025290321", "lon"=>"-122.45086669921876", "type"=>"transit_station"}
+Processing by Api::YelpController#index as JSON
+  Parameters: {"latitude"=>"37.74615025290321", "longitude"=>"-122.45086669921876", "radius"=>"402.335", "term"=>"restaurants"}
+  Rendering api/yelp/index.json.jbuilder
+  Rendered api/yelp/index.json.jbuilder (0.7ms)
+Completed 200 OK in 1758ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/places/index.json.jbuilder
+  Rendered api/places/index.json.jbuilder (1.3ms)
+Completed 200 OK in 2374ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:10:34 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/android-icon-72x72.png" for 127.0.0.1 at 2017-05-04 17:10:37 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/android-icon-72x72.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (4.3ms)
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.4ms)
+  Rendering /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (49.8ms)
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:10:41 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:10:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:11:49 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:11:55 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:12:08 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:13:30 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/android-icon-72x72.png" for 127.0.0.1 at 2017-05-04 17:13:33 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/images/android-icon-72x72.png"):
+  
+actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+railties (5.0.2) lib/rails/engine.rb:522:in `call'
+newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [3 times] (3.3ms)
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendering /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.2ms)
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:13:47 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:7)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:8)
+
+NoMethodError - undefined method `start_with?' for nil:NilClass:
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:113:in `split_subpath'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:128:in `block in paths_split'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:127:in `paths_split'
+  sprockets (3.7.1) lib/sprockets/resolve.rb:96:in `resolve_relative_path'
+  sprockets (3.7.1) lib/sprockets/resolve.rb:33:in `resolve'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:66:in `resolve_with_compat'
+  sprockets (3.7.1) lib/sprockets/base.rb:64:in `find_asset'
+  sprockets (3.7.1) lib/sprockets/base.rb:92:in `[]'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:355:in `find_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:336:in `digest_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:325:in `asset_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:102:in `block in resolve_asset_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:242:in `block in resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:101:in `resolve_asset_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:79:in `compute_asset_path'
+  actionview (5.0.2) lib/action_view/helpers/asset_url_helper.rb:144:in `asset_path'
+  actionview (5.0.2) lib/action_view/helpers/asset_url_helper.rb:311:in `image_path'
+  actionview (5.0.2) lib/action_view/helpers/asset_tag_helper.rb:176:in `favicon_link_tag'
+  app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__439274582787442777_70003554962460'
+  actionview (5.0.2) lib/action_view/template.rb:159:in `block in render'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:354:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:157:in `render'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.0.2) lib/action_view/rendering.rb:104:in `_render_template'
+  actionpack (5.0.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.0.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.0.2) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+  actionpack (5.0.2) lib/abstract_controller/rendering.rb:26:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/sweta/.rbenv/versions/2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (5.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+  actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.2) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.2) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/rack/agent_hooks.rb:30:in `traced_call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/rack/browser_monitoring.rb:32:in `traced_call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  railties (5.0.2) lib/rails/engine.rb:522:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/1d7b8d5c6a8a402e/variables" for 127.0.0.1 at 2017-05-04 17:13:48 -0700
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:13:54 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:7)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/sweta/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:8)
+
+NoMethodError - undefined method `start_with?' for nil:NilClass:
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:113:in `split_subpath'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:128:in `block in paths_split'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:127:in `paths_split'
+  sprockets (3.7.1) lib/sprockets/resolve.rb:96:in `resolve_relative_path'
+  sprockets (3.7.1) lib/sprockets/resolve.rb:33:in `resolve'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:66:in `resolve_with_compat'
+  sprockets (3.7.1) lib/sprockets/base.rb:64:in `find_asset'
+  sprockets (3.7.1) lib/sprockets/base.rb:92:in `[]'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:355:in `find_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:336:in `digest_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:325:in `asset_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:102:in `block in resolve_asset_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:242:in `block in resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:101:in `resolve_asset_path'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:79:in `compute_asset_path'
+  actionview (5.0.2) lib/action_view/helpers/asset_url_helper.rb:144:in `asset_path'
+  actionview (5.0.2) lib/action_view/helpers/asset_url_helper.rb:311:in `image_path'
+  actionview (5.0.2) lib/action_view/helpers/asset_tag_helper.rb:176:in `favicon_link_tag'
+  app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__439274582787442777_47332135875000'
+  actionview (5.0.2) lib/action_view/template.rb:159:in `block in render'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:354:in `instrument'
+  actionview (5.0.2) lib/action_view/template.rb:157:in `render'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (5.0.2) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.0.2) lib/action_view/rendering.rb:104:in `_render_template'
+  actionpack (5.0.2) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.0.2) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.0.2) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+  actionpack (5.0.2) lib/abstract_controller/rendering.rb:26:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/sweta/.rbenv/versions/2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (5.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.0.2) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+  actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.0.2) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.2) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.2) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.2) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.2) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.2) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.2) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.2) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.2) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.2) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.2) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.2) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/rack/agent_hooks.rb:30:in `traced_call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/rack/browser_monitoring.rb:32:in `traced_call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  activerecord (5.0.2) lib/active_record/migration.rb:553:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  web-console (3.5.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.5.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.5.0) lib/web_console/middleware.rb:18:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  railties (5.0.2) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.2) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.2) lib/rails/rack/logger.rb:24:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  activesupport (5.0.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  actionpack (5.0.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  railties (5.0.2) lib/rails/engine.rb:522:in `call'
+  newrelic_rpm (3.18.1.330) lib/new_relic/agent/instrumentation/middleware_tracing.rb:96:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/0ffac30d5247d7ae/variables" for 127.0.0.1 at 2017-05-04 17:13:55 -0700
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:14:02 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:16:43 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-04 17:16:48 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
