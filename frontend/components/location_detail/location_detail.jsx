@@ -12,11 +12,12 @@ class LocationDetail extends React.Component{
       receivedTransit: false,
       receivedRestaurant: false,
       address: "San Francisco",
+      prompt: "Click on the Map for Location Specific Data",
       data: {
         children: [
-          { name: "crime", value: 10 },
-          { name: "transit", value: 10 },
-          { name: "restaurant", value: 10 }
+          { name: "Crime", value: 10 },
+          { name: "Transit", value: 10 },
+          { name: "Restaurant", value: 10 }
         ]
       }
     };
@@ -69,11 +70,12 @@ class LocationDetail extends React.Component{
     if (type) {
       this.setState({
         [type]: true,
+        prompt: "Click on a Bubble for More Detail",
         data: {
           children: [
-            { name: "crime", value: crime },
-            { name: "transit", value: transit },
-            { name: "restaurant", value: restaurant }
+            { name: "Crime", value: crime },
+            { name: "Transit", value: transit },
+            { name: "Restaurant", value: restaurant }
           ]
         }
       });
@@ -119,8 +121,8 @@ class LocationDetail extends React.Component{
     return (
       <div className="all-charts-container">
         <div className="chart-container bubble-chart">
-          <h2 className='chart-header'>Stats Within Quarter Mile Radius of { this.state.address }</h2>
-          <p>Click Bubbles for Further Breakdown</p>
+          <h2 className='chart-header'> What's Around { this.state.address }?</h2>
+          <p>{ this.state.prompt }</p>
             <Chart
                 goToCategory = {this.goToCategory()}
                 type={"bubble"}
